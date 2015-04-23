@@ -1,0 +1,15 @@
+{
+	"globals": {
+		"process": true,
+		"console": true,
+		"require": true,
+		"__filename": true,
+		"__dirname": true,
+		"module": true,
+		"exports": true,
+		"describe": true,
+		"it": true,
+		"setTimeout": true
+	},
+	"strict": false
+}

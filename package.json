@@ -1,0 +1,23 @@
+{
+  "name": "dxf-parser",
+  "version": "0.1.0",
+  "description": "The dxf parser is capable of reading in variables from the HEADER section of a DXF file and reading LWPOLYLINE entities from the ENTITIES section.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@bitbucket.org/gdsestimating/dxf-parser.git"
+  },
+  "author": "Ben Zuill-Smith",
+  "license": "MIT",
+  "devDependencies": {
+    "should": "^6.0.1"
+  },
+  "dependencies": {
+  }
+}
