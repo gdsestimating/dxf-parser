@@ -8,13 +8,23 @@
 npm install dxf-parser
 ```
 
+#### Usage
+```
+var parser = new DxfParser();
+try {
+    var dxf = parser.parseSync(fs.readFileSync(INPUT_FILE_PATH, 'utf8'));
+}catch(err) {
+    return console.error(err.stack);
+}
+```
+
 #### Run Samples
 ```
 node samples/parseSync
 node samples/parseStream
 ```
 
-#### Current Version v0.0.1
+#### Current Version v0.1.1
 * Support
  * Headers
  * Most 2D entities
