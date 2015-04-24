@@ -34,12 +34,14 @@ node samples/parseStream
 browser - the [three-dxf repo](https://github.com/gdsestimating/three-dxf) has a sample for viewing dxf cad in the browser 
 
 #### What's Supported
+
 Support
 * Header
 * Most 2D entities
 * Layers
 * LType table
 * Block Tables (not inserts)
+
 * Some Text
 
 Does not yet support
