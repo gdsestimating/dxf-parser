@@ -1,0 +1,9 @@
+node_modules/
+.idea/
+private/
+test/
+samples/
+.jshintrc
+.gitignore
+out.json
+bower.json
