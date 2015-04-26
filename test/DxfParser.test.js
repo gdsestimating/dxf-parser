@@ -1,6 +1,7 @@
 var DxfParser = require('../');
 var fs = require('fs');
 var should = require('should');
+var path = require('path');
 
 describe('Parser', function() {
 	it('should parse the dxf header variables into an object', function(done) {
@@ -36,5 +37,20 @@ describe('Parser', function() {
 			result.tables.lineTypes.should.eql(JSON.parse(expected));
 			done();
 		});
+	});
+
+	it('should parse the BLOCKS section', function() {
+		var file = fs.readFileSync(path.join(__dirname, 'data', 'blocks.dxf'), 'utf8');
+
+		var parser = new DxfParser();
+		var dxf;
+		try {
+			dxf = parser.parseSync(file);
+		}catch(err) {
+			should.not.exist(err);
+		}
+		should.exist(dxf);
+		var expected = require('./data/blocks.json');
+		dxf.should.eql(expected);
 	});
 });
