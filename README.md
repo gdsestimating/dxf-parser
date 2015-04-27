@@ -49,6 +49,10 @@ Does not yet support
 * All types of Leaders
 * other less common objects and entities.
 
+### Contributing
+
+See the [wiki](https://github.com/gdsestimating/dxf-parser/wiki) for info on contributing
+
 #### Run Tests
 ```
 npm install -g mocha
