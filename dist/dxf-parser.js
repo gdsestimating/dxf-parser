@@ -1,51 +1,4 @@
-(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.DxfParser = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-exports.endianness = function () { return 'LE' };
-
-exports.hostname = function () {
-    if (typeof location !== 'undefined') {
-        return location.hostname
-    }
-    else return '';
-};
-
-exports.loadavg = function () { return [] };
-
-exports.uptime = function () { return 0 };
-
-exports.freemem = function () {
-    return Number.MAX_VALUE;
-};
-
-exports.totalmem = function () {
-    return Number.MAX_VALUE;
-};
-
-exports.cpus = function () { return [] };
-
-exports.type = function () { return 'Browser' };
-
-exports.release = function () {
-    if (typeof navigator !== 'undefined') {
-        return navigator.appVersion;
-    }
-    return '';
-};
-
-exports.networkInterfaces
-= exports.getNetworkInterfaces
-= function () { return {} };
-
-exports.arch = function () { return 'javascript' };
-
-exports.platform = function () { return 'browser' };
-
-exports.tmpdir = exports.tmpDir = function () {
-    return '/tmp';
-};
-
-exports.EOL = '\n';
-
-},{}],2:[function(require,module,exports){
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 /**
  * AutoCad files sometimes use an indexed color value between 1 and 255 inclusive.
  * Each value corresponds to a color. index 1 is red, that is 16711680 or 0xFF0000.
@@ -311,7 +264,7 @@ module.exports = [
  14079702,
  16777215
 ];
-},{}],3:[function(require,module,exports){
+},{}],2:[function(require,module,exports){
 /**
  * DxfArrayScanner
  *
@@ -432,10 +385,19 @@ function parseBoolean(str) {
 }
 
 module.exports = DxfArrayScanner;
-},{}],4:[function(require,module,exports){
+},{}],3:[function(require,module,exports){
 var DxfArrayScanner = require('./DxfArrayScanner.js'),
-	AUTO_CAD_COLOR_INDEX = require('./AutoCadColorIndex'),
-	EOL = require('os').EOL;
+	AUTO_CAD_COLOR_INDEX = require('./AutoCadColorIndex');
+
+var log = require('loglevel');
+
+//log.setLevel('trace');
+//log.setLevel('debug');
+log.setLevel('info');
+//log.setLevel('warn');
+//log.setLevel('error');
+//log.setLevel('silent');
+
 
 function DxfParser(stream) {}
 
@@ -448,6 +410,7 @@ DxfParser.prototype.parseSync = function(source) {
 		return this._parse(source);
 	}else {
 		console.error('Cannot read dxf source of type `' + typeof(source));
+		return null;
 	}
 };
 
@@ -476,7 +439,7 @@ DxfParser.prototype.parseStream = function(stream, done) {
 
 DxfParser.prototype._parse = function(dxfString) {
 	var scanner, curr, dxf = {};
-	var dxfLinesArray = dxfString.split(EOL);
+	var dxfLinesArray = dxfString.split(/\r\n|\r|\n/g);
 
 	scanner = new DxfArrayScanner(dxfLinesArray);
 	if(!scanner.hasNext()) throw Error('Empty file');
@@ -484,34 +447,41 @@ DxfParser.prototype._parse = function(dxfString) {
 	var parseAll = function() {
 		curr = scanner.next();
 		while(!scanner.isEOF()) {
-			// If is a new section
 			if(curr.code === 0 && curr.value === 'SECTION') {
 				curr = scanner.next();
 
 				// Be sure we are reading a section code
-				if(curr.code !== 2) {
+				if (curr.code !== 2) {
 					console.error('Unexpected code %s after 0:SECTION', debugCode(curr));
 					curr = scanner.next();
 					continue;
 				}
 
-				if(curr.value === 'HEADER')
+				if (curr.value === 'HEADER') {
+					log.debug('> HEADER');
 					dxf.header = parseHeader();
-				else if(curr.value === 'BLOCKS')
+					log.debug('<');
+				} else if (curr.value === 'BLOCKS') {
+					log.debug('> BLOCKS');
 					dxf.blocks = parseBlocks();
-				else if(curr.value === 'ENTITIES') {
-					curr = scanner.next();
+					log.debug('<');
+				} else if(curr.value === 'ENTITIES') {
+					log.debug('> ENTITIES');
 					dxf.entities = parseEntities(false);
+					log.debug('<');
 				} else if(curr.value === 'TABLES') {
+					log.debug('> TABLES');
 					dxf.tables = parseTables();
+					log.debug('<');
 				} else if(curr.value === 'EOF') {
-					break;
+					log.debug('EOF');
 				} else {
-					console.log('INFO: Skipping section \'%s\'', curr.value);
+					log.warn('Skipping section \'%s\'', curr.value);
 				}
 			} else {
 				curr = scanner.next();
 			}
+			// If is a new section
 		}
 	};
 
@@ -572,9 +542,12 @@ DxfParser.prototype._parse = function(dxfString) {
 			}
 
 			if(groupIs(0, 'BLOCK')) {
+				log.debug('block {');
 				block = parseBlock();
-				blocks[block.name] = block;
+				log.debug('}');
+				blocks[block.handle] = block;
 			} else {
+				logUnhandledGroup(curr);
 				curr = scanner.next();
 			}
 		}
@@ -586,23 +559,66 @@ DxfParser.prototype._parse = function(dxfString) {
 		curr = scanner.next();
 
 		while(curr.value !== 'EOF') {
-			if(groupIs(0, 'ENDBLK'))
+			if(groupIs(100, 'AcDbBlockEnd')) {
+				curr = scanner.next();
 				break;
+			}
 
 			switch(curr.code) {
+				case 1:
+					block.xrefPath = curr.value;
+					curr = scanner.next();
+					break;
 				case 2:
 					block.name = curr.value;
+					curr = scanner.next();
+					break;
+				case 3:
+					block.name2 = curr.value;
+					curr = scanner.next();
+					break;
+				case 5:
+					block.handle = curr.value;
 					curr = scanner.next();
 					break;
 				case 8:
 					block.layer = curr.value;
 					curr = scanner.next();
 					break;
+				case 10:
+					block.position = parsePoint();
+					break;
+				case 67:
+					block.paperSpace = (curr.value && curr.value == 1) ? true : false;
+					curr = scanner.next();
+					break;
+				case 70:
+					if (curr.value != 0) {
+						//if(curr.value & BLOCK_ANONYMOUS_FLAG) console.log('  Anonymous block');
+						//if(curr.value & BLOCK_NON_CONSTANT_FLAG) console.log('  Non-constant attributes');
+						//if(curr.value & BLOCK_XREF_FLAG) console.log('  Is xref');
+						//if(curr.value & BLOCK_XREF_OVERLAY_FLAG) console.log('  Is xref overlay');
+						//if(curr.value & BLOCK_EXTERNALLY_DEPENDENT_FLAG) console.log('  Is externally dependent');
+						//if(curr.value & BLOCK_RESOLVED_OR_DEPENDENT_FLAG) console.log('  Is resolved xref or dependent of an xref');
+						//if(curr.value & BLOCK_REFERENCED_XREF) console.log('  This definition is a referenced xref');
+						block.type = curr.value;
+					}
+					curr = scanner.next();
+					break;
+				case 100:
+					// ignore class markers
+					curr = scanner.next();
+					break;
+				case 330:
+					block.ownerHandle = curr.value;
+					curr = scanner.next();
+					break;
 				case 0:
 					block.entities = parseEntities(true);
-					return block;
+					curr = scanner.next();
 					break;
 				default:
+					logUnhandledGroup(curr);
 					curr = scanner.next();
 			}
 		}
@@ -622,13 +638,16 @@ DxfParser.prototype._parse = function(dxfString) {
 
 			if(groupIs(0, 'TABLE')) {
 				curr = scanner.next();
-				// console.log(curr.value);
 				if(groupIs(2, 'LAYER')) {
-					tables.layers = parseLayerTable();
+					log.debug('LayerTable {');
+					tables.layer = parseLayerTable();
+					log.debug('}')
 				} else if(groupIs(2, 'LTYPE')) {
-					tables.lineTypes = parseLineTypeTable();
+					log.debug('LType Table {');
+					tables.lineType = parseLineTypeTable();
+					log.debug('}');
 				} else {
-					// ignored
+					log.debug('Unhandled Table ' + curr.value);
 				}
 			} else {
 				// else ignored
@@ -641,46 +660,99 @@ DxfParser.prototype._parse = function(dxfString) {
 	};
 
 	var parseLayerTable = function() {
-		var layers = {},
-			length = 0;
+		var table = {},
+			expectedCount = 0,
+			actualCount;
 		curr = scanner.next();
 		while(!groupIs(0, 'ENDTAB')) {
-			if(curr.code === 70) {
-				length = curr.value;
-				curr = scanner.next();
-			} else if(groupIs(0, 'LAYER')) {
-				layers = parseLayers();
-				// if(layers.length !== length)
-				// 	throw new Error('Error reading ltypes table: only read ' + ltypes.length + ' but should be ' + length);
-				break;
-			} else {
-				curr = scanner.next();
+
+			switch(curr.code) {
+				case 5:
+					table.handle = curr.value;
+					curr = scanner.next();
+					break;
+				case 330:
+					table.ownerHandle = curr.value;
+					curr = scanner.next();
+					break;
+				case 100:
+					if(curr.value === 'AcDbSymbolTable') {
+						// ignore
+						curr = scanner.next();
+					}else{
+						logUnhandledGroup(curr);
+						curr = scanner.next();
+					}
+					break;
+				case 70:
+					expectedCount = curr.value;
+					curr = scanner.next();
+					break;
+				case 0:
+					if(curr.value === 'LAYER') {
+						table.layers = parseLayers();
+					} else {
+						logUnhandledGroup(curr);
+						curr = scanner.next();
+					}
+					break;
+				default:
+					logUnhandledGroup(curr);
+					curr = scanner.next();
 			}
 		}
-
+		actualCount = Object.keys(table.layers).length;
+		if(expectedCount !== actualCount) log.warn('Parsed ' + actualCount + ' LAYER\'s but expected ' + expectedCount);
 		curr = scanner.next();
-		return layers;
+		return table;
 	};
 
 	var parseLineTypeTable = function() {
-		var ltypes = {},
-			length = 0;
+		var table = {},
+			expectedCount = 0,
+			actualCount;
 		curr = scanner.next();
 		while(!groupIs(0, 'ENDTAB')) {
-			if(curr.code === 70) {
-				length = curr.value;
-				curr = scanner.next();
-			} else if(groupIs(0, 'LTYPE')) {
-				ltypes = parseLineTypes();
-				// if(ltypes.length !== length)
-				// 	throw new Error('Error reading ltypes table: only read ' + ltypes.length + ' but should be ' + length);
-				break;
-			} else {
-				curr = scanner.next();
+
+			switch(curr.code) {
+				case 5:
+					table.handle = curr.value;
+					curr = scanner.next();
+					break;
+				case 330:
+					table.ownerHandle = curr.value;
+					curr = scanner.next();
+					break;
+				case 100:
+					if(curr.value === 'AcDbSymbolTable') {
+						// ignore
+						curr = scanner.next();
+					}else{
+						logUnhandledGroup(curr);
+						curr = scanner.next();
+					}
+					break;
+				case 70:
+					expectedCount = curr.value;
+					curr = scanner.next();
+					break;
+				case 0:
+					if(curr.value === 'LTYPE') {
+						table.lineTypes = parseLineTypes();
+					} else {
+						logUnhandledGroup(curr);
+						curr = scanner.next();
+					}
+					break;
+				default:
+					logUnhandledGroup(curr);
+					curr = scanner.next();
 			}
 		}
+		actualCount = Object.keys(table.lineTypes).length;
+		if(expectedCount !== actualCount) log.warn('Parsed ' + actualCount + ' LTYPE\'s but expected ' + expectedCount);
 		curr = scanner.next();
-		return ltypes;
+		return table;
 	};
 
 	var parseLineTypes = function() {
@@ -689,6 +761,7 @@ DxfParser.prototype._parse = function(dxfString) {
 			ltype = {},
 			length;
 
+		log.debug('LType {');
 		curr = scanner.next();
 		while(!groupIs(0, 'ENDTAB')) {
 
@@ -716,9 +789,11 @@ DxfParser.prototype._parse = function(dxfString) {
 					curr = scanner.next();
 					break;
 				case 0:
-					if(length > 0 && length !== ltype.pattern.length) console.error('WARNING: lengths do not match on LTYPE pattern');
+					log.debug('}');
+					if(length > 0 && length !== ltype.pattern.length) log.warn('lengths do not match on LTYPE pattern');
 					ltypes[ltypeName] = ltype;
 					ltype = {};
+					log.debug('LType {');
 					curr = scanner.next();
 					break;
 				default:
@@ -726,6 +801,7 @@ DxfParser.prototype._parse = function(dxfString) {
 			}
 		}
 
+		log.debug('}');
 		ltypes[ltypeName] = ltype;
 		return ltypes;
 	};
@@ -735,6 +811,7 @@ DxfParser.prototype._parse = function(dxfString) {
 			layerName,
 			layer = {};
 
+		log.debug('Layer {');
 		curr = scanner.next();
 		while(!groupIs(0, 'ENDTAB')) {
 
@@ -745,27 +822,31 @@ DxfParser.prototype._parse = function(dxfString) {
 					curr = scanner.next();
 					break;
 				case 62: // color, visibility
-					if(curr.value <= 0) layer.hidden = true;
-					// TODO 0 and 256 are BYBLOCK and BYLAYER respecitively. Need to handles these values.
+					layer.visible = curr.value <= 0;
+					// TODO 0 and 256 are BYBLOCK and BYLAYER respectively. Need to handle these values for layers?.
 					layer.color = getAcadColor(Math.abs(curr.value));
 					curr = scanner.next();
 					break;
-				case 0: // new layer
-					layers[layerName] = layer;
+				case 0:
+					// New Layer
 					if(curr.value === 'LAYER') {
+						log.debug('}');
+						layers[layerName] = layer;
+						log.debug('Layer {');
 						layer = {};
 						layerName = undefined;
 						curr = scanner.next();
 					}
 					break;
 				default:
-					// ignored property
+					logUnhandledGroup(curr);
 					curr = scanner.next();
 					break;
 			}
 		}
 		// Note: do not call scanner.next() here,
 		//  parseLayerTable() needs the current group
+		log.debug('}');
 		layers[layerName] = layer;
 
 		return layers;
@@ -781,7 +862,9 @@ DxfParser.prototype._parse = function(dxfString) {
 
 		var endingOnValue = forBlock ? 'ENDBLK' : 'ENDSEC';
 
+		curr = scanner.next();
 		while(true) {
+
 			if(curr.code === 0) {
 				if(curr.value === endingOnValue) {
 					break;
@@ -789,23 +872,44 @@ DxfParser.prototype._parse = function(dxfString) {
 
 				// Supported entities here
 				if(curr.value === 'LWPOLYLINE') {
+					log.debug('LWPOLYLINE {');
 					entities.push(parseLWPOLYLINE());
+					log.debug('}')
 				} else if(curr.value === 'LINE') {
+					log.debug('LINE {');
 					entities.push(parseLINE());
+					log.debug('}');
 				} else if(curr.value === 'CIRCLE') {
+					log.debug('CIRCLE {');
 					entities.push(parseCIRCLE());
+					log.debug('}');
 				} else if(curr.value === 'ARC') {
+					log.debug('ARC {');
+					// similar properties to circle?
 					entities.push(parseCIRCLE());
+					log.debug('}')
 				} else if(curr.value === 'TEXT') {
+					log.debug('TEXT {');
 					entities.push(parseTEXT());
+					log.debug('}')
 				} else if(curr.value === 'DIMENSION') {
+					log.debug('DIMENSION {');
 					entities.push(parseDIMENSION());
+					log.debug('}')
 				} else if(curr.value === 'SOLID') {
+					log.debug('SOLID {');
 					entities.push(parseSOLID());
+					log.debug('}')
 				} else if(curr.value === 'POINT') {
+					log.debug('POINT {');
 					entities.push(parsePOINT());
+					log.debug('}')
+				} else if(curr.value === 'MTEXT') {
+					log.debug('MTEXT {');
+					entities.push(parseMTEXT());
+					log.debug('}')
 				} else {
-					console.log('WARNING: unsupported entity \'' + curr.value + '\'');
+					log.warn('Unhandled entity ' + curr.value);
 					curr = scanner.next();
 				}
 
@@ -825,6 +929,14 @@ DxfParser.prototype._parse = function(dxfString) {
 	 */
 	var checkCommonEntityProperties = function(entity) {
 		switch(curr.code) {
+			case 0:
+				entity.type = curr.value;
+				curr = scanner.next();
+				break;
+			case 5:
+				entity.handle = curr.value;
+				curr = scanner.next();
+				break;
 			case 6:
 				entity.lineType = curr.value;
 				curr = scanner.next();
@@ -833,15 +945,50 @@ DxfParser.prototype._parse = function(dxfString) {
 				entity.layer = curr.value;
 				curr = scanner.next();
 				break;
-			case 62: // Acad Index Color. 0 inherits ByBlock. 256 inherits ByLayer
-				entity.color = curr.value;
+			case 48:
+				entity.lineTypeScale = curr.value;
+				curr = scanner.next();
+				break;
+			case 60:
+				entity.visible = curr.value === 0;
+				curr = scanner.next();
+				break;
+			case 62: // Acad Index Color. 0 inherits ByBlock. 256 inherits ByLayer. Default is bylayer
+				entity.colorIndex = curr.value;
+				entity.color = getAcadColor(Math.abs(curr.value));
+				curr = scanner.next();
+				break;
+			case 67:
+				entity.inPaperSpace = curr.value !== 0;
+				curr = scanner.next();
+				break;
+			case 330:
+				entity.ownerHandle = curr.value;
+				curr = scanner.next();
+				break;
+			case 347:
+				entity.materialObjectHandle = curr.value;
+				curr = scanner.next();
+				break;
+			case 370:
+				// This is technically an enum. Not sure where -2 comes from.
+				//From https://www.woutware.com/Forum/Topic/955/lineweight?returnUrl=%2FForum%2FUserPosts%3FuserId%3D478262319
+				// An integer representing 100th of mm, must be one of the following values:
+				// 0, 5, 9, 13, 15, 18, 20, 25, 30, 35, 40, 50, 53, 60, 70, 80, 90, 100, 106, 120, 140, 158, 200, 211.
+				entity.lineweight = curr.value;
 				curr = scanner.next();
 				break;
 			case 420: // TrueColor Color
 				entity.color = curr.value;
 				curr = scanner.next();
 				break;
-			default: // ignored attribute
+			case 100:
+				if(curr.value == 'AcDbEntity') {
+					curr = scanner.next();
+					break;
+				}
+			default:
+				logUnhandledGroup(curr);
 				curr = scanner.next();
 				break;
 		}
@@ -899,6 +1046,48 @@ DxfParser.prototype._parse = function(dxfString) {
 		return vertices;
 	};
 
+	var parseMTEXT = function() {
+		var entity = { type: curr.value };
+		curr = scanner.next();
+		while(curr !== 'EOF') {
+			if(curr.code === 0) break;
+
+			switch(curr.code) {
+                case 1:
+                    entity.text = curr.value;
+                    curr = scanner.next();
+                    break;
+                case 3:
+                    entity.text += curr.value;
+                    curr = scanner.next();
+                    break;
+                case 10:
+                    entity.position = parsePoint();
+                    break;
+                case 40:
+                    entity.height = curr.value;
+                    curr = scanner.next();
+                    break;
+                case 41:
+                    entity.width = curr.value;
+                    curr = scanner.next();
+                    break;
+                case 71:
+                    entity.attachmentPoint = curr.value;
+                    curr = scanner.next();
+                    break;
+                case 72:
+                    entity.drawingDirection = curr.value;
+                    curr = scanner.next();
+                    break;
+				default:
+					checkCommonEntityProperties(entity);
+					break;
+			}
+		}
+		return entity;
+	};
+
 	/**
 	 * Called when the parser reads the beginning of a new entity,
 	 * 0:LWPOLYLINE. Scanner.next() will return the first attribute of the
@@ -948,6 +1137,11 @@ DxfParser.prototype._parse = function(dxfString) {
 				case 10: // X coordinate of point
 					entity.vertices = parsePolylineVertices(2);
 					break;
+				case 100:
+					if(curr.value == 'AcDbLine') {
+						curr = scanner.next();
+						break;
+					}
 				default:
 					checkCommonEntityProperties(entity);
 					break;
@@ -1011,6 +1205,10 @@ DxfParser.prototype._parse = function(dxfString) {
 					break;
 				case 40: // Text height
 					entity.textHeight = curr.value;
+					curr = scanner.next();
+					break;
+				case 41:
+					entity.xScale = curr.value;
 					curr = scanner.next();
 					break;
 				case 1: // Text
@@ -1123,10 +1321,16 @@ DxfParser.prototype._parse = function(dxfString) {
 					break;
 				case 39:
 					entity.thickness = curr.value;
+					curr = scanner.next();
 					break;
 				case 210:
 					entity.extrusionDirection = parsePoint();
 					break;
+				case 100:
+					if(curr.value == 'AcDbPoint') {
+						curr = scanner.next();
+						break;
+					}
 				default: // check common entity attributes
 					checkCommonEntityProperties(entity);
 					break;
@@ -1139,6 +1343,10 @@ DxfParser.prototype._parse = function(dxfString) {
 	parseAll();
 	return dxf;
 };
+
+function logUnhandledGroup(curr) {
+	log.debug('unhandled group ' + debugCode(curr));
+}
 
 
 function debugCode(curr) {
@@ -1153,6 +1361,16 @@ function getAcadColor(index) {
 	return AUTO_CAD_COLOR_INDEX[index];
 }
 
+const BLOCK_ANONYMOUS_FLAG = 1;
+const BLOCK_NON_CONSTANT_FLAG = 2;
+const BLOCK_XREF_FLAG = 4;
+const BLOCK_XREF_OVERLAY_FLAG = 8;
+const BLOCK_EXTERNALLY_DEPENDENT_FLAG = 16;
+const BLOCK_RESOLVED_OR_DEPENDENT_FLAG = 32;
+const BLOCK_REFERENCED_XREF = 64;
+
+
+
 module.exports = DxfParser;
 
 
@@ -1160,5 +1378,163 @@ module.exports = DxfParser;
 // Code 6 of an entity indicates inheritance of properties (eg. color).
 //   BYBLOCK means inherits from block
 //   BYLAYER (default) mean inherits from layer
-},{"./AutoCadColorIndex":2,"./DxfArrayScanner.js":3,"os":1}]},{},[4])(4)
-});
+},{"./AutoCadColorIndex":1,"./DxfArrayScanner.js":2,"loglevel":4}],4:[function(require,module,exports){
+/*
+* loglevel - https://github.com/pimterry/loglevel
+*
+* Copyright (c) 2013 Tim Perry
+* Licensed under the MIT license.
+*/
+(function (root, definition) {
+    if (typeof module === 'object' && module.exports && typeof require === 'function') {
+        module.exports = definition();
+    } else if (typeof define === 'function' && typeof define.amd === 'object') {
+        define(definition);
+    } else {
+        root.log = definition();
+    }
+}(this, function () {
+    var self = {};
+    var noop = function() {};
+    var undefinedType = "undefined";
+
+    function realMethod(methodName) {
+        if (typeof console === undefinedType) {
+            return false; // We can't build a real method without a console to log to
+        } else if (console[methodName] !== undefined) {
+            return bindMethod(console, methodName);
+        } else if (console.log !== undefined) {
+            return bindMethod(console, 'log');
+        } else {
+            return noop;
+        }
+    }
+
+    function bindMethod(obj, methodName) {
+        var method = obj[methodName];
+        if (typeof method.bind === 'function') {
+            return method.bind(obj);
+        } else {
+            try {
+                return Function.prototype.bind.call(method, obj);
+            } catch (e) {
+                // Missing bind shim or IE8 + Modernizr, fallback to wrapping
+                return function() {
+                    return Function.prototype.apply.apply(method, [obj, arguments]);
+                };
+            }
+        }
+    }
+
+    function enableLoggingWhenConsoleArrives(methodName, level) {
+        return function () {
+            if (typeof console !== undefinedType) {
+                replaceLoggingMethods(level);
+                self[methodName].apply(self, arguments);
+            }
+        };
+    }
+
+    var logMethods = [
+        "trace",
+        "debug",
+        "info",
+        "warn",
+        "error"
+    ];
+
+    function replaceLoggingMethods(level) {
+        for (var i = 0; i < logMethods.length; i++) {
+            var methodName = logMethods[i];
+            self[methodName] = (i < level) ? noop : self.methodFactory(methodName, level);
+        }
+    }
+
+    function persistLevelIfPossible(levelNum) {
+        var levelName = (logMethods[levelNum] || 'silent').toUpperCase();
+
+        // Use localStorage if available
+        try {
+            window.localStorage['loglevel'] = levelName;
+            return;
+        } catch (ignore) {}
+
+        // Use session cookie as fallback
+        try {
+            window.document.cookie = "loglevel=" + levelName + ";";
+        } catch (ignore) {}
+    }
+
+    function loadPersistedLevel() {
+        var storedLevel;
+
+        try {
+            storedLevel = window.localStorage['loglevel'];
+        } catch (ignore) {}
+
+        if (typeof storedLevel === undefinedType) {
+            try {
+                storedLevel = /loglevel=([^;]+)/.exec(window.document.cookie)[1];
+            } catch (ignore) {}
+        }
+        
+        if (self.levels[storedLevel] === undefined) {
+            storedLevel = "WARN";
+        }
+
+        self.setLevel(self.levels[storedLevel]);
+    }
+
+    /*
+     *
+     * Public API
+     *
+     */
+
+    self.levels = { "TRACE": 0, "DEBUG": 1, "INFO": 2, "WARN": 3,
+        "ERROR": 4, "SILENT": 5};
+
+    self.methodFactory = function (methodName, level) {
+        return realMethod(methodName) ||
+               enableLoggingWhenConsoleArrives(methodName, level);
+    };
+
+    self.setLevel = function (level) {
+        if (typeof level === "string" && self.levels[level.toUpperCase()] !== undefined) {
+            level = self.levels[level.toUpperCase()];
+        }
+        if (typeof level === "number" && level >= 0 && level <= self.levels.SILENT) {
+            persistLevelIfPossible(level);
+            replaceLoggingMethods(level);
+            if (typeof console === undefinedType && level < self.levels.SILENT) {
+                return "No console available for logging";
+            }
+        } else {
+            throw "log.setLevel() called with invalid level: " + level;
+        }
+    };
+
+    self.enableAll = function() {
+        self.setLevel(self.levels.TRACE);
+    };
+
+    self.disableAll = function() {
+        self.setLevel(self.levels.SILENT);
+    };
+
+    // Grab the current global log variable in case of overwrite
+    var _log = (typeof window !== undefinedType) ? window.log : undefined;
+    self.noConflict = function() {
+        if (typeof window !== undefinedType &&
+               window.log === self) {
+            window.log = _log;
+        }
+
+        return self;
+    };
+
+    loadPersistedLevel();
+    return self;
+}));
+
+},{}]},{},[3]);

@@ -24,7 +24,7 @@
     "should": "^6.0.1"
   },
   "dependencies": {
-    "winston": "^1.0.0"
+    "loglevel": "^1.2.0"
   },
   "keywords": [
     "dxf",

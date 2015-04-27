@@ -7,3 +7,4 @@ samples/
 .gitignore
 out.json
 bower.json
+*.log
