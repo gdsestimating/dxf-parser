@@ -41,14 +41,12 @@ Support
 * Layers
 * LType table
 * Block Tables (not inserts)
-
-* Some Text
+* Text and some MTEXT
 
 Does not yet support
 * Attributes
 * 3DSolids
 * All types of Leaders
-* MText
 * other less common objects and entities.
 
 #### Run Tests
