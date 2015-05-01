@@ -18,11 +18,13 @@ var fileText = ...;
 
 var parser = new DxfParser();
 try {
-    var dxf = parser.parseSync();
+    var dxf = parser.parseSync(fileText);
 }catch(err) {
     return console.error(err.stack);
 }
 ```
+
+See the [wiki Example Output page](https://github.com/gdsestimating/dxf-parser/wiki/Example-Output) to get an idea of what the results look like.
 
 #### Run Samples
 node.js
@@ -40,7 +42,8 @@ Support
 * Most 2D entities
 * Layers
 * LType table
-* Block Tables (not inserts)
+* Block table (not inserts)
+* VPort table
 * Text and some MTEXT
 
 Does not yet support
