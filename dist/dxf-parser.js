@@ -392,8 +392,8 @@ var DxfArrayScanner = require('./DxfArrayScanner.js'),
 var log = require('loglevel');
 
 //log.setLevel('trace');
-log.setLevel('debug');
-//log.setLevel('info');
+//log.setLevel('debug');
+log.setLevel('info');
 //log.setLevel('warn');
 //log.setLevel('error');
 //log.setLevel('silent');
