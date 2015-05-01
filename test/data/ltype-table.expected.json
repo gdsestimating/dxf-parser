@@ -1,0 +1,114 @@
+{
+  "handle": "5",
+  "ownerHandle": "0",
+  "lineTypes": {
+    "ByBlock": {
+      "name": "ByBlock",
+      "description": "",
+      "patternLength": 0
+    },
+    "ByLayer": {
+      "name": "ByLayer",
+      "description": "",
+      "patternLength": 0
+    },
+    "Continuous": {
+      "name": "Continuous",
+      "description": "Solid line",
+      "patternLength": 0
+    },
+    "PHANTOM2": {
+      "name": "PHANTOM2",
+      "description": "Phantom (.5x) ___ _ _ ___ _ _ ___ _ _ ___ _ _",
+      "pattern": [
+        0.625,
+        -0.125,
+        0.125,
+        -0.125,
+        0.125,
+        -0.125
+      ],
+      "patternLength": 1.25
+    },
+    "CENTER1": {
+      "name": "CENTER1",
+      "description": "Center (.5x) ___ _ ___ _ ___ _ ___ _ ___ _ ___",
+      "pattern": [
+        0.75,
+        -0.125,
+        0.125,
+        -0.125
+      ],
+      "patternLength": 1.125
+    },
+    "CENTER2": {
+      "name": "CENTER2",
+      "description": "Center (2x) ________  __  ________  __  _____",
+      "pattern": [
+        2.5,
+        -0.5,
+        0.5,
+        -0.5
+      ],
+      "patternLength": 4
+    },
+    "DASHDOT1": {
+      "name": "DASHDOT1",
+      "description": "Dash dot (.5x) _._._._._._._._._._._._._._._.",
+      "pattern": [
+        0.25,
+        -0.125,
+        0,
+        -0.125
+      ],
+      "patternLength": 0.5
+    },
+    "DASHDOT2": {
+      "name": "DASHDOT2",
+      "description": "Dash dot (2x) ____  .  ____  .  ____  .  ___",
+      "pattern": [
+        1,
+        -0.5,
+        0,
+        -0.5
+      ],
+      "patternLength": 2
+    },
+    "DASHED1": {
+      "name": "DASHED1",
+      "description": "Dashed (.5x) _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _",
+      "pattern": [
+        0.25,
+        -0.125
+      ],
+      "patternLength": 0.375
+    },
+    "DASHED2": {
+      "name": "DASHED2",
+      "description": "Dashed (2x) ____  ____  ____  ____  ____  ___",
+      "pattern": [
+        1,
+        -0.5
+      ],
+      "patternLength": 1.5
+    },
+    "DOT1": {
+      "name": "DOT1",
+      "description": "Dot (.5x) .....................................",
+      "pattern": [
+        0,
+        -0.125
+      ],
+      "patternLength": 0.125
+    },
+    "DOT2": {
+      "name": "DOT2",
+      "description": "Dot (2x) .  .  .  .  .  .  .  .  .  .  .  .  .",
+      "pattern": [
+        0,
+        -0.5
+      ],
+      "patternLength": 0.5
+    }
+  }
+}

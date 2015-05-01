@@ -4,6 +4,7 @@ var should = require('should');
 var path = require('path');
 
 describe('Parser', function() {
+
 	it('should parse the dxf header variables into an object', function(done) {
 		var file = fs.createReadStream(__dirname + '/data/header.dxf', { encoding: 'utf8' });
 		var parser = new DxfParser();
@@ -16,27 +17,36 @@ describe('Parser', function() {
 		});
 	});
 
-	it('should parse the dxf layers', function(done) {
+	var tables;
+
+	it('should parse the tables section without error', function(done) {
 		var file = fs.createReadStream(__dirname + '/data/tables.dxf', { encoding: 'utf8' });
 		var parser = new DxfParser();
 
 		parser.parseStream(file, function(err, result) {
 			should.not.exist(err);
-			result.tables.layers.should.eql({ '0': { name: '0', color: 16777215 }, 'Layer 1': { name: 'Layer 1', color: 16777215}});
+			tables = result.tables;
 			done();
 		});
 	});
 
-	it('should parse the dxf ltype table', function(done) {
-		var file = fs.createReadStream(__dirname + '/data/tables.dxf', { encoding: 'utf8' });
-		var parser = new DxfParser();
+	it('should parse the dxf layers', function() {
+		should.exist(tables);
+		tables.should.have.property('layer');
 
-		parser.parseStream(file, function(err, result) {
-			should.not.exist(err);
-			var expected = fs.readFileSync(__dirname + '/data/tables.parser.out', {encoding: 'utf8'})
-			result.tables.lineTypes.should.eql(JSON.parse(expected));
-			done();
-		});
+		//fs.writeFileSync(__dirname + '/data/layer-table.actual.json', JSON.stringify(tables.layer, null, 2));
+		var expected = fs.readFileSync(path.join(__dirname,'data','layer-table.expected.json'), {encoding: 'utf8'});
+		tables.layer.should.eql(JSON.parse(expected));
+	});
+
+	it('should parse the dxf ltype table', function() {
+		should.exist(tables);
+		tables.should.have.property('lineType');
+
+		//fs.writeFileSync(__dirname + '/data/ltype-table.actual.json', JSON.stringify(tables.lineType, null, 2));
+
+		var expected = fs.readFileSync(path.join(__dirname,'data','ltype-table.expected.json'), {encoding: 'utf8'});
+		tables.lineType.should.eql(JSON.parse(expected));
 	});
 
 	it('should parse the BLOCKS section', function() {
@@ -50,7 +60,10 @@ describe('Parser', function() {
 			should.not.exist(err);
 		}
 		should.exist(dxf);
-		var expected = require('./data/blocks.json');
-		dxf.should.eql(expected);
+
+		//fs.writeFileSync(__dirname + '/data/blocks.actual.json', JSON.stringify(dxf, null, 2));
+
+		var expected = fs.readFileSync(path.join(__dirname,'data','blocks.expected.json'), {encoding: 'utf8'});
+		dxf.should.eql(JSON.parse(expected));
 	});
 });

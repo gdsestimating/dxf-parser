@@ -1,0 +1,16 @@
+{
+  "handle": "2",
+  "ownerHandle": "0",
+  "layers": {
+    "0": {
+      "name": "0",
+      "visible": false,
+      "color": 16777215
+    },
+    "Layer 1": {
+      "name": "Layer 1",
+      "visible": false,
+      "color": 16777215
+    }
+  }
+}
