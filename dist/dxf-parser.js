@@ -1,4 +1,4 @@
-(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.DxfParser = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 /**
  * AutoCad files sometimes use an indexed color value between 1 and 255 inclusive.
  * Each value corresponds to a color. index 1 is red, that is 16711680 or 0xFF0000.
@@ -392,7 +392,7 @@ var DxfArrayScanner = require('./DxfArrayScanner.js'),
 var log = require('loglevel');
 
 //log.setLevel('trace');
-//log.setLevel('debug');
+// log.setLevel('debug');
 log.setLevel('info');
 //log.setLevel('warn');
 //log.setLevel('error');
@@ -539,7 +539,9 @@ DxfParser.prototype._parse = function(dxfString) {
 	 */
 	var parseBlocks = function() {
 		var blocks = {}, block;
-
+		
+        curr = scanner.next();
+		
 		while(curr.value !== 'EOF') {
 			if(groupIs(0, 'ENDSEC')) {
 				break;
@@ -563,11 +565,6 @@ DxfParser.prototype._parse = function(dxfString) {
 		curr = scanner.next();
 
 		while(curr.value !== 'EOF') {
-			if(groupIs(100, 'AcDbBlockEnd')) {
-				curr = scanner.next();
-				break;
-			}
-
 			switch(curr.code) {
 				case 1:
 					block.xrefPath = curr.value;
@@ -618,12 +615,18 @@ DxfParser.prototype._parse = function(dxfString) {
 					curr = scanner.next();
 					break;
 				case 0:
+					if(curr.value == 'ENDBLK')
+						break;
 					block.entities = parseEntities(true);
-					curr = scanner.next();
 					break;
 				default:
 					logUnhandledGroup(curr);
 					curr = scanner.next();
+			}
+			
+			if(groupIs(0, 'ENDBLK')) {
+				curr = scanner.next();
+				break;
 			}
 		}
 		return block;
@@ -1026,7 +1029,7 @@ DxfParser.prototype._parse = function(dxfString) {
 			}
 		}
 		// console.log(util.inspect(entities, { colors: true, depth: null }));
-		curr = scanner.next(); // swallow up ENDSEC or ENDBLK
+		if(endingOnValue == 'ENDSEC') curr = scanner.next(); // swallow up ENDSEC, but not ENDBLK
 		return entities;
 	};
 
@@ -1589,7 +1592,7 @@ module.exports = DxfParser;
             storedLevel = "WARN";
         }
 
-        self.setLevel(self.levels[storedLevel]);
+        self.setLevel(self.levels[storedLevel], false);
     }
 
     /*
@@ -1606,12 +1609,14 @@ module.exports = DxfParser;
                enableLoggingWhenConsoleArrives(methodName, level);
     };
 
-    self.setLevel = function (level) {
+    self.setLevel = function (level, persist) {
         if (typeof level === "string" && self.levels[level.toUpperCase()] !== undefined) {
             level = self.levels[level.toUpperCase()];
         }
         if (typeof level === "number" && level >= 0 && level <= self.levels.SILENT) {
-            persistLevelIfPossible(level);
+            if (persist !== false) {  // defaults to true
+                persistLevelIfPossible(level);
+            }
             replaceLoggingMethods(level);
             if (typeof console === undefinedType && level < self.levels.SILENT) {
                 return "No console available for logging";
@@ -1621,12 +1626,12 @@ module.exports = DxfParser;
         }
     };
 
-    self.enableAll = function() {
-        self.setLevel(self.levels.TRACE);
+    self.enableAll = function(persist) {
+        self.setLevel(self.levels.TRACE, persist);
     };
 
-    self.disableAll = function() {
-        self.setLevel(self.levels.SILENT);
+    self.disableAll = function(persist) {
+        self.setLevel(self.levels.SILENT, persist);
     };
 
     // Grab the current global log variable in case of overwrite
@@ -1644,4 +1649,5 @@ module.exports = DxfParser;
     return self;
 }));
 
-},{}]},{},[3]);
+},{}]},{},[3])(3)
+});

@@ -1,9 +1,10 @@
 {
   "name": "dxf-parser",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Parse dxf files into a readable, logical js object.",
   "main": "index.js",
   "scripts": {
+    "browserify": "node scripts/browserify",
     "test": "mocha test"
   },
   "repository": {
@@ -21,6 +22,7 @@
   ],
   "license": "MIT",
   "devDependencies": {
+    "browserify": "^11.0.1",
     "should": "^6.0.1"
   },
   "dependencies": {
