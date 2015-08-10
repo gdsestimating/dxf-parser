@@ -3,8 +3,10 @@ node_modules/
 private/
 test/
 samples/
+scripts/
 .jshintrc
 .gitignore
+.settings/
 out.json
 bower.json
 *.log
