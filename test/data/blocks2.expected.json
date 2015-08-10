@@ -1,0 +1,29 @@
+{
+  "blocks": {
+    "1": {
+      "handle": "1",
+      "layer": "0",
+      "name": "$MODEL_SPACE",
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "name2": "$MODEL_SPACE",
+      "xrefPath": ""
+    },
+    "2": {
+      "handle": "2",
+      "paperSpace": true,
+      "layer": "0",
+      "name": "$PAPER_SPACE",
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "name2": "$PAPER_SPACE",
+      "xrefPath": ""
+    }
+  }
+}

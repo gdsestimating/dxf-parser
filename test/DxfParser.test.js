@@ -26,6 +26,8 @@ describe('Parser', function() {
 		parser.parseStream(file, function(err, result) {
 			should.not.exist(err);
 			tables = result.tables;
+			fs.writeFileSync(path.join(__dirname, 'data', 'layer-table.actual.json'), JSON.stringify(tables.layer, null, 2));
+			fs.writeFileSync(path.join(__dirname, 'data', 'ltype-table.actual.json'), JSON.stringify(tables.lineType, null, 2));
 			done();
 		});
 	});
@@ -56,14 +58,32 @@ describe('Parser', function() {
 		var dxf;
 		try {
 			dxf = parser.parseSync(file);
+			fs.writeFileSync(path.join(__dirname, 'data', 'blocks.actual.json'), JSON.stringify(dxf, null, 2));
 		}catch(err) {
 			should.not.exist(err);
 		}
 		should.exist(dxf);
 
-		//fs.writeFileSync(__dirname + '/data/blocks.actual.json', JSON.stringify(dxf, null, 2));
 
 		var expected = fs.readFileSync(path.join(__dirname,'data','blocks.expected.json'), {encoding: 'utf8'});
+		dxf.should.eql(JSON.parse(expected));
+	});
+	
+	it('should parse the BLOCKS section', function() {
+		var file = fs.readFileSync(path.join(__dirname, 'data', 'blocks2.dxf'), 'utf8');
+
+		var parser = new DxfParser();
+		var dxf;
+		try {
+			dxf = parser.parseSync(file);
+			fs.writeFileSync(path.join(__dirname, 'data', 'blocks2.actual.json'), JSON.stringify(dxf, null, 2));
+		}catch(err) {
+			should.not.exist(err);
+		}
+		should.exist(dxf);
+
+
+		var expected = fs.readFileSync(path.join(__dirname, 'data', 'blocks2.expected.json'), {encoding: 'utf8'});
 		dxf.should.eql(JSON.parse(expected));
 	});
 });

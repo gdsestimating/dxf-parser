@@ -1,5 +1,7 @@
 node_modules/
 .idea/
+.settings/
 private/
 out.json
 *.log
+*.actual.json
