@@ -908,6 +908,40 @@
           "layer": "0"
         },
         {
+          "type": "ATTDEF",
+          "handle": "226D",
+          "ownerHandle": "2268",
+          "layer": "0",
+          "colorIndex": 1,
+          "color": 16711680,
+          "x": -0.0265625,
+          "y": -0.1201923076923079,
+          "z": 0,
+          "text_height": 0.09375,
+          "text": "X",
+          "scale": 0.85,
+          "text_style": "FG-Note",
+          "prompt": "Sheet Number?",
+          "tag": "SHEETNO"
+        },
+        {
+          "type": "ATTDEF",
+          "handle": "226E",
+          "ownerHandle": "2268",
+          "layer": "0",
+          "colorIndex": 1,
+          "color": 16711680,
+          "x": -0.0265625,
+          "y": 0.0264423076923075,
+          "z": 0,
+          "text_height": 0.09375,
+          "text": "X",
+          "scale": 0.85,
+          "text_style": "FG-Note",
+          "prompt": "Detail Number?",
+          "tag": "DETNO"
+        },
+        {
           "type": "LINE",
           "vertices": [
             {
@@ -1189,6 +1223,50 @@
           "ownerHandle": "3201",
           "layer": "0",
           "shape": true
+        },
+        {
+          "type": "ATTDEF",
+          "handle": "320B",
+          "ownerHandle": "3201",
+          "layer": "0",
+          "x": 0.1463165075034089,
+          "y": -0.578024993810594,
+          "z": 0,
+          "text_height": 0.3125,
+          "text": "XX",
+          "text_style": "FG-Title",
+          "prompt": "Detail Number?",
+          "tag": "DETAILNUMBER"
+        },
+        {
+          "type": "ATTDEF",
+          "handle": "320C",
+          "ownerHandle": "3201",
+          "layer": "0",
+          "x": 2.308115684938186,
+          "y": -0.3811777376743812,
+          "z": 0,
+          "text_height": 0.09375,
+          "text": "",
+          "scale": 0.85,
+          "text_style": "FG-Note",
+          "prompt": "Architectural Reference?",
+          "tag": "ARCHREF"
+        },
+        {
+          "type": "ATTDEF",
+          "handle": "320D",
+          "ownerHandle": "3201",
+          "layer": "0",
+          "x": 2.308115684938185,
+          "y": -0.5671272951337798,
+          "z": 0,
+          "text_height": 0.09375,
+          "text": "",
+          "scale": 0.85,
+          "text_style": "FG-Note",
+          "prompt": "Scale?",
+          "tag": "SCALE"
         }
       ]
     },
@@ -9935,6 +10013,40 @@
           "layer": "0"
         },
         {
+          "type": "ATTDEF",
+          "handle": "3AE",
+          "ownerHandle": "2DC",
+          "layer": "0",
+          "colorIndex": 1,
+          "color": 16711680,
+          "x": -0.2580357142857142,
+          "y": -0.1201923076923079,
+          "z": 0,
+          "text_height": 0.09375,
+          "text": "X",
+          "scale": 0.85,
+          "text_style": "FG-Note",
+          "prompt": "Sheet Number?",
+          "tag": "SHEETNO"
+        },
+        {
+          "type": "ATTDEF",
+          "handle": "3AF",
+          "ownerHandle": "2DC",
+          "layer": "0",
+          "colorIndex": 1,
+          "color": 16711680,
+          "x": -0.1821428571428571,
+          "y": 0.0264423076923075,
+          "z": 0,
+          "text_height": 0.09375,
+          "text": "X",
+          "scale": 0.85,
+          "text_style": "FG-Note",
+          "prompt": "Detail Number?",
+          "tag": "DETNO"
+        },
+        {
           "type": "LINE",
           "vertices": [
             {
@@ -10503,6 +10615,121 @@
           "layer": "FG-Logo"
         },
         {
+          "type": "ATTDEF",
+          "handle": "E46",
+          "ownerHandle": "E1C",
+          "layer": "FG-Note",
+          "x": 15.97514981098344,
+          "y": 2.753495907230559,
+          "z": 0,
+          "text_height": 0.125,
+          "text": "City, State",
+          "rotation": 90,
+          "text_style": "FG-Title",
+          "prompt": "Project Loction",
+          "tag": "PROJECTLOCATION"
+        },
+        {
+          "type": "ATTDEF",
+          "handle": "E47",
+          "ownerHandle": "E1C",
+          "layer": "FG-Note",
+          "x": 15.77434831030132,
+          "y": 2.695301841746248,
+          "z": 0,
+          "text_height": 0.125,
+          "text": "Project Title",
+          "rotation": 90,
+          "text_style": "FG-Title",
+          "prompt": "Project Title Line 2",
+          "tag": "PROJECTTITLE2"
+        },
+        {
+          "type": "ATTDEF",
+          "handle": "E48",
+          "ownerHandle": "E1C",
+          "layer": "FG-Note",
+          "x": 15.57354680961919,
+          "y": 2.695301841746248,
+          "z": 0,
+          "text_height": 0.125,
+          "text": "Project Title",
+          "rotation": 90,
+          "text_style": "FG-Title",
+          "prompt": "Project Title Line 1",
+          "tag": "PROJECTTITLE1"
+        },
+        {
+          "type": "ATTDEF",
+          "handle": "E49",
+          "ownerHandle": "E1C",
+          "layer": "FG-Note",
+          "x": 15.57310916713996,
+          "y": 1.590448017116665,
+          "z": 0,
+          "text_height": 0.09375,
+          "text": "XXX-XXX",
+          "text_style": "FG-Title",
+          "prompt": "Project No.",
+          "tag": "PROJECTNO"
+        },
+        {
+          "type": "ATTDEF",
+          "handle": "E4A",
+          "ownerHandle": "E1C",
+          "layer": "FG-Note",
+          "x": 15.89403014930068,
+          "y": 1.191807083027317,
+          "z": 0,
+          "text_height": 0.09375,
+          "text": "XX/XX/XX",
+          "text_style": "FG-Title",
+          "prompt": "Date?",
+          "tag": "DATE"
+        },
+        {
+          "type": "ATTDEF",
+          "handle": "E4B",
+          "ownerHandle": "E1C",
+          "layer": "FG-Note",
+          "x": 15.43644999923252,
+          "y": 1.191807083027317,
+          "z": 0,
+          "text_height": 0.09375,
+          "text": "XXX",
+          "text_style": "FG-Title",
+          "prompt": "Drawn By?",
+          "tag": "DRAWNBY"
+        },
+        {
+          "type": "ATTDEF",
+          "handle": "E4C",
+          "ownerHandle": "E1C",
+          "layer": "FG-Note",
+          "x": 15.56916140859481,
+          "y": 0.8160405170521904,
+          "z": 0,
+          "text_height": 0.09375,
+          "text": "See Sheet",
+          "text_style": "FG-Title",
+          "prompt": "Scale?",
+          "tag": "SCALE"
+        },
+        {
+          "type": "ATTDEF",
+          "handle": "E4D",
+          "ownerHandle": "E1C",
+          "layer": "FG-Note",
+          "x": 15.43835266030013,
+          "y": 0.1431021352662505,
+          "z": 0,
+          "text_height": 0.375,
+          "text": "X-X",
+          "text_style": "FG-Title",
+          "prompt": "Sheet Number?",
+          "tag": "SHEETNO"
+        },
+        {
           "type": "LINE",
           "vertices": [
             {
@@ -10519,6 +10746,21 @@
           "handle": "E4E",
           "ownerHandle": "E1C",
           "layer": "FG-Border"
+        },
+        {
+          "type": "ATTDEF",
+          "handle": "E4F",
+          "ownerHandle": "E1C",
+          "layer": "FG-Note",
+          "x": 16.43136960442813,
+          "y": 2.748763642564802,
+          "z": 0,
+          "text_height": 0.125,
+          "text": "NO NAME",
+          "rotation": 90,
+          "text_style": "FG-Title",
+          "prompt": "Sheet Title?",
+          "tag": "SHEETTITLE"
         },
         {
           "type": "TEXT",
@@ -13921,6 +14163,40 @@
           "layer": "0"
         },
         {
+          "type": "ATTDEF",
+          "handle": "220E",
+          "ownerHandle": "2209",
+          "layer": "0",
+          "colorIndex": 1,
+          "color": 16711680,
+          "x": -0.0265625,
+          "y": -0.1201923076923079,
+          "z": 0,
+          "text_height": 0.09375,
+          "text": "X",
+          "scale": 0.85,
+          "text_style": "FG-Note",
+          "prompt": "Sheet Number?",
+          "tag": "SHEETNO"
+        },
+        {
+          "type": "ATTDEF",
+          "handle": "220F",
+          "ownerHandle": "2209",
+          "layer": "0",
+          "colorIndex": 1,
+          "color": 16711680,
+          "x": -0.0265625,
+          "y": 0.0264423076923075,
+          "z": 0,
+          "text_height": 0.09375,
+          "text": "X",
+          "scale": 0.85,
+          "text_style": "FG-Note",
+          "prompt": "Detail Number?",
+          "tag": "DETNO"
+        },
+        {
           "type": "LINE",
           "vertices": [
             {
@@ -13973,6 +14249,40 @@
           "layer": "0"
         },
         {
+          "type": "ATTDEF",
+          "handle": "22AA",
+          "ownerHandle": "22A5",
+          "layer": "0",
+          "colorIndex": 1,
+          "color": 16711680,
+          "x": -0.0265625,
+          "y": -0.1201923076923079,
+          "z": 0,
+          "text_height": 0.09375,
+          "text": "X",
+          "scale": 0.85,
+          "text_style": "FG-Note",
+          "prompt": "Sheet Number?",
+          "tag": "SHEETNO"
+        },
+        {
+          "type": "ATTDEF",
+          "handle": "22AB",
+          "ownerHandle": "22A5",
+          "layer": "0",
+          "colorIndex": 1,
+          "color": 16711680,
+          "x": -0.0265625,
+          "y": 0.0264423076923075,
+          "z": 0,
+          "text_height": 0.09375,
+          "text": "X",
+          "scale": 0.85,
+          "text_style": "FG-Note",
+          "prompt": "Detail Number?",
+          "tag": "DETNO"
+        },
+        {
           "type": "LINE",
           "vertices": [
             {
@@ -14023,6 +14333,40 @@
           "handle": "22C6",
           "ownerHandle": "22C2",
           "layer": "0"
+        },
+        {
+          "type": "ATTDEF",
+          "handle": "22C7",
+          "ownerHandle": "22C2",
+          "layer": "0",
+          "colorIndex": 1,
+          "color": 16711680,
+          "x": -0.0265625,
+          "y": -0.1201923076923079,
+          "z": 0,
+          "text_height": 0.09375,
+          "text": "X",
+          "scale": 0.85,
+          "text_style": "FG-Note",
+          "prompt": "Sheet Number?",
+          "tag": "SHEETNO"
+        },
+        {
+          "type": "ATTDEF",
+          "handle": "22C8",
+          "ownerHandle": "22C2",
+          "layer": "0",
+          "colorIndex": 1,
+          "color": 16711680,
+          "x": -0.0265625,
+          "y": 0.0264423076923075,
+          "z": 0,
+          "text_height": 0.09375,
+          "text": "X",
+          "scale": 0.85,
+          "text_style": "FG-Note",
+          "prompt": "Detail Number?",
+          "tag": "DETNO"
         },
         {
           "type": "LINE",
@@ -14593,6 +14937,121 @@
           "layer": "FG-Logo"
         },
         {
+          "type": "ATTDEF",
+          "handle": "2302",
+          "ownerHandle": "22DF",
+          "layer": "FG-Note",
+          "x": 15.97514981098344,
+          "y": 2.753495907230559,
+          "z": 0,
+          "text_height": 0.125,
+          "text": "City, State",
+          "rotation": 90,
+          "text_style": "FG-Title",
+          "prompt": "Project Loction",
+          "tag": "PROJECTLOCATION"
+        },
+        {
+          "type": "ATTDEF",
+          "handle": "2303",
+          "ownerHandle": "22DF",
+          "layer": "FG-Note",
+          "x": 15.77434831030132,
+          "y": 2.695301841746248,
+          "z": 0,
+          "text_height": 0.125,
+          "text": "Project Title",
+          "rotation": 90,
+          "text_style": "FG-Title",
+          "prompt": "Project Title Line 2",
+          "tag": "PROJECTTITLE2"
+        },
+        {
+          "type": "ATTDEF",
+          "handle": "2304",
+          "ownerHandle": "22DF",
+          "layer": "FG-Note",
+          "x": 15.57354680961919,
+          "y": 2.695301841746248,
+          "z": 0,
+          "text_height": 0.125,
+          "text": "Project Title",
+          "rotation": 90,
+          "text_style": "FG-Title",
+          "prompt": "Project Title Line 1",
+          "tag": "PROJECTTITLE1"
+        },
+        {
+          "type": "ATTDEF",
+          "handle": "2305",
+          "ownerHandle": "22DF",
+          "layer": "FG-Note",
+          "x": 15.57310916713996,
+          "y": 1.590448017116665,
+          "z": 0,
+          "text_height": 0.09375,
+          "text": "XXX-XXX",
+          "text_style": "FG-Title",
+          "prompt": "Project No.",
+          "tag": "PROJECTNO"
+        },
+        {
+          "type": "ATTDEF",
+          "handle": "2306",
+          "ownerHandle": "22DF",
+          "layer": "FG-Note",
+          "x": 15.89403014930068,
+          "y": 1.191807083027317,
+          "z": 0,
+          "text_height": 0.09375,
+          "text": "XX/XX/XX",
+          "text_style": "FG-Title",
+          "prompt": "Date?",
+          "tag": "DATE"
+        },
+        {
+          "type": "ATTDEF",
+          "handle": "2307",
+          "ownerHandle": "22DF",
+          "layer": "FG-Note",
+          "x": 15.43644999923252,
+          "y": 1.191807083027317,
+          "z": 0,
+          "text_height": 0.09375,
+          "text": "XXX",
+          "text_style": "FG-Title",
+          "prompt": "Drawn By?",
+          "tag": "DRAWNBY"
+        },
+        {
+          "type": "ATTDEF",
+          "handle": "2308",
+          "ownerHandle": "22DF",
+          "layer": "FG-Note",
+          "x": 15.56916140859481,
+          "y": 0.8160405170521904,
+          "z": 0,
+          "text_height": 0.09375,
+          "text": "See Sheet",
+          "text_style": "FG-Title",
+          "prompt": "Scale?",
+          "tag": "SCALE"
+        },
+        {
+          "type": "ATTDEF",
+          "handle": "2309",
+          "ownerHandle": "22DF",
+          "layer": "FG-Note",
+          "x": 15.43835266030013,
+          "y": 0.1431021352662505,
+          "z": 0,
+          "text_height": 0.375,
+          "text": "X-X",
+          "text_style": "FG-Title",
+          "prompt": "Sheet Number?",
+          "tag": "SHEETNO"
+        },
+        {
           "type": "LINE",
           "vertices": [
             {
@@ -14609,6 +15068,21 @@
           "handle": "230A",
           "ownerHandle": "22DF",
           "layer": "FG-Border"
+        },
+        {
+          "type": "ATTDEF",
+          "handle": "230B",
+          "ownerHandle": "22DF",
+          "layer": "FG-Note",
+          "x": 16.43136960442813,
+          "y": 2.748763642564802,
+          "z": 0,
+          "text_height": 0.125,
+          "text": "NO NAME",
+          "rotation": 90,
+          "text_style": "FG-Title",
+          "prompt": "Sheet Title?",
+          "tag": "SHEETTITLE"
         },
         {
           "type": "TEXT",
@@ -15145,6 +15619,40 @@
           "layer": "0"
         },
         {
+          "type": "ATTDEF",
+          "handle": "2B60",
+          "ownerHandle": "2B5B",
+          "layer": "0",
+          "colorIndex": 1,
+          "color": 16711680,
+          "x": -0.0265625,
+          "y": -0.1201923076923079,
+          "z": 0,
+          "text_height": 0.09375,
+          "text": "X",
+          "scale": 0.85,
+          "text_style": "FG-Note",
+          "prompt": "Sheet Number?",
+          "tag": "SHEETNO"
+        },
+        {
+          "type": "ATTDEF",
+          "handle": "2B61",
+          "ownerHandle": "2B5B",
+          "layer": "0",
+          "colorIndex": 1,
+          "color": 16711680,
+          "x": -0.0265625,
+          "y": 0.0264423076923075,
+          "z": 0,
+          "text_height": 0.09375,
+          "text": "X",
+          "scale": 0.85,
+          "text_style": "FG-Note",
+          "prompt": "Detail Number?",
+          "tag": "DETNO"
+        },
+        {
           "type": "LINE",
           "vertices": [
             {
@@ -15283,6 +15791,50 @@
           "ownerHandle": "31B5",
           "layer": "0",
           "shape": true
+        },
+        {
+          "type": "ATTDEF",
+          "handle": "31BF",
+          "ownerHandle": "31B5",
+          "layer": "0",
+          "x": 0.1463165075034089,
+          "y": -0.578024993810594,
+          "z": 0,
+          "text_height": 0.3125,
+          "text": "XX",
+          "text_style": "FG-Title",
+          "prompt": "Section Number?",
+          "tag": "SECTIONNUMBER"
+        },
+        {
+          "type": "ATTDEF",
+          "handle": "31C0",
+          "ownerHandle": "31B5",
+          "layer": "0",
+          "x": 2.308115684938186,
+          "y": -0.3811777376743812,
+          "z": 0,
+          "text_height": 0.09375,
+          "text": "",
+          "scale": 0.85,
+          "text_style": "FG-Note",
+          "prompt": "Architectural Reference?",
+          "tag": "ARCHREF"
+        },
+        {
+          "type": "ATTDEF",
+          "handle": "31C1",
+          "ownerHandle": "31B5",
+          "layer": "0",
+          "x": 2.308115684938185,
+          "y": -0.5671272951337798,
+          "z": 0,
+          "text_height": 0.09375,
+          "text": "",
+          "scale": 0.85,
+          "text_style": "FG-Note",
+          "prompt": "Scale?",
+          "tag": "SCALE"
         }
       ]
     },
@@ -15334,7 +15886,22 @@
       },
       "name2": "TYP",
       "xrefPath": "",
-      "entities": []
+      "entities": [
+        {
+          "type": "ATTDEF",
+          "handle": "34ED",
+          "ownerHandle": "34EA",
+          "layer": "0",
+          "x": -0.0071161210463473,
+          "y": -0.0617968433486147,
+          "z": 0,
+          "text_height": 0.1,
+          "text": "",
+          "scale": 0.8,
+          "prompt": "HOW MANY?",
+          "tag": "QTY"
+        }
+      ]
     },
     "34F0": {
       "handle": "34F0",
@@ -31464,6 +32031,34 @@
             "y": -0.2251115414209917,
             "z": 0
           }
+        },
+        {
+          "type": "ATTDEF",
+          "handle": "5AEA",
+          "ownerHandle": "5AE5",
+          "layer": "0",
+          "x": 0.0450951536329658,
+          "y": 0.1126624729523638,
+          "z": 0,
+          "text_height": 0.1,
+          "text": "",
+          "scale": 0.8,
+          "prompt": "HOW HIGH?",
+          "tag": "HIGH"
+        },
+        {
+          "type": "ATTDEF",
+          "handle": "5AEB",
+          "ownerHandle": "5AE5",
+          "layer": "0",
+          "x": 0.0323380282919095,
+          "y": -0.2252170611912008,
+          "z": 0,
+          "text_height": 0.1,
+          "text": "",
+          "scale": 0.8,
+          "prompt": "HOW MANY?",
+          "tag": "QTY"
         }
       ]
     },
@@ -31520,6 +32115,34 @@
             "y": -0.219476250768786,
             "z": 0
           }
+        },
+        {
+          "type": "ATTDEF",
+          "handle": "5AF2",
+          "ownerHandle": "5AED",
+          "layer": "0",
+          "x": 0.0281863108945473,
+          "y": 0.1182977636045694,
+          "z": 0,
+          "text_height": 0.1,
+          "text": "",
+          "scale": 0.8,
+          "prompt": "HOW DEEP?",
+          "tag": "DEEP"
+        },
+        {
+          "type": "ATTDEF",
+          "handle": "5AF3",
+          "ownerHandle": "5AED",
+          "layer": "0",
+          "x": 0.0154291855534909,
+          "y": -0.2195817705389951,
+          "z": 0,
+          "text_height": 0.1,
+          "text": "",
+          "scale": 0.8,
+          "prompt": "HOW MANY?",
+          "tag": "QTY"
         }
       ]
     },
@@ -43665,6 +44288,102 @@
           "textHeight": 0.0939961996822135,
           "text": "Sheet:",
           "xScale": 0.85
+        },
+        {
+          "type": "ATTDEF",
+          "handle": "99ED",
+          "ownerHandle": "99C2",
+          "layer": "A-ANNO-NOTES",
+          "x": 38.32749879713279,
+          "y": 3.796602387892264,
+          "z": 0,
+          "text_height": 0.094,
+          "text": "",
+          "rotation": 90,
+          "scale": 0.85,
+          "text_style": "FG-Note",
+          "prompt": "Customer",
+          "tag": "CUSTOMER"
+        },
+        {
+          "type": "ATTDEF",
+          "handle": "99EE",
+          "ownerHandle": "99C2",
+          "layer": "A-ANNO-NOTES",
+          "x": 38.5721660417183,
+          "y": 3.79871366928215,
+          "z": 0,
+          "text_height": 0.094,
+          "text": "",
+          "rotation": 90,
+          "scale": 0.85,
+          "text_style": "FG-Note",
+          "prompt": "Assembly",
+          "tag": "ASSEMBLY"
+        },
+        {
+          "type": "ATTDEF",
+          "handle": "99EF",
+          "ownerHandle": "99C2",
+          "layer": "A-ANNO-NOTES",
+          "x": 38.82145410231667,
+          "y": 3.798709520754627,
+          "z": 0,
+          "text_height": 0.094,
+          "text": "",
+          "rotation": 90,
+          "scale": 0.85,
+          "text_style": "FG-Note",
+          "prompt": "Scale",
+          "tag": "SCALE"
+        },
+        {
+          "type": "ATTDEF",
+          "handle": "99F0",
+          "ownerHandle": "99C2",
+          "layer": "A-ANNO-NOTES",
+          "x": 39.07011812657281,
+          "y": 3.792844779312176,
+          "z": 0,
+          "text_height": 0.094,
+          "text": "",
+          "rotation": 90,
+          "scale": 0.85,
+          "text_style": "FG-Note",
+          "prompt": "Drawn_By",
+          "tag": "DRAWN_BY"
+        },
+        {
+          "type": "ATTDEF",
+          "handle": "99F1",
+          "ownerHandle": "99C2",
+          "layer": "A-ANNO-NOTES",
+          "x": 39.31959671750038,
+          "y": 3.792844779312176,
+          "z": 0,
+          "text_height": 0.094,
+          "text": "Date",
+          "rotation": 90,
+          "scale": 0.85,
+          "text_style": "FG-Note",
+          "prompt": "Date",
+          "tag": "DATE"
+        },
+        {
+          "type": "ATTDEF",
+          "handle": "99F2",
+          "ownerHandle": "99C2",
+          "layer": "A-ANNO-NOTES",
+          "x": 39.32118608110299,
+          "y": 5.523692154493588,
+          "z": 0,
+          "text_height": 0.094,
+          "text": "",
+          "rotation": 90,
+          "scale": 0.85,
+          "text_style": "FG-Note",
+          "prompt": "Sheet",
+          "tag": "SHEET"
         }
       ]
     },
