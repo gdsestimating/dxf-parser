@@ -1,4 +1,4 @@
-(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.DxfParser = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.dxfParser = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 /**
  * AutoCad files sometimes use an indexed color value between 1 and 255 inclusive.
  * Each value corresponds to a color. index 1 is red, that is 16711680 or 0xFF0000.
@@ -393,10 +393,10 @@ var log = require('loglevel');
 
 //log.setLevel('trace');
 // log.setLevel('debug');
-log.setLevel('info');
+//log.setLevel('info');
 //log.setLevel('warn');
 //log.setLevel('error');
-//log.setLevel('silent');
+log.setLevel('silent');
 
 
 function DxfParser(stream) {}
@@ -985,6 +985,10 @@ DxfParser.prototype._parse = function(dxfString) {
 					log.debug('LWPOLYLINE {');
 					entities.push(parseLWPOLYLINE());
 					log.debug('}')
+				} else if(curr.value === 'POLYLINE') {
+					log.debug('POLYLINE {');
+					entities.push(parsePOLYLINE());
+					log.debug('}');
 				} else if(curr.value === 'LINE') {
 					log.debug('LINE {');
 					entities.push(parseLINE());
@@ -1017,6 +1021,10 @@ DxfParser.prototype._parse = function(dxfString) {
 				} else if(curr.value === 'MTEXT') {
 					log.debug('MTEXT {');
 					entities.push(parseMTEXT());
+					log.debug('}')
+				} else if(curr.value === 'ATTDEF') {
+					log.debug('ATTDEF {');
+					entities.push(parseATTDEF());
 					log.debug('}')
 				} else {
 					log.warn('Unhandled entity ' + curr.value);
@@ -1105,6 +1113,67 @@ DxfParser.prototype._parse = function(dxfString) {
 	};
 
 
+	var parseVertex = function() {
+		var entity = { type: curr.value },
+			numberOfVertices = 0;
+		curr = scanner.next();
+		while(curr !== 'EOF') {
+			if(curr.code === 0) break;
+
+			switch(curr.code) {
+				case 10:	// X
+					entity.x = curr.value;
+					curr = scanner.next();
+					break;
+				case 20: // Y
+					entity.y = curr.value;
+					curr = scanner.next();
+					break;
+				case 30: // Z
+					entity.z = curr.value;
+					curr = scanner.next();
+					break;
+				case 40: // start width
+				case 41: // end width
+				case 42: // bulge
+					curr = scanner.next();
+					break;
+				case 70: // flags
+					entity.curveFittingVertex = (curr.value | 1) !== 0;
+					entity.curveFitTangent = (curr.value | 2) !== 0;
+					entity.splineVertex = (curr.value | 8) !== 0;
+					entity.splineControlPoint = (curr.value | 16) !== 0;
+					entity.ThreeDPolylineVertex = (curr.value | 32) !== 0;
+					entity.ThreeDPolylineMesh = (curr.value | 64) !== 0;
+					entity.polyfaceMeshVertex = (curr.value | 128) !== 0;
+					curr = scanner.next();
+					break;
+				case 50: // curve fit tangent direction
+				case 71: // polyface mesh vertex index
+				case 72: // polyface mesh vertex index
+				case 73: // polyface mesh vertex index
+				case 74: // polyface mesh vertex index
+					curr = scanner.next();
+					break;
+				default:
+					checkCommonEntityProperties(entity);
+					break;
+			}
+		}
+		return entity;
+	};
+
+	var parseSeqEnd = function() {
+		var entity = { type: curr.value };
+    curr = scanner.next();
+		while(curr != 'EOF') {
+			if (curr.code == 0) break;
+			checkCommonEntityProperties(entity);
+		}
+
+		return entity;
+	};
+
 	/**
 	 * Parses a 2D or 3D point, returning it as an object with x, y, and
 	 * (sometimes) z property if it is 3D. It is assumed the current group
@@ -1135,7 +1204,7 @@ DxfParser.prototype._parse = function(dxfString) {
 		return point;
 	};
 
-	var parsePolylineVertices = function(n) {
+	var parsePolylinePoints = function(n) {
 		if(!n || n <= 0) throw Error('n must be greater than 0 verticies');
 		var vertices = [], i, vertex;
 
@@ -1152,6 +1221,21 @@ DxfParser.prototype._parse = function(dxfString) {
 			// 0.0 means straight line.
 			// See https://groups.google.com/forum/#!topic/comp.cad.autocad/9gn8s5O_w6E
 			vertices.push(vertex);
+		}
+		return vertices;
+	};
+
+	var parsePolylineVertices = function() {
+		var vertices = [];
+		while (curr !== 'EOF') {
+			if (curr.code === 0) {
+				if (curr.value === 'VERTEX') {
+					vertices.push(parseVertex());
+				} else if (curr.value === 'SEQEND') {
+					parseSeqEnd();
+					break;
+				}
+			}
 		}
 		return vertices;
 	};
@@ -1198,6 +1282,117 @@ DxfParser.prototype._parse = function(dxfString) {
 		return entity;
 	};
 
+	var parseATTDEF = function() {
+		var entity = {
+			type: curr.value,
+			scale: 1,
+			textStyle: 'STANDARD'
+		 };
+		curr = scanner.next();
+		while (curr !== 'EOF') {
+			if (curr.code === 0) {
+				break;
+			}
+			switch(curr.code) {
+				case 1:
+					entity.text = curr.value;
+					curr = scanner.next();
+					break;
+				case 2:
+					entity.tag = curr.value;
+					curr = scanner.next();
+					break;
+				case 3:
+					entity.prompt = curr.value;
+					curr = scanner.next();
+					break;
+				case 7:
+					entity.textStyle = curr.value;
+					curr = scanner.next();
+					break;
+				case 10:
+					entity.x = curr.value;
+					curr = scanner.next();
+					break;
+				case 20:
+					entity.y = curr.value;
+					curr = scanner.next();
+					break;
+				case 30:
+					entity.z = curr.value;
+					curr = scanner.next();
+					break;
+				case 39:
+					entity.thickness = curr.value;
+					curr = scanner.next();
+					break;
+				case 40:
+					entity.textHeight = curr.value;
+					curr = scanner.next();
+					break;
+				case 41:
+					entity.scale = curr.value;
+					curr = scanner.next();
+					break;
+				case 50:
+					entity.rotation = curr.value;
+					curr = scanner.next();
+					break;
+				case 51:
+					entity.obliqueAngle = curr.value;
+					curr = scanner.next();
+					break;
+				case 70:
+					entity.invisible = !!(curr.value & 0x01);
+					entity.constant = !!(curr.value & 0x02);
+					entity.verificationRequired = !!(curr.value & 0x04);
+					entity.preset = !!(curr.value & 0x08);
+					curr = scanner.next();
+					break;
+				case 71:
+					entity.backwards = !!(curr.value & 0x02);
+					entity.mirrored = !!(curr.value & 0x04);
+					curr = scanner.next();
+					break;
+				case 72:
+					// TODO: enum values?
+					entity.horizontalJustification = curr.value;
+					curr = scanner.next();
+					break;
+				case 73:
+					entity.fieldLength = curr.value;
+					curr = scanner.next();
+					break;
+				case 74:
+					// TODO: enum values?
+					entity.verticalJustification = curr.value;
+					curr = scanner.next();
+					break;
+				case 100:
+					// subclass
+					curr = scanner.next();
+					break;
+				case 210:
+					entity.extrusionDirectionX = curr.value;
+					curr = scanner.next();
+					break;
+				case 220:
+					entity.extrusionDirectionY = curr.value;
+					curr = scanner.next();
+					break;
+				case 230:
+					entity.extrusionDirectionZ = curr.value;
+					curr = scanner.next();
+					break;
+				default:
+					checkCommonEntityProperties(entity);
+					break;
+			}
+		}
+
+		return entity;
+	};
+
 	/**
 	 * Called when the parser reads the beginning of a new entity,
 	 * 0:LWPOLYLINE. Scanner.next() will return the first attribute of the
@@ -1221,7 +1416,7 @@ DxfParser.prototype._parse = function(dxfString) {
 					curr = scanner.next();
 					break;
 				case 10: // X coordinate of point
-					entity.vertices = parsePolylineVertices(numberOfVertices);
+					entity.vertices = parsePolylinePoints(numberOfVertices);
 					break;
 				default:
 					checkCommonEntityProperties(entity);
@@ -1230,6 +1425,63 @@ DxfParser.prototype._parse = function(dxfString) {
 		}
 		return entity;
 	};
+
+	/**
+	 * Called when the parser reads the beginning of a new entity,
+	 * 0:POLYLINE. Scanner.next() will return the first attribute of the
+	 * entity.
+	 * @return {Object} the entity parsed
+	 */
+	var parsePOLYLINE = function() {
+		var entity = { type: curr.value, vertices: [] },
+			numberOfVertices = 0;
+		curr = scanner.next();
+		while(curr !== 'EOF') {
+			if(curr.code === 0) break;
+
+			switch(curr.code) {
+				case 10: // always 0
+				case 20: // always 0
+				case 30: // elevation
+				case 39: // thickness
+				case 40: // start width
+				case 41: // end width
+					curr = scanner.next();
+					break;
+				case 70: // 1 = Closed shape, 128 = plinegen?, 0 = default
+					entity.shape = (curr.value | 1) !== 0;
+					curr = scanner.next();
+					break;
+				case 71: // Polygon mesh M vertex count
+				case 72: // Polygon mesh N vertex count
+				case 73: // Smooth surface M density
+				case 74: // Smooth surface N density
+				case 75: // Curves and smooth surface type
+					curr = scanner.next();
+					break;
+				case 210: // X extrusion direction
+					log.debug(curr.value);
+					curr = scanner.next();
+					break;
+				case 220: // Y extrusion direction
+				case 230: // Z extrusion direction
+					curr = scanner.next();
+					break;
+				case 100: // Subclass marker
+					log.debug(scanner.value);
+					checkCommonEntityProperties(entity);
+					break;
+				default:
+					checkCommonEntityProperties(entity);
+					break;
+			}
+		}
+
+		entity.vertices = parsePolylineVertices();
+
+		return entity;
+	};
+
 
 	/**
 	 * Called when the parser reads the beginning of a new entity,
@@ -1245,7 +1497,7 @@ DxfParser.prototype._parse = function(dxfString) {
 
 			switch(curr.code) {
 				case 10: // X coordinate of point
-					entity.vertices = parsePolylineVertices(2);
+					entity.vertices = parsePolylinePoints(2);
 					break;
 				case 100:
 					if(curr.value == 'AcDbLine') {

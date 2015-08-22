@@ -51,7 +51,7 @@ describe('Parser', function() {
 		tables.lineType.should.eql(JSON.parse(expected));
 	});
 
-	it('should parse the BLOCKS section', function() {
+	it('should parse a complex BLOCKS section', function() {
 		var file = fs.readFileSync(path.join(__dirname, 'data', 'blocks.dxf'), 'utf8');
 
 		var parser = new DxfParser();
@@ -69,7 +69,7 @@ describe('Parser', function() {
 		dxf.should.eql(JSON.parse(expected));
 	});
 	
-	it('should parse the BLOCKS section', function() {
+	it('should parse a simple BLOCKS section', function() {
 		var file = fs.readFileSync(path.join(__dirname, 'data', 'blocks2.dxf'), 'utf8');
 
 		var parser = new DxfParser();
