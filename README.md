@@ -42,12 +42,12 @@ Support
 * Most 2D entities
 * Layers
 * LType table
-* Block table (not inserts)
+* Block table
 * VPort table
 * Text and some MTEXT
 
 Does not yet support
-* Attributes
+* Block Inserts
 * 3DSolids
 * All types of Leaders
 * other less common objects and entities.
