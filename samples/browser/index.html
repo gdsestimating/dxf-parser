@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Dxf-Parser - Browser Sample</title>
+	</head>
+	<body>
+		<input id="file-field" type="file"/>
+		
+		<pre id="output" stlye="font-family: monospace;">
+			
+		</pre>
+		
+		<script src="../../dist/dxf-parser.js"></script>
+		<script>
+			var outputElement = document.getElementById('output');
+			document.getElementById("file-field").onchange = function() {
+				var reader = new FileReader();
+				reader.readAsText(this.files[0]);
+				reader.onload = function(e) {
+					var fileText = e.target.result;
+					var parser = new DxfParser();
+					var dxf = null;
+					try {
+						dxf = parser.parseSync(fileText);
+					} catch(err) {
+						return console.error(err.stack);
+					}
+					console.log('Success!');
+					outputElement.innerHTML = JSON.stringify(dxf, null, 4);
+				};
+			};
+
+		</script>
+	</body>
+</html>
