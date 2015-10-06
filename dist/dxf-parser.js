@@ -442,7 +442,7 @@ DxfParser.prototype.parseStream = function(stream, done) {
 };
 
 DxfParser.prototype._parse = function(dxfString) {
-	var scanner, curr, dxf = {};
+	var scanner, curr, dxf = {}, lastHandle = 0;
 	var dxfLinesArray = dxfString.split(/\r\n|\r|\n/g);
 
 	scanner = new DxfArrayScanner(dxfLinesArray);
@@ -551,6 +551,7 @@ DxfParser.prototype._parse = function(dxfString) {
 				log.debug('block {');
 				block = parseBlock();
 				log.debug('}');
+				ensureHandle(block);
 				blocks[block.handle] = block;
 			} else {
 				logUnhandledGroup(curr);
@@ -978,58 +979,61 @@ DxfParser.prototype._parse = function(dxfString) {
 				if(curr.value === endingOnValue) {
 					break;
 				}
-
+				
+				var entity;
 				// Supported entities here
 				if(curr.value === 'LWPOLYLINE') {
 					log.debug('LWPOLYLINE {');
-					entities.push(parseLWPOLYLINE());
+					entity = parseLWPOLYLINE();
 					log.debug('}')
 				} else if(curr.value === 'POLYLINE') {
 					log.debug('POLYLINE {');
-					entities.push(parsePOLYLINE());
+					entity = parsePOLYLINE();
 					log.debug('}');
 				} else if(curr.value === 'LINE') {
 					log.debug('LINE {');
-					entities.push(parseLINE());
+					entity = parseLINE();
 					log.debug('}');
 				} else if(curr.value === 'CIRCLE') {
 					log.debug('CIRCLE {');
-					entities.push(parseCIRCLE());
+					entity = parseCIRCLE();
 					log.debug('}');
 				} else if(curr.value === 'ARC') {
 					log.debug('ARC {');
 					// similar properties to circle?
-					entities.push(parseCIRCLE());
+					entity = parseCIRCLE();
 					log.debug('}')
 				} else if(curr.value === 'TEXT') {
 					log.debug('TEXT {');
-					entities.push(parseTEXT());
+					entity = parseTEXT();
 					log.debug('}')
 				} else if(curr.value === 'DIMENSION') {
 					log.debug('DIMENSION {');
-					entities.push(parseDIMENSION());
+					entity = parseDIMENSION();
 					log.debug('}')
 				} else if(curr.value === 'SOLID') {
 					log.debug('SOLID {');
-					entities.push(parseSOLID());
+					entity = parseSOLID();
 					log.debug('}')
 				} else if(curr.value === 'POINT') {
 					log.debug('POINT {');
-					entities.push(parsePOINT());
+					entity = parsePOINT();
 					log.debug('}')
 				} else if(curr.value === 'MTEXT') {
 					log.debug('MTEXT {');
-					entities.push(parseMTEXT());
+					entity = parseMTEXT();
 					log.debug('}')
 				} else if(curr.value === 'ATTDEF') {
 					log.debug('ATTDEF {');
-					entities.push(parseATTDEF());
+					entity = parseATTDEF();
 					log.debug('}')
 				} else {
 					log.warn('Unhandled entity ' + curr.value);
 					curr = scanner.next();
+					continue;
 				}
-
+				ensureHandle(entity);
+				entities.push(entity);
 			} else {
 				// ignored lines from unsupported entity
 				curr = scanner.next();
@@ -1699,6 +1703,12 @@ DxfParser.prototype._parse = function(dxfString) {
 		}
 
 		return entity;
+	};
+	
+	var ensureHandle = function(entity) {
+		if(!entity) throw new TypeError('entity cannot be undefined or null');
+		
+		if(!entity.handle) entity.handle = lastHandle++; 
 	};
 
 	parseAll();
