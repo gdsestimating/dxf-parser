@@ -66,4 +66,4 @@ mocha test
 ```
 
 #### Contributors
-bzuillsmith@gdsestimating.com
+bzuillsmith@gmail.com
