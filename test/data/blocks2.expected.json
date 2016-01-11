@@ -1,6 +1,6 @@
 {
   "blocks": {
-    "1": {
+    "$MODEL_SPACE": {
       "handle": "1",
       "layer": "0",
       "name": "$MODEL_SPACE",
@@ -12,7 +12,7 @@
       "name2": "$MODEL_SPACE",
       "xrefPath": ""
     },
-    "2": {
+    "$PAPER_SPACE": {
       "handle": "2",
       "paperSpace": true,
       "layer": "0",

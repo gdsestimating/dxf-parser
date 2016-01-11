@@ -28,6 +28,7 @@ describe('Parser', function() {
 			tables = result.tables;
 			fs.writeFileSync(path.join(__dirname, 'data', 'layer-table.actual.json'), JSON.stringify(tables.layer, null, 2));
 			fs.writeFileSync(path.join(__dirname, 'data', 'ltype-table.actual.json'), JSON.stringify(tables.lineType, null, 2));
+            fs.writeFileSync(path.join(__dirname, 'data', 'viewport-table.actual.json'), JSON.stringify(tables.viewPort, null, 2));
 			done();
 		});
 	});
@@ -36,8 +37,9 @@ describe('Parser', function() {
 		should.exist(tables);
 		tables.should.have.property('layer');
 
-		//fs.writeFileSync(__dirname + '/data/layer-table.actual.json', JSON.stringify(tables.layer, null, 2));
-		var expected = fs.readFileSync(path.join(__dirname,'data','layer-table.expected.json'), {encoding: 'utf8'});
+        var expectedOutputFilePath = path.join(__dirname,'data','layer-table.expected.json');
+        
+		var expected = fs.readFileSync(expectedOutputFilePath, {encoding: 'utf8'});
 		tables.layer.should.eql(JSON.parse(expected));
 	});
 
@@ -45,10 +47,20 @@ describe('Parser', function() {
 		should.exist(tables);
 		tables.should.have.property('lineType');
 
-		//fs.writeFileSync(__dirname + '/data/ltype-table.actual.json', JSON.stringify(tables.lineType, null, 2));
+        var expectedOutputFilePath = path.join(__dirname,'data','ltype-table.expected.json');
 
-		var expected = fs.readFileSync(path.join(__dirname,'data','ltype-table.expected.json'), {encoding: 'utf8'});
+		var expected = fs.readFileSync(expectedOutputFilePath, {encoding: 'utf8'});
 		tables.lineType.should.eql(JSON.parse(expected));
+	});
+    
+    it('should parse the dxf viewPort table', function() {
+		should.exist(tables);
+		tables.should.have.property('viewPort');
+
+        var expectedOutputFilePath = path.join(__dirname,'data','viewport-table.expected.json');
+
+		var expected = fs.readFileSync(expectedOutputFilePath, {encoding: 'utf8'});
+		tables.viewPort.should.eql(JSON.parse(expected));
 	});
 
 	it('should parse a complex BLOCKS section', function() {

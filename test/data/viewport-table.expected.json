@@ -1,0 +1,68 @@
+{
+  "handle": "8",
+  "ownerHandle": "0",
+  "viewPorts": [
+    {
+      "ownerHandle": "8",
+      "name": "*Active",
+      "lowerLeftCorner": {
+        "x": 0,
+        "y": 0
+      },
+      "upperRightCorner": {
+        "x": 1,
+        "y": 1
+      },
+      "center": {
+        "x": 23.34842155490301,
+        "y": 8.680283835098335
+      },
+      "snapBasePoint": {
+        "x": 0,
+        "y": 0
+      },
+      "snapSpacing": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "gridSpacing": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "viewDirectionFromTarget": {
+        "x": 0,
+        "y": 0,
+        "z": 1
+      },
+      "viewTarget": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "lensLength": 50,
+      "frontClippingPlane": 0,
+      "backClippingPlane": 0,
+      "snapRotationAngle": 0,
+      "viewTwistAngle": 0,
+      "renderMode": 0,
+      "ucsOrigin": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "ucsXAxis": {
+        "x": 1,
+        "y": 0,
+        "z": 0
+      },
+      "ucsYAxis": {
+        "x": 0,
+        "y": 1,
+        "z": 0
+      },
+      "orthographicType": 0,
+      "defaultLightingOn": true,
+      "ambientColor": 3355443
+    }
+  ]
+}

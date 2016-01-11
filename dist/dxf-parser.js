@@ -395,8 +395,8 @@ var log = require('loglevel');
 //log.setLevel('debug');
 //log.setLevel('info');
 //log.setLevel('warn');
-//log.setLevel('error');
-log.setLevel('silent');
+log.setLevel('error');
+//log.setLevel('silent');
 
 
 function DxfParser(stream) {}
@@ -552,7 +552,10 @@ DxfParser.prototype._parse = function(dxfString) {
 				block = parseBlock();
 				log.debug('}');
 				ensureHandle(block);
-				blocks[block.handle] = block;
+                if(!block.name)
+                    log.error('block with handle "' + block.handle + '" is missing a name.');
+				else
+                    blocks[block.name] = block;
 			} else {
 				logUnhandledGroup(curr);
 				curr = scanner.next();
@@ -785,6 +788,10 @@ DxfParser.prototype._parse = function(dxfString) {
 					viewPort.viewTwistAngle = curr.value;
 					curr = scanner.next();
 					break;
+                case 79:
+                    viewPort.orthographicType = curr.value;
+                    curr = scanner.next();
+                    break;
 				case 110:
 					viewPort.ucsOrigin = parsePoint();
 					break;
@@ -1510,8 +1517,7 @@ DxfParser.prototype._parse = function(dxfString) {
 					curr = scanner.next();
 					break;
 				case 100: // Subclass marker
-					log.debug(scanner.value);
-					checkCommonEntityProperties(entity);
+					curr = scanner.next();
 					break;
 				default:
 					checkCommonEntityProperties(entity);
