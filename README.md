@@ -8,6 +8,8 @@ Also, keep an eye on [three-dxf](https://github.com/gdsestimating/three-dxf), a 
 #### Install
 ```
 npm install dxf-parser
+# or
+bower install dxf-parser
 ```
 Browsers -- As of 0.1.3 standalone browserify version is in the dist/ folder. Copy it out of the install directory or just download it from the GitHub repo directly. We may evetually publish this to bower, but the build environment needs a little work first.
 
