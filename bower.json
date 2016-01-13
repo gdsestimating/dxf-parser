@@ -1,6 +1,6 @@
 {
   "name": "dxf-parser",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "Parse dxf files into a readable, logical js object.",
   "main": "dist/dxf-parser.js",
   "license": "MIT",
