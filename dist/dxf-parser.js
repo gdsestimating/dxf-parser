@@ -979,7 +979,9 @@ DxfParser.prototype._parse = function(dxfString) {
 
 		var endingOnValue = forBlock ? 'ENDBLK' : 'ENDSEC';
 
-		curr = scanner.next();
+		if (!forBlock) {
+			curr = scanner.next();
+		}
 		while(true) {
 
 			if(curr.code === 0) {
