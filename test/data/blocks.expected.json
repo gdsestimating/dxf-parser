@@ -402,6 +402,7 @@
           "handle": "E32",
           "ownerHandle": "E1C",
           "layer": "FG-Note",
+          "rotation": 90,
           "startPoint": {
             "x": 15.38861057053167,
             "y": 1.941223987022821,
@@ -560,6 +561,7 @@
           "handle": "E3B",
           "ownerHandle": "E1C",
           "layer": "FG-Note",
+          "rotation": 90,
           "startPoint": {
             "x": 15.43459372187382,
             "y": 8.406145103075476,
@@ -579,6 +581,7 @@
           "handle": "E3C",
           "ownerHandle": "E1C",
           "layer": "FG-Note",
+          "rotation": 90,
           "startPoint": {
             "x": 15.43459372187382,
             "y": 8.81119704916414,
@@ -598,6 +601,7 @@
           "handle": "E3D",
           "ownerHandle": "E1C",
           "layer": "FG-Note",
+          "rotation": 90,
           "startPoint": {
             "x": 15.43459372187382,
             "y": 9.86903088853217,
@@ -617,6 +621,7 @@
           "handle": "E3E",
           "ownerHandle": "E1C",
           "layer": "FG-Note",
+          "rotation": 90,
           "startPoint": {
             "x": 15.47614878817657,
             "y": 10.08619062171198,
@@ -636,6 +641,7 @@
           "handle": "E3F",
           "ownerHandle": "E1C",
           "layer": "FG-Note",
+          "rotation": 90,
           "startPoint": {
             "x": 15.38472723081318,
             "y": 10.05225474176655,
@@ -655,6 +661,7 @@
           "handle": "E40",
           "ownerHandle": "E1C",
           "layer": "FG-Note",
+          "rotation": 90,
           "startPoint": {
             "x": 15.47614878817657,
             "y": 9.507783054846366,
@@ -674,6 +681,7 @@
           "handle": "E41",
           "ownerHandle": "E1C",
           "layer": "FG-Note",
+          "rotation": 90,
           "startPoint": {
             "x": 15.38472723081318,
             "y": 9.493202563714034,
@@ -967,6 +975,7 @@
           "handle": "E50",
           "ownerHandle": "E1C",
           "layer": "FG-Note",
+          "rotation": 90,
           "startPoint": {
             "x": 16.26361057053167,
             "y": 1.941223987022821,
@@ -983,6 +992,7 @@
           "layer": "FG-Note",
           "lineType": "Continuous",
           "visible": false,
+          "rotation": 90,
           "startPoint": {
             "x": 16.2876932884152,
             "y": 4.780630417384017,
@@ -998,6 +1008,7 @@
           "layer": "FG-Note",
           "lineType": "Continuous",
           "visible": false,
+          "rotation": 90,
           "startPoint": {
             "x": 16.16421397908618,
             "y": 4.896012119506984,
@@ -1013,6 +1024,7 @@
           "layer": "FG-Note",
           "lineType": "Continuous",
           "visible": false,
+          "rotation": 90,
           "startPoint": {
             "x": 15.99010978221893,
             "y": 5.702694084279322,
@@ -1028,6 +1040,7 @@
           "layer": "FG-Note",
           "lineType": "Continuous",
           "visible": false,
+          "rotation": 90,
           "startPoint": {
             "x": 15.68811653494524,
             "y": 5.702694084279322,
@@ -1043,6 +1056,7 @@
           "layer": "FG-Note",
           "lineType": "Continuous",
           "visible": false,
+          "rotation": 90,
           "startPoint": {
             "x": 15.53711991130839,
             "y": 5.702694084279322,
@@ -1058,6 +1072,7 @@
           "layer": "FG-Note",
           "lineType": "Continuous",
           "visible": false,
+          "rotation": 90,
           "startPoint": {
             "x": 16.14110640585577,
             "y": 5.702694084279322,
@@ -1073,6 +1088,7 @@
           "layer": "FG-Note",
           "lineType": "Continuous",
           "visible": false,
+          "rotation": 90,
           "startPoint": {
             "x": 15.83911315858208,
             "y": 5.702694084279322,
@@ -1088,6 +1104,7 @@
           "layer": "FG-Note",
           "lineType": "Continuous",
           "visible": false,
+          "rotation": 90,
           "startPoint": {
             "x": 16.30980394355741,
             "y": 5.701296337694996,
@@ -1148,6 +1165,7 @@
           "handle": "E63",
           "ownerHandle": "E1C",
           "layer": "FG-Logo",
+          "rotation": 90,
           "startPoint": {
             "x": 15.80487678893379,
             "y": 5.695298462159226,
@@ -1168,6 +1186,7 @@
           "handle": "E64",
           "ownerHandle": "E1C",
           "layer": "FG-Logo",
+          "rotation": 90,
           "startPoint": {
             "x": 16.1156678639845,
             "y": 5.780546738021295,
@@ -6694,6 +6713,7 @@
           "handle": "22EE",
           "ownerHandle": "22DF",
           "layer": "FG-Note",
+          "rotation": 90,
           "startPoint": {
             "x": 15.38861057053167,
             "y": 1.941223987022821,
@@ -6852,6 +6872,7 @@
           "handle": "22F7",
           "ownerHandle": "22DF",
           "layer": "FG-Note",
+          "rotation": 90,
           "startPoint": {
             "x": 15.43459372187382,
             "y": 8.406145103075476,
@@ -6871,6 +6892,7 @@
           "handle": "22F8",
           "ownerHandle": "22DF",
           "layer": "FG-Note",
+          "rotation": 90,
           "startPoint": {
             "x": 15.43459372187382,
             "y": 8.81119704916414,
@@ -6890,6 +6912,7 @@
           "handle": "22F9",
           "ownerHandle": "22DF",
           "layer": "FG-Note",
+          "rotation": 90,
           "startPoint": {
             "x": 15.43459372187382,
             "y": 9.86903088853217,
@@ -6909,6 +6932,7 @@
           "handle": "22FA",
           "ownerHandle": "22DF",
           "layer": "FG-Note",
+          "rotation": 90,
           "startPoint": {
             "x": 15.47614878817657,
             "y": 10.08619062171198,
@@ -6928,6 +6952,7 @@
           "handle": "22FB",
           "ownerHandle": "22DF",
           "layer": "FG-Note",
+          "rotation": 90,
           "startPoint": {
             "x": 15.38472723081318,
             "y": 10.05225474176655,
@@ -6947,6 +6972,7 @@
           "handle": "22FC",
           "ownerHandle": "22DF",
           "layer": "FG-Note",
+          "rotation": 90,
           "startPoint": {
             "x": 15.47614878817657,
             "y": 9.507783054846366,
@@ -6966,6 +6992,7 @@
           "handle": "22FD",
           "ownerHandle": "22DF",
           "layer": "FG-Note",
+          "rotation": 90,
           "startPoint": {
             "x": 15.38472723081318,
             "y": 9.493202563714034,
@@ -7259,6 +7286,7 @@
           "handle": "230C",
           "ownerHandle": "22DF",
           "layer": "FG-Note",
+          "rotation": 90,
           "startPoint": {
             "x": 16.26361057053167,
             "y": 1.941223987022821,
@@ -7274,6 +7302,7 @@
           "ownerHandle": "22DF",
           "layer": "FG-Note",
           "lineType": "Continuous",
+          "rotation": 90,
           "startPoint": {
             "x": 16.2876932884152,
             "y": 4.780630417384017,
@@ -7288,6 +7317,7 @@
           "ownerHandle": "22DF",
           "layer": "FG-Note",
           "lineType": "Continuous",
+          "rotation": 90,
           "startPoint": {
             "x": 16.16421397908618,
             "y": 4.896012119506984,
@@ -7302,6 +7332,7 @@
           "ownerHandle": "22DF",
           "layer": "FG-Note",
           "lineType": "Continuous",
+          "rotation": 90,
           "startPoint": {
             "x": 15.99010978221893,
             "y": 5.702694084279322,
@@ -7316,6 +7347,7 @@
           "ownerHandle": "22DF",
           "layer": "FG-Note",
           "lineType": "Continuous",
+          "rotation": 90,
           "startPoint": {
             "x": 15.68811653494524,
             "y": 5.702694084279322,
@@ -7330,6 +7362,7 @@
           "ownerHandle": "22DF",
           "layer": "FG-Note",
           "lineType": "Continuous",
+          "rotation": 90,
           "startPoint": {
             "x": 15.53711991130839,
             "y": 5.702694084279322,
@@ -7344,6 +7377,7 @@
           "ownerHandle": "22DF",
           "layer": "FG-Note",
           "lineType": "Continuous",
+          "rotation": 90,
           "startPoint": {
             "x": 16.14110640585577,
             "y": 5.702694084279322,
@@ -7358,6 +7392,7 @@
           "ownerHandle": "22DF",
           "layer": "FG-Note",
           "lineType": "Continuous",
+          "rotation": 90,
           "startPoint": {
             "x": 15.83911315858208,
             "y": 5.702694084279322,
@@ -7372,6 +7407,7 @@
           "ownerHandle": "22DF",
           "layer": "FG-Note",
           "lineType": "Continuous",
+          "rotation": 90,
           "startPoint": {
             "x": 16.30980394355741,
             "y": 5.701296337694996,
@@ -7433,6 +7469,7 @@
           "ownerHandle": "22DF",
           "layer": "FG-Logo",
           "visible": false,
+          "rotation": 90,
           "startPoint": {
             "x": 15.80487678893379,
             "y": 5.695298462159226,
@@ -7454,6 +7491,7 @@
           "ownerHandle": "22DF",
           "layer": "FG-Logo",
           "visible": false,
+          "rotation": 90,
           "startPoint": {
             "x": 16.1156678639845,
             "y": 5.780546738021295,
@@ -60084,6 +60122,7 @@
           "ownerHandle": "99C2",
           "layer": "A-ANNO-NOTES",
           "lineType": "Continuous",
+          "rotation": 90,
           "startPoint": {
             "x": 39.17711841468666,
             "y": 7.216676285843561,
@@ -60099,6 +60138,7 @@
           "ownerHandle": "99C2",
           "layer": "A-ANNO-NOTES",
           "lineType": "Continuous",
+          "rotation": 90,
           "startPoint": {
             "x": 39.05363910535764,
             "y": 7.332057987966528,
@@ -60114,6 +60154,7 @@
           "ownerHandle": "99C2",
           "layer": "A-ANNO-NOTES",
           "lineType": "Continuous",
+          "rotation": 90,
           "startPoint": {
             "x": 38.87953490849039,
             "y": 8.138739952738867,
@@ -60129,6 +60170,7 @@
           "ownerHandle": "99C2",
           "layer": "A-ANNO-NOTES",
           "lineType": "Continuous",
+          "rotation": 90,
           "startPoint": {
             "x": 38.57754166121671,
             "y": 8.138739952738867,
@@ -60144,6 +60186,7 @@
           "ownerHandle": "99C2",
           "layer": "A-ANNO-NOTES",
           "lineType": "Continuous",
+          "rotation": 90,
           "startPoint": {
             "x": 38.42654503757986,
             "y": 8.138739952738867,
@@ -60159,6 +60202,7 @@
           "ownerHandle": "99C2",
           "layer": "A-ANNO-NOTES",
           "lineType": "Continuous",
+          "rotation": 90,
           "startPoint": {
             "x": 39.03053153212724,
             "y": 8.138739952738867,
@@ -60174,6 +60218,7 @@
           "ownerHandle": "99C2",
           "layer": "A-ANNO-NOTES",
           "lineType": "Continuous",
+          "rotation": 90,
           "startPoint": {
             "x": 38.72853828485354,
             "y": 8.138739952738867,
@@ -60189,6 +60234,7 @@
           "ownerHandle": "99C2",
           "layer": "A-ANNO-NOTES",
           "lineType": "Continuous",
+          "rotation": 90,
           "startPoint": {
             "x": 39.19922906982887,
             "y": 8.137342206154543,
@@ -60225,6 +60271,7 @@
           "ownerHandle": "99C2",
           "layer": "A-ANNO-NOTES",
           "lineType": "Continuous",
+          "rotation": 90,
           "startPoint": {
             "x": 38.47753920328777,
             "y": -0.0701596741782495,
@@ -60240,6 +60287,7 @@
           "ownerHandle": "99C2",
           "layer": "A-ANNO-NOTES",
           "lineType": "Continuous",
+          "rotation": 90,
           "startPoint": {
             "x": 38.32654257965092,
             "y": -0.0701596741782495,
@@ -60255,6 +60303,7 @@
           "ownerHandle": "99C2",
           "layer": "A-ANNO-NOTES",
           "lineType": "Continuous",
+          "rotation": 90,
           "startPoint": {
             "x": 38.62853582692461,
             "y": -0.0701596741782495,
@@ -60288,6 +60337,7 @@
           "ownerHandle": "99C2",
           "layer": "A-ANNO-NOTES",
           "lineType": "Continuous",
+          "rotation": 90,
           "startPoint": {
             "x": 38.98845856469479,
             "y": -0.0701596741782495,
@@ -60303,6 +60353,7 @@
           "ownerHandle": "99C2",
           "layer": "A-ANNO-NOTES",
           "lineType": "Continuous",
+          "rotation": 90,
           "startPoint": {
             "x": 38.83746194105794,
             "y": -0.0701596741782495,
@@ -60318,6 +60369,7 @@
           "ownerHandle": "99C2",
           "layer": "A-ANNO-NOTES",
           "lineType": "Continuous",
+          "rotation": 90,
           "startPoint": {
             "x": 39.13945518833163,
             "y": -0.0701596741782495,
@@ -60333,6 +60385,7 @@
           "ownerHandle": "99C2",
           "layer": "A-ANNO-NOTES",
           "lineType": "Continuous",
+          "rotation": 90,
           "startPoint": {
             "x": 39.27671518219543,
             "y": -0.0701596741782495,
@@ -60366,6 +60419,7 @@
           "ownerHandle": "99C2",
           "layer": "A-ANNO-NOTES",
           "lineType": "Continuous",
+          "rotation": 90,
           "startPoint": {
             "x": 38.32190713744173,
             "y": 3.107873942521081,
@@ -60381,6 +60435,7 @@
           "ownerHandle": "99C2",
           "layer": "A-ANNO-NOTES",
           "lineType": "Continuous",
+          "rotation": 90,
           "startPoint": {
             "x": 38.57190713744173,
             "y": 3.107873942521081,
@@ -60396,6 +60451,7 @@
           "ownerHandle": "99C2",
           "layer": "A-ANNO-NOTES",
           "lineType": "Continuous",
+          "rotation": 90,
           "startPoint": {
             "x": 38.82190713744173,
             "y": 3.107873942521081,
@@ -60411,6 +60467,7 @@
           "ownerHandle": "99C2",
           "layer": "A-ANNO-NOTES",
           "lineType": "Continuous",
+          "rotation": 90,
           "startPoint": {
             "x": 39.07190713744173,
             "y": 3.107873942521081,
@@ -60426,6 +60483,7 @@
           "ownerHandle": "99C2",
           "layer": "A-ANNO-NOTES",
           "lineType": "Continuous",
+          "rotation": 90,
           "startPoint": {
             "x": 39.32190713744173,
             "y": 3.107873942521081,
@@ -60459,6 +60517,7 @@
           "ownerHandle": "99C2",
           "layer": "A-ANNO-NOTES",
           "lineType": "Continuous",
+          "rotation": 90,
           "startPoint": {
             "x": 39.3219071374417,
             "y": 5.126385640896472,
