@@ -539,9 +539,9 @@ DxfParser.prototype._parse = function(dxfString) {
 	 */
 	var parseBlocks = function() {
 		var blocks = {}, block;
-		
+
         curr = scanner.next();
-		
+
 		while(curr.value !== 'EOF') {
 			if(groupIs(0, 'ENDSEC')) {
 				break;
@@ -627,7 +627,7 @@ DxfParser.prototype._parse = function(dxfString) {
 					logUnhandledGroup(curr);
 					curr = scanner.next();
 			}
-			
+
 			if(groupIs(0, 'ENDBLK')) {
 				curr = scanner.next();
 				break;
@@ -988,7 +988,7 @@ DxfParser.prototype._parse = function(dxfString) {
 				if(curr.value === endingOnValue) {
 					break;
 				}
-				
+
 				var entity;
 				// Supported entities here
 				if(curr.value === 'LWPOLYLINE') {
@@ -1228,7 +1228,7 @@ DxfParser.prototype._parse = function(dxfString) {
 			var vertex = {};
 			while(curr !== 'EOF') {
 				if(curr.code === 0 || vertexIsFinished) break;
-	
+
 				switch(curr.code) {
 					case 10: // X
 						if(vertexIsStarted) {
@@ -1459,7 +1459,8 @@ DxfParser.prototype._parse = function(dxfString) {
 					curr = scanner.next();
 					break;
 				case 70: // 1 = Closed shape, 128 = plinegen?, 0 = default
-					entity.shape = (curr.value === 1);
+					entity.shape = ((curr.value & 1) === 1);
+					entity.hasContinuousLinetypePattern = ((curr.value & 128) === 128);
 					curr = scanner.next();
 					break;
 				case 90:
@@ -1632,6 +1633,10 @@ DxfParser.prototype._parse = function(dxfString) {
 					break;
 				case 41:
 					entity.xScale = curr.value;
+					curr = scanner.next();
+					break;
+				case 50: // Rotation in degrees
+					entity.rotation = curr.value;
 					curr = scanner.next();
 					break;
 				case 1: // Text
@@ -1822,11 +1827,11 @@ DxfParser.prototype._parse = function(dxfString) {
 
 		return entity;
 	};
-	
+
 	var ensureHandle = function(entity) {
 		if(!entity) throw new TypeError('entity cannot be undefined or null');
-		
-		if(!entity.handle) entity.handle = lastHandle++; 
+
+		if(!entity.handle) entity.handle = lastHandle++;
 	};
 
 	parseAll();

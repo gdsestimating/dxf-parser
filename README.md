@@ -65,6 +65,3 @@ npm test
 //OR
 mocha test
 ```
-
-#### Contributors
-bzuillsmith@gmail.com
