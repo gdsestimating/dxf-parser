@@ -1,0 +1,44 @@
+{
+  "entities": [
+    {
+      "type": "ELLIPSE",
+      "handle": "37c",
+      "ownerHandle": "1F",
+      "layer": "0",
+      "lineType": "ByLayer",
+      "center": {
+        "x": 10,
+        "y": 10,
+        "z": 0
+      },
+      "majorAxisEndPoint": {
+        "x": 10,
+        "y": 10,
+        "z": 0
+      },
+      "axisRatio": 1.986299,
+      "startAngle": 0,
+      "endAngle": 6.283185
+    },
+    {
+      "type": "ELLIPSE",
+      "handle": "37d",
+      "ownerHandle": "1F",
+      "layer": "0",
+      "lineType": "ByLayer",
+      "center": {
+        "x": 0,
+        "y": -5,
+        "z": 0
+      },
+      "majorAxisEndPoint": {
+        "x": 0,
+        "y": 5,
+        "z": 0
+      },
+      "axisRatio": 4,
+      "startAngle": 0,
+      "endAngle": 6.283185
+    }
+  ]
+}

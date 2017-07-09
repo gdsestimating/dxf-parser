@@ -116,4 +116,22 @@ describe('Parser', function() {
 		var expected = fs.readFileSync(path.join(__dirname, 'data', 'polylines.expected.json'), {encoding: 'utf8'});
 		dxf.should.eql(JSON.parse(expected));
     });
+
+	it('should parse ELLIPSE entities', function() {
+        var file = fs.readFileSync(path.join(__dirname, 'data', 'ellipse.dxf'), 'utf8');
+
+		var parser = new DxfParser();
+		var dxf;
+		try {
+			dxf = parser.parseSync(file);
+			fs.writeFileSync(path.join(__dirname, 'data', 'ellipse.actual.json'), JSON.stringify(dxf, null, 2));
+		}catch(err) {
+			should.not.exist(err);
+		}
+		should.exist(dxf);
+
+
+		var expected = fs.readFileSync(path.join(__dirname, 'data', 'ellipse.expected.json'), {encoding: 'utf8'});
+		dxf.should.eql(JSON.parse(expected));
+    });
 });
