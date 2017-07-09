@@ -1007,6 +1007,10 @@ DxfParser.prototype._parse = function(dxfString) {
 					log.debug('CIRCLE {');
 					entity = parseCIRCLE();
 					log.debug('}');
+				} else if(curr.value === 'ELLIPSE') {
+					log.debug('ELLIPSE {');
+					entity = parseELLIPSE();
+					log.debug('}');
 				} else if(curr.value === 'ARC') {
 					log.debug('ARC {');
 					// similar properties to circle?
@@ -1150,6 +1154,7 @@ DxfParser.prototype._parse = function(dxfString) {
 				case 40: // start width
 				case 41: // end width
 				case 42: // bulge
+					if(curr.value != 0) entity.bulge = curr.value;
 					curr = scanner.next();
 					break;
 				case 70: // flags
@@ -1302,11 +1307,16 @@ DxfParser.prototype._parse = function(dxfString) {
                     entity.position = parsePoint();
                     break;
                 case 40:
+					//Note: this is the text height
                     entity.height = curr.value;
                     curr = scanner.next();
                     break;
                 case 41:
                     entity.width = curr.value;
+                    curr = scanner.next();
+                    break;
+				case 50:
+					entity.rotation = curr.value;
                     curr = scanner.next();
                     break;
                 case 71:
@@ -1795,6 +1805,43 @@ DxfParser.prototype._parse = function(dxfString) {
 
 		return entity;
 	};
+
+	var parseELLIPSE = function() {
+		var entity;
+		entity = { type: curr.value };
+		curr = scanner.next();
+		while(curr !== 'EOF') {
+			if(curr.code === 0) break;
+
+			switch(curr.code) {
+				case 10:
+					entity.center = parsePoint();
+				case 11:
+					entity.majorAxisEndPoint = parsePoint();
+				case 40:
+					entity.axisRatio = curr.value;
+					curr = scanner.next();
+					break;
+				case 41:
+					entity.startAngle = curr.value;
+					curr = scanner.next();
+					break;
+				case 42:
+					entity.endAngle = curr.value;
+					curr = scanner.next();
+					break;
+				case 2:
+					entity.name = curr.value;
+					curr = scanner.next();
+					break;
+				default: // check common entity attributes
+					checkCommonEntityProperties(entity);
+					break;
+			}
+		}
+
+		return entity;
+	}
 
 	var parsePOINT = function() {
 		var entity;
