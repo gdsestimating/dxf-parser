@@ -133,5 +133,22 @@ describe('Parser', function() {
 
 		var expected = fs.readFileSync(path.join(__dirname, 'data', 'ellipse.expected.json'), {encoding: 'utf8'});
 		dxf.should.eql(JSON.parse(expected));
+	});
+	
+	it('should parse SPLINE entities', function() {
+        var file = fs.readFileSync(path.join(__dirname, 'data', 'splines.dxf'), 'utf8');
+
+		var parser = new DxfParser();
+		var dxf;
+		try {
+			dxf = parser.parseSync(file);
+			fs.writeFileSync(path.join(__dirname, 'data', 'splines.actual.json'), JSON.stringify(dxf, null, 2));
+		}catch(err) {
+			should.not.exist(err);
+		}
+		should.exist(dxf);
+
+		var expected = fs.readFileSync(path.join(__dirname, 'data', 'splines.expected.json'), {encoding: 'utf8'});
+		dxf.should.eql(JSON.parse(expected));
     });
 });
