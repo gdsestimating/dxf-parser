@@ -10,3 +10,4 @@ scripts/
 out.json
 bower.json
 *.log
+typings/

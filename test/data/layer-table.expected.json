@@ -3,13 +3,15 @@
   "ownerHandle": "0",
   "layers": {
     "0": {
+      "frozen": false,
       "name": "0",
-      "visible": false,
+      "visible": true,
       "color": 16777215
     },
     "Layer 1": {
+      "frozen": true,
       "name": "Layer 1",
-      "visible": false,
+      "visible": true,
       "color": 16777215
     }
   }
