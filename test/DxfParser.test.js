@@ -24,7 +24,8 @@ describe('Parser', function() {
 		var parser = new DxfParser();
 
 		parser.parseStream(file, function(err, result) {
-			should.not.exist(err);
+			var errMsg = err ? err.stack : undefined;
+			should.not.exist(err, errMsg);
 			tables = result.tables;
 			fs.writeFileSync(path.join(__dirname, 'data', 'layer-table.actual.json'), JSON.stringify(tables.layer, null, 2));
 			fs.writeFileSync(path.join(__dirname, 'data', 'ltype-table.actual.json'), JSON.stringify(tables.lineType, null, 2));
