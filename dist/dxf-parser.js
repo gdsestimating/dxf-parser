@@ -918,9 +918,13 @@ DxfParser.prototype._parse = function(dxfString) {
 					curr = scanner.next();
 					break;
 				case 62: // color, visibility
-					layer.visible = curr.value <= 0;
+					layer.visible = curr.value >= 0;
 					// TODO 0 and 256 are BYBLOCK and BYLAYER respectively. Need to handle these values for layers?.
 					layer.color = getAcadColor(Math.abs(curr.value));
+					curr = scanner.next();
+					break;
+				case 70: // frozen layer
+					layer.frozen = ((curr.value & 1) != 0 || (curr.value & 2) != 0);
 					curr = scanner.next();
 					break;
 				case 0:
