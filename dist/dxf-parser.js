@@ -308,7 +308,32 @@ DxfArrayScanner.prototype.next = function() {
 
 	if(group.code === 0 && group.value === 'EOF') this._eof = true;
 
+	this.lastReadGroup = group;
+
 	return group;
+};
+
+DxfArrayScanner.prototype.peek = function() {
+	if(!this.hasNext()) {
+		if(!this._eof)
+			throw new Error('Unexpected end of input: EOF group not read before end of file. Ended on code ' + this._data[this._pointer]);
+		else
+			throw new Error('Cannot call \'next\' after EOF group has been read');
+	}
+	
+	var group = {
+		code: parseInt(this._data[this._pointer])
+	};
+
+	group.value = parseGroupValue(group.code, this._data[this._pointer + 1].trim());
+
+	return group;
+};
+
+
+DxfArrayScanner.prototype.rewind = function(numberOfGroups) {
+	numberOfGroups = numberOfGroups || 1;
+	this._pointer = this._pointer - numberOfGroups * 2;
 };
 
 /**
@@ -398,12 +423,40 @@ var log = require('loglevel');
 log.setLevel('error');
 //log.setLevel('silent');
 
+function registerDefaultEntityHandlers(dxfParser) {
+	// Supported entities here (some entity code is still being refactored into this flow)
+	dxfParser.registerEntityHandler(require('./entities/3dface'));
+	dxfParser.registerEntityHandler(require('./entities/arc'));
+	dxfParser.registerEntityHandler(require('./entities/attdef'));
+	dxfParser.registerEntityHandler(require('./entities/circle'));
+	dxfParser.registerEntityHandler(require('./entities/dimension'));
+	dxfParser.registerEntityHandler(require('./entities/ellipse'));
+	dxfParser.registerEntityHandler(require('./entities/insert'));
+	dxfParser.registerEntityHandler(require('./entities/line'));
+	dxfParser.registerEntityHandler(require('./entities/lwpolyline'));
+	dxfParser.registerEntityHandler(require('./entities/mtext'));
+	dxfParser.registerEntityHandler(require('./entities/point'));
+	dxfParser.registerEntityHandler(require('./entities/polyline'));
+	dxfParser.registerEntityHandler(require('./entities/solid'));
+	dxfParser.registerEntityHandler(require('./entities/spline'));
+	dxfParser.registerEntityHandler(require('./entities/text'));
+	//dxfParser.registerEntityHandler(require('./entities/vertex'));
+}
 
-function DxfParser(stream) {}
+function DxfParser() {
+	this._entityHandlers = {};
+
+	registerDefaultEntityHandlers(this);
+}
 
 DxfParser.prototype.parse = function(source, done) {
 	throw new Error("read() not implemented. Use readSync()");
 };
+
+DxfParser.prototype.registerEntityHandler = function(handlerType) {
+	var instance = new handlerType();
+	this._entityHandlers[handlerType.ForEntityName] = instance;
+}
 
 DxfParser.prototype.parseSync = function(source) {
 	if(typeof(source) === 'string') {
@@ -447,6 +500,8 @@ DxfParser.prototype._parse = function(dxfString) {
 
 	scanner = new DxfArrayScanner(dxfLinesArray);
 	if(!scanner.hasNext()) throw Error('Empty file');
+
+	var self = this;
 
 	var parseAll = function() {
 		curr = scanner.next();
@@ -592,6 +647,7 @@ DxfParser.prototype._parse = function(dxfString) {
 					break;
 				case 10:
 					block.position = parsePoint();
+					curr = scanner.next();
 					break;
 				case 67:
 					block.paperSpace = (curr.value && curr.value == 1) ? true : false;
@@ -742,27 +798,35 @@ DxfParser.prototype._parse = function(dxfString) {
 					break;
 				case 10:
 					viewPort.lowerLeftCorner = parsePoint();
+					curr = scanner.next();
 					break;
 				case 11:
 					viewPort.upperRightCorner = parsePoint();
+					curr = scanner.next();
 					break;
 				case 12:
 					viewPort.center = parsePoint();
+					curr = scanner.next();
 					break;
 				case 13:
 					viewPort.snapBasePoint = parsePoint();
+					curr = scanner.next();
 					break;
 				case 14:
 					viewPort.snapSpacing = parsePoint();
+					curr = scanner.next();
 					break;
 				case 15:
 					viewPort.gridSpacing = parsePoint();
+					curr = scanner.next();
 					break;
 				case 16:
 					viewPort.viewDirectionFromTarget = parsePoint();
+					curr = scanner.next();
 					break;
 				case 17:
 					viewPort.viewTarget = parsePoint();
+					curr = scanner.next();
 					break;
 				case 42:
 					viewPort.lensLength = curr.value;
@@ -794,15 +858,19 @@ DxfParser.prototype._parse = function(dxfString) {
                     break;
 				case 110:
 					viewPort.ucsOrigin = parsePoint();
+					curr = scanner.next();
 					break;
 				case 111:
 					viewPort.ucsXAxis = parsePoint();
+					curr = scanner.next();
 					break;
 				case 112:
 					viewPort.ucsYAxis = parsePoint();
+					curr = scanner.next();
 					break;
 				case 110:
 					viewPort.ucsOrigin = parsePoint();
+					curr = scanner.next();
 					break;
 				case 281:
 					viewPort.renderMode = curr.value;
@@ -994,67 +1062,11 @@ DxfParser.prototype._parse = function(dxfString) {
 				}
 
 				var entity;
-				// Supported entities here
-				if(curr.value === 'LWPOLYLINE') {
-					log.debug('LWPOLYLINE {');
-					entity = parseLWPOLYLINE();
-					log.debug('}')
-				} else if(curr.value === 'POLYLINE') {
-					log.debug('POLYLINE {');
-					entity = parsePOLYLINE();
-					log.debug('}');
-				} else if(curr.value === 'LINE') {
-					log.debug('LINE {');
-					entity = parseLINE();
-					log.debug('}');
-				 } else if (curr.value === '3DFACE') {
-					log.debug('3DFACE {');
-					entity = parse3DFACE();
-					log.debug('}');
-				} else if(curr.value === 'CIRCLE') {
-					log.debug('CIRCLE {');
-					entity = parseCIRCLE();
-					log.debug('}');
-				} else if(curr.value === 'ELLIPSE') {
-					log.debug('ELLIPSE {');
-					entity = parseELLIPSE();
-					log.debug('}');
-				} else if(curr.value === 'ARC') {
-					log.debug('ARC {');
-					// similar properties to circle?
-					entity = parseCIRCLE();
-					log.debug('}');
-				} else if(curr.value === 'TEXT') {
-					log.debug('TEXT {');
-					entity = parseTEXT();
-					log.debug('}');
-				} else if(curr.value === 'DIMENSION') {
-					log.debug('DIMENSION {');
-					entity = parseDIMENSION();
-					log.debug('}');
-				} else if(curr.value === 'SOLID') {
-					log.debug('SOLID {');
-					entity = parseSOLID();
-					log.debug('}');
-				} else if(curr.value === 'POINT') {
-					log.debug('POINT {');
-					entity = parsePOINT();
-					log.debug('}');
-				} else if(curr.value === 'MTEXT') {
-					log.debug('MTEXT {');
-					entity = parseMTEXT();
-					log.debug('}');
-				} else if(curr.value === 'ATTDEF') {
-					log.debug('ATTDEF {');
-					entity = parseATTDEF();
-					log.debug('}');
-				} else if(curr.value === 'INSERT') {
-					log.debug('INSERT {');
-					entity = parseINSERT();
-					log.debug('}');
-				} else if(curr.value == 'SPLINE') {
-					log.debug('INSERT {');
-					entity = parseSPLINE();
+				var handler = self._entityHandlers[curr.value];
+				if(handler != null) {
+					log.debug(curr.value + ' {');
+					entity = handler.parseEntity(scanner, curr);
+					curr = scanner.lastReadGroup;
 					log.debug('}');
 				} else {
 					log.warn('Unhandled entity ' + curr.value);
@@ -1068,141 +1080,8 @@ DxfParser.prototype._parse = function(dxfString) {
 				curr = scanner.next();
 			}
 		}
-		// console.log(util.inspect(entities, { colors: true, depth: null }));
 		if(endingOnValue == 'ENDSEC') curr = scanner.next(); // swallow up ENDSEC, but not ENDBLK
 		return entities;
-	};
-
-	/**
-	 *
-	 * @param entity
-	 */
-	var checkCommonEntityProperties = function(entity) {
-		switch(curr.code) {
-			case 0:
-				entity.type = curr.value;
-				curr = scanner.next();
-				break;
-			case 5:
-				entity.handle = curr.value;
-				curr = scanner.next();
-				break;
-			case 6:
-				entity.lineType = curr.value;
-				curr = scanner.next();
-				break;
-			case 8: // Layer name
-				entity.layer = curr.value;
-				curr = scanner.next();
-				break;
-			case 48:
-				entity.lineTypeScale = curr.value;
-				curr = scanner.next();
-				break;
-			case 60:
-				entity.visible = curr.value === 0;
-				curr = scanner.next();
-				break;
-			case 62: // Acad Index Color. 0 inherits ByBlock. 256 inherits ByLayer. Default is bylayer
-				entity.colorIndex = curr.value;
-				entity.color = getAcadColor(Math.abs(curr.value));
-				curr = scanner.next();
-				break;
-			case 67:
-				entity.inPaperSpace = curr.value !== 0;
-				curr = scanner.next();
-				break;
-			case 330:
-				entity.ownerHandle = curr.value;
-				curr = scanner.next();
-				break;
-			case 347:
-				entity.materialObjectHandle = curr.value;
-				curr = scanner.next();
-				break;
-			case 370:
-				// This is technically an enum. Not sure where -2 comes from.
-				//From https://www.woutware.com/Forum/Topic/955/lineweight?returnUrl=%2FForum%2FUserPosts%3FuserId%3D478262319
-				// An integer representing 100th of mm, must be one of the following values:
-				// 0, 5, 9, 13, 15, 18, 20, 25, 30, 35, 40, 50, 53, 60, 70, 80, 90, 100, 106, 120, 140, 158, 200, 211.
-				entity.lineweight = curr.value;
-				curr = scanner.next();
-				break;
-			case 420: // TrueColor Color
-				entity.color = curr.value;
-				curr = scanner.next();
-				break;
-			case 100:
-                //ignore
-                curr = scanner.next();
-                break;
-			default:
-				logUnhandledGroup(curr);
-				curr = scanner.next();
-				break;
-		}
-	};
-
-
-	var parseVertex = function() {
-		var entity = { type: curr.value };
-		curr = scanner.next();
-		while(curr !== 'EOF') {
-			if(curr.code === 0) break;
-
-			switch(curr.code) {
-				case 10:	// X
-					entity.x = curr.value;
-					curr = scanner.next();
-					break;
-				case 20: // Y
-					entity.y = curr.value;
-					curr = scanner.next();
-					break;
-				case 30: // Z
-					entity.z = curr.value;
-					curr = scanner.next();
-					break;
-				case 40: // start width
-				case 41: // end width
-				case 42: // bulge
-					if(curr.value != 0) entity.bulge = curr.value;
-					curr = scanner.next();
-					break;
-				case 70: // flags
-					entity.curveFittingVertex = (curr.value & 1) !== 0;
-					entity.curveFitTangent = (curr.value & 2) !== 0;
-					entity.splineVertex = (curr.value & 8) !== 0;
-					entity.splineControlPoint = (curr.value & 16) !== 0;
-					entity.threeDPolylineVertex = (curr.value & 32) !== 0;
-					entity.threeDPolylineMesh = (curr.value & 64) !== 0;
-					entity.polyfaceMeshVertex = (curr.value & 128) !== 0;
-					curr = scanner.next();
-					break;
-				case 50: // curve fit tangent direction
-				case 71: // polyface mesh vertex index
-				case 72: // polyface mesh vertex index
-				case 73: // polyface mesh vertex index
-				case 74: // polyface mesh vertex index
-					curr = scanner.next();
-					break;
-				default:
-					checkCommonEntityProperties(entity);
-					break;
-			}
-		}
-		return entity;
-	};
-
-	var parseSeqEnd = function() {
-        var entity = { type: curr.value };
-        curr = scanner.next();
-        while(curr != 'EOF') {
-            if (curr.code == 0) break;
-            checkCommonEntityProperties(entity);
-        }
-
-		return entity;
 	};
 
 	/**
@@ -1228,826 +1107,13 @@ DxfParser.prototype._parse = function(dxfString) {
 		code += 10;
 		curr = scanner.next();
 		if(curr.code != code)
-			return point;
-		point.z = curr.value;
-
-		curr = scanner.next(); // advance the scanner before returning
-		return point;
-	};
-
-	var parseLWPolylineVertices = function(n) {
-		if(!n || n <= 0) throw Error('n must be greater than 0 verticies');
-		var vertices = [], i;
-		var vertexIsStarted = false;
-		var vertexIsFinished = false;
-
-		for(i = 0; i < n; i++) {
-			var vertex = {};
-			while(curr !== 'EOF') {
-				if(curr.code === 0 || vertexIsFinished) break;
-
-				switch(curr.code) {
-					case 10: // X
-						if(vertexIsStarted) {
-							vertexIsFinished = true;
-							continue;
-						}
-						vertex.x = curr.value;
-						vertexIsStarted = true;
-						break;
-					case 20: // Y
-						vertex.y = curr.value;
-						break;
-					case 30: // Z
-						vertex.z = curr.value;
-						break;
-					case 40: // start width
-						vertex.startWidth = curr.value;
-						break;
-					case 41: // end width
-						vertex.endWidth = curr.value;
-						break;
-					case 42: // bulge
-						if(curr.value != 0) vertex.bulge = curr.value;
-						break;
-					default:
-						// if we do not hit known code return vertices.  Code might belong to entity
-						if (vertexIsStarted) {
-							vertices.push(vertex);
-						}
-						return vertices;
-				}
-				curr = scanner.next();
-			}
-			// See https://groups.google.com/forum/#!topic/comp.cad.autocad/9gn8s5O_w6E
-			vertices.push(vertex);
-			vertexIsStarted = false;
-			vertexIsFinished = false;
-		}
-		return vertices;
-	};
-
-	var parsePolylineVertices = function() {
-		var vertices = [];
-		while (curr !== 'EOF') {
-			if (curr.code === 0) {
-				if (curr.value === 'VERTEX') {
-					vertices.push(parseVertex());
-				} else if (curr.value === 'SEQEND') {
-					parseSeqEnd();
-					break;
-				}
-			}
-		}
-		return vertices;
-	};
-
-	var parseMTEXT = function() {
-		var entity = { type: curr.value };
-		curr = scanner.next();
-		while(curr !== 'EOF') {
-			if(curr.code === 0) break;
-
-			switch(curr.code) {
-                case 1:
-                    entity.text = curr.value;
-                    curr = scanner.next();
-                    break;
-                case 3:
-                    entity.text += curr.value;
-                    curr = scanner.next();
-                    break;
-                case 10:
-                    entity.position = parsePoint();
-                    break;
-                case 40:
-					//Note: this is the text height
-                    entity.height = curr.value;
-                    curr = scanner.next();
-                    break;
-                case 41:
-                    entity.width = curr.value;
-                    curr = scanner.next();
-                    break;
-				case 50:
-					entity.rotation = curr.value;
-                    curr = scanner.next();
-                    break;
-                case 71:
-                    entity.attachmentPoint = curr.value;
-                    curr = scanner.next();
-                    break;
-                case 72:
-                    entity.drawingDirection = curr.value;
-                    curr = scanner.next();
-                    break;
-				default:
-					checkCommonEntityProperties(entity);
-					break;
-			}
-		}
-		return entity;
-	};
-
-	var parseATTDEF = function() {
-		var entity = {
-			type: curr.value,
-			scale: 1,
-			textStyle: 'STANDARD'
-		 };
-		curr = scanner.next();
-		while (curr !== 'EOF') {
-			if (curr.code === 0) {
-				break;
-			}
-			switch(curr.code) {
-				case 1:
-					entity.text = curr.value;
-					curr = scanner.next();
-					break;
-				case 2:
-					entity.tag = curr.value;
-					curr = scanner.next();
-					break;
-				case 3:
-					entity.prompt = curr.value;
-					curr = scanner.next();
-					break;
-				case 7:
-					entity.textStyle = curr.value;
-					curr = scanner.next();
-					break;
-				case 10:
-					entity.x = curr.value;
-					curr = scanner.next();
-					break;
-				case 20:
-					entity.y = curr.value;
-					curr = scanner.next();
-					break;
-				case 30:
-					entity.z = curr.value;
-					curr = scanner.next();
-					break;
-				case 39:
-					entity.thickness = curr.value;
-					curr = scanner.next();
-					break;
-				case 40:
-					entity.textHeight = curr.value;
-					curr = scanner.next();
-					break;
-				case 41:
-					entity.scale = curr.value;
-					curr = scanner.next();
-					break;
-				case 50:
-					entity.rotation = curr.value;
-					curr = scanner.next();
-					break;
-				case 51:
-					entity.obliqueAngle = curr.value;
-					curr = scanner.next();
-					break;
-				case 70:
-					entity.invisible = !!(curr.value & 0x01);
-					entity.constant = !!(curr.value & 0x02);
-					entity.verificationRequired = !!(curr.value & 0x04);
-					entity.preset = !!(curr.value & 0x08);
-					curr = scanner.next();
-					break;
-				case 71:
-					entity.backwards = !!(curr.value & 0x02);
-					entity.mirrored = !!(curr.value & 0x04);
-					curr = scanner.next();
-					break;
-				case 72:
-					// TODO: enum values?
-					entity.horizontalJustification = curr.value;
-					curr = scanner.next();
-					break;
-				case 73:
-					entity.fieldLength = curr.value;
-					curr = scanner.next();
-					break;
-				case 74:
-					// TODO: enum values?
-					entity.verticalJustification = curr.value;
-					curr = scanner.next();
-					break;
-				case 100:
-					// subclass
-					curr = scanner.next();
-					break;
-				case 210:
-					entity.extrusionDirectionX = curr.value;
-					curr = scanner.next();
-					break;
-				case 220:
-					entity.extrusionDirectionY = curr.value;
-					curr = scanner.next();
-					break;
-				case 230:
-					entity.extrusionDirectionZ = curr.value;
-					curr = scanner.next();
-					break;
-				default:
-					checkCommonEntityProperties(entity);
-					break;
-			}
-		}
-
-		return entity;
-	};
-	
-	var parse3dFaceVertices = function(entity) {
-        var vertices = [],
-            i;
-        var vertexIsStarted = false;
-        var vertexIsFinished = false;
-        var verticesPer3dFace = 4; // there can be up to four vertices per face, although 3 is most used for TIN
-		
-        for (i = 0; i <= verticesPer3dFace; i++) {
-            var vertex = {};
-            while (curr !== 'EOF') {
-                if (curr.code === 0 || vertexIsFinished) break;
-
-                switch (curr.code) {
-                    case 10: // X0
-                    case 11: // X1
-                    case 12: // X2
-                    case 13: // X3
-                        if (vertexIsStarted) {
-                            vertexIsFinished = true;
-                            continue;
-                        }
-                        vertex.x = curr.value;
-                        vertexIsStarted = true;
-                        break;
-                    case 20: // Y
-                    case 21:
-                    case 22:
-                    case 23:
-                        vertex.y = curr.value;
-                        break;
-                    case 30: // Z
-                    case 31:
-                    case 32:
-                    case 33:
-                        vertex.z = curr.value;
-                        break;
-                    default:
-                        // it is possible to have entity codes after the vertices.  
-                        // So if code is not accounted for return to entity parser where it might be accounted for
-                        return vertices;
-                        continue;
-                }
-                curr = scanner.next();
-            }
-            // See https://groups.google.com/forum/#!topic/comp.cad.autocad/9gn8s5O_w6E
-            vertices.push(vertex);
-            vertexIsStarted = false;
-            vertexIsFinished = false;
-        }
-        return vertices;
-    };
-
-    /**
-     * Called when the parser reads the beginning of a new entity,
-     * 0:parse3DFACE. Scanner.next() will return the first attribute of the
-     * entity.
-     * @return {Object} the entity parsed
-     */
-    var parse3DFACE = function() {
-        var entity = { type: curr.value, vertices: [] };
-          curr = scanner.next();
-        while (curr !== 'EOF') {
-            if (curr.code === 0) break;
-            switch (curr.code) {
-                case 70: // 1 = Closed shape, 128 = plinegen?, 0 = default
-                    entity.shape = ((curr.value & 1) === 1);
-                    entity.hasContinuousLinetypePattern = ((curr.value & 128) === 128);
-                    curr = scanner.next();
-                    break;
-                case 10: // X coordinate of point
-                    entity.vertices = parse3dFaceVertices();
-                    break;
-                default:
-                    checkCommonEntityProperties(entity);
-                    break;
-            }
-        }
-        return entity;
-    };
-
-	/**
-	 * Called when the parser reads the beginning of a new entity,
-	 * 0:LWPOLYLINE. Scanner.next() will return the first attribute of the
-	 * entity.
-	 * @return {Object} the entity parsed
-	 */
-	var parseLWPOLYLINE = function() {
-		var entity = { type: curr.value, vertices: [] },
-			numberOfVertices = 0;
-		curr = scanner.next();
-		while(curr !== 'EOF') {
-			if(curr.code === 0) break;
-
-			switch(curr.code) {
-				case 38:
-					entity.elevation = curr.value;
-					curr = scanner.next();
-					break;
-				case 39:
-					entity.depth = curr.value;
-					curr = scanner.next();
-					break;
-				case 70: // 1 = Closed shape, 128 = plinegen?, 0 = default
-					entity.shape = ((curr.value & 1) === 1);
-					entity.hasContinuousLinetypePattern = ((curr.value & 128) === 128);
-					curr = scanner.next();
-					break;
-				case 90:
-					numberOfVertices = curr.value;
-					curr = scanner.next();
-					break;
-				case 10: // X coordinate of point
-					entity.vertices = parseLWPolylineVertices(numberOfVertices);
-					break;
-				case 43:
-					if(curr.value !== 0) entity.width = curr.value;
-					curr = scanner.next();
-					break;
-				case 210:
-					entity.extrusionDirectionX = curr.value;
-					curr = scanner.next();
-					break;
-				case 220:
-					entity.extrusionDirectionY = curr.value;
-					curr = scanner.next();
-					break;
-				case 230:
-					entity.extrusionDirectionZ = curr.value;
-					curr = scanner.next();
-					break;
-				default:
-					checkCommonEntityProperties(entity);
-					break;
-			}
-		}
-		return entity;
-	};
-
-	/**
-	 * Called when the parser reads the beginning of a new entity,
-	 * 0:POLYLINE. Scanner.next() will return the first attribute of the
-	 * entity.
-	 * @return {Object} the entity parsed
-	 */
-	var parsePOLYLINE = function() {
-		var entity = { type: curr.value, vertices: [] };
-		curr = scanner.next();
-		while(curr !== 'EOF') {
-			if(curr.code === 0) break;
-
-			switch(curr.code) {
-				case 10: // always 0
-				case 20: // always 0
-				case 30: // elevation
-				case 39: // thickness
-                    entity.thickness = curr.value;
-					curr = scanner.next();
-					break;
-				case 40: // start width
-				case 41: // end width
-					curr = scanner.next();
-					break;
-				case 70:
-					entity.shape = (curr.value & 1) !== 0;
-                    entity.includesCurveFitVertices = (curr.value & 2) !== 0;
-                    entity.includesSplineFitVertices = (curr.value & 4) !== 0;
-                    entity.is3dPolyline = (curr.value & 8) !== 0;
-                    entity.is3dPolygonMesh = (curr.value & 16) !== 0;
-                    entity.is3dPolygonMeshClosed = (curr.value & 32) !== 0; // 32 = The polygon mesh is closed in the N direction
-                    entity.isPolyfaceMesh = (curr.value & 64) !== 0;
-                    entity.hasContinuousLinetypePattern = (curr.value & 128) !== 0;
-					curr = scanner.next();
-					break;
-				case 71: // Polygon mesh M vertex count
-				case 72: // Polygon mesh N vertex count
-				case 73: // Smooth surface M density
-				case 74: // Smooth surface N density
-				case 75: // Curves and smooth surface type
-					curr = scanner.next();
-					break;
-				case 210:
-                    extrusionDirection = parsePoint();
-					break;
-				default:
-					checkCommonEntityProperties(entity);
-					break;
-			}
-		}
-
-		entity.vertices = parsePolylineVertices();
-
-		return entity;
-	};
-
-
-	/**
-	 * Called when the parser reads the beginning of a new entity,
-	 * 0:LINE. Scanner.next() will return the first attribute of the
-	 * entity.
-	 * @return {Object} the entity parsed
-	 */
-	var parseLINE = function() {
-		var entity = { type: curr.value, vertices: [] };
-		curr = scanner.next();
-		while(curr !== 'EOF') {
-			if(curr.code === 0) break;
-
-			switch(curr.code) {
-				case 10: // X coordinate of point
-					entity.vertices.unshift(parsePoint());
-					break;
-				case 11:
-					entity.vertices.push(parsePoint());
-					break;
-				case 210:
-					entity.extrusionDirection = parsePoint();
-					break;
-				case 100:
-					if(curr.value == 'AcDbLine') {
-						curr = scanner.next();
-						break;
-					}
-				default:
-					checkCommonEntityProperties(entity);
-					break;
-			}
-		}
-		return entity;
-	};
-
-	/**
-	 * Used to parse a circle or arc entity.
-	 * @return {Object} the entity parsed
-	 */
-	var parseCIRCLE = function() {
-		var entity, endAngle;
-		entity = { type: curr.value };
-		curr = scanner.next();
-		while(curr !== 'EOF') {
-			if(curr.code === 0) break;
-
-			switch(curr.code) {
-				case 10: // X coordinate of point
-					entity.center = parsePoint();
-					break;
-				case 40: // radius
-					entity.radius = curr.value;
-					curr = scanner.next();
-					break;
-				case 50: // start angle
-					entity.startAngle = Math.PI / 180 * curr.value;
-					curr = scanner.next();
-					break;
-				case 51: // end angle
-					endAngle = Math.PI / 180 * curr.value;
-					if(endAngle < entity.startAngle)
-						entity.angleLength = endAngle + 2 * Math.PI - entity.startAngle;
-					else
-						entity.angleLength = endAngle - entity.startAngle;
-					entity.endAngle = endAngle;
-					curr = scanner.next();
-					break;
-				default: // ignored attribute
-					checkCommonEntityProperties(entity);
-					break;
-			}
-		}
-		return entity;
-	};
-
-	var parseTEXT = function() {
-		var entity;
-		entity = { type: curr.value };
-		curr = scanner.next();
-		while(curr !== 'EOF') {
-			if(curr.code === 0) break;
-			switch(curr.code) {
-				case 10: // X coordinate of 'first alignment point'
-					entity.startPoint = parsePoint();
-					break;
-				case 11: // X coordinate of 'second alignment point'
-					entity.endPoint = parsePoint();
-					break;
-				case 40: // Text height
-					entity.textHeight = curr.value;
-					curr = scanner.next();
-					break;
-				case 41:
-					entity.xScale = curr.value;
-					curr = scanner.next();
-					break;
-				case 50: // Rotation in degrees
-					entity.rotation = curr.value;
-					curr = scanner.next();
-					break;
-				case 1: // Text
-					entity.text = curr.value;
-					curr = scanner.next();
-					break;
-				// NOTE: 72 and 73 are meaningless without 11 (second alignment point)
-				case 72: // Horizontal alignment
-					entity.halign = curr.value;
-					curr = scanner.next();
-					break;
-				case 73: // Vertical alignment
-					entity.valign = curr.value;
-					curr = scanner.next();
-					break;
-				default: // check common entity attributes
-					checkCommonEntityProperties(entity);
-					break;
-			}
-		}
-		return entity;
-	};
-
-	var parseDIMENSION = function() {
-		var entity;
-		entity = { type: curr.value };
-		curr = scanner.next();
-		while(curr !== 'EOF') {
-			if(curr.code === 0) break;
-
-			switch(curr.code) {
-				case 2: // Referenced block name
-					entity.block = curr.value;
-					curr = scanner.next();
-					break;
-				case 10: // X coordinate of 'first alignment point'
-					entity.anchorPoint = parsePoint();
-					break;
-				case 11:
-					entity.middleOfText = parsePoint();
-					break;
-				case 71: // 5 = Middle center
-					entity.attachmentPoint = curr.value;
-					curr = scanner.next();
-					break;
-				case 42: // Actual measurement
-					entity.actualMeasurement = curr.value;
-					curr = scanner.next();
-					break;
-				case 1: // Text entered by user explicitly
-					entity.text = curr.value;
-					curr = scanner.next();
-					break;
-				case 50: // Angle of rotated, horizontal, or vertical dimensions
-					entity.angle = curr.value;
-					curr = scanner.next();
-					break;
-				default: // check common entity attributes
-					checkCommonEntityProperties(entity);
-					break;
-			}
-		}
-
-		return entity;
-	};
-
-	var parseSOLID = function() {
-		var entity;
-		entity = { type: curr.value };
-		entity.points = [];
-		curr = scanner.next();
-		while(curr !== 'EOF') {
-			if(curr.code === 0) break;
-
-			switch(curr.code) {
-				case 10:
-					entity.points[0] = parsePoint();
-					break;
-				case 11:
-					entity.points[1] = parsePoint();
-					break;
-				case 12:
-					entity.points[2] = parsePoint();
-					break;
-				case 13:
-					entity.points[3] = parsePoint();
-					break;
-				case 210:
-					entity.extrusionDirection = parsePoint();
-					curr = scanner.next();
-					break;
-				default: // check common entity attributes
-					checkCommonEntityProperties(entity);
-					break;
-			}
-		}
-
-		return entity;
-	};
-
-	var parseINSERT = function() {
-		var entity;
-		entity = { type: curr.value };
-		curr = scanner.next();
-		while(curr !== 'EOF') {
-			if(curr.code === 0) break;
-
-			switch(curr.code) {
-				case 2:
-					entity.name = curr.value;
-					curr = scanner.next();
-					break;
-				case 41:
-					entity.xScale = curr.value;
-					curr = scanner.next();
-					break;
-				case 42:
-					entity.yScale = curr.value;
-					curr = scanner.next();
-					break;
-				case 43:
-					entity.zScale = curr.value;
-					curr = scanner.next();
-					break;
-				case 10:
-					entity.position = parsePoint();
-					break;
-				case 50:
-					entity.rotation = curr.value;
-					curr = scanner.next();
-					break;
-				case 70:
-					entity.columnCount = curr.value;
-					curr = scanner.next();
-					break;
-				case 71:
-					entity.rowCount = curr.value;
-					curr = scanner.next();
-					break;
-				case 44:
-					entity.columnSpacing = curr.value;
-					curr = scanner.next();
-					break;
-				case 45:
-					entity.rowSpacing = curr.value;
-					curr = scanner.next();
-					break;
-				case 210:
-					entity.extrusionDirection = parsePoint();
-					break;
-				default: // check common entity attributes
-					checkCommonEntityProperties(entity);
-					break;
-			}
-		}
-
-		return entity;
-	};
-
-	var parseSPLINE = function() {
-		var entity;
-		entity = { type: curr.value };
-		curr = scanner.next();
-		while(curr !== 'EOF')
 		{
-			if(curr.code === 0) break;
-
-			switch(curr.code) {
-				case 10:
-					if (!entity.controlPoints) entity.controlPoints = [];
-					entity.controlPoints.push(parsePoint());
-					break;
-				case 11:
-					if (!entity.fitPoints) entity.fitPoints = [];
-					entity.fitPoints.push(parsePoint());
-					break;
-				case 12:
-					entity.startTangent = parsePoint();
-					break;
-				case 13:
-					entity.endTangent = parsePoint();
-					break;
-				case 40:
-					if (!entity.knotValues) entity.knotValues = [];
-					entity.knotValues.push(curr.value);
-					curr = scanner.next();
-					break;
-				case 70:
-					if ((curr.value & 1) != 0) entity.closed = true;
-					if ((curr.value & 2) != 0) entity.periodic = true;
-					if ((curr.value & 4) != 0) entity.rational = true;
-					if ((curr.value & 8) != 0) entity.planar = true;
-					if ((curr.value & 16) != 0) 
-					{
-						entity.planar = true;
-						entity.linear = true;
-					}
-					curr = scanner.next();
-					break;
-					
-				case 71:
-					entity.degreeOfSplineCurve = curr.value;
-					curr = scanner.next();
-					break;
-				case 72:
-					entity.numberOfKnots = curr.value;
-					curr = scanner.next();
-					break;
-				case 73:
-					entity.numberOfControlPoints = curr.value;
-					curr = scanner.next();
-					break;
-				case 74:
-					entity.numberOfFitPoints = curr.value;
-					curr = scanner.next();
-					break;
-				case 210:
-					entity.normalVector = parsePoint();
-					break;
-				default:
-					checkCommonEntityProperties(entity);
-					break;
-			}
+			scanner.rewind();
+			return point;
 		}
-
-		return entity;
-	};
-
-	var parseELLIPSE = function() {
-		var entity;
-		entity = { type: curr.value };
-		curr = scanner.next();
-		while(curr !== 'EOF') {
-			if(curr.code === 0) break;
-
-			switch(curr.code) {
-				case 10:
-					entity.center = parsePoint();
-				case 11:
-					entity.majorAxisEndPoint = parsePoint();
-				case 40:
-					entity.axisRatio = curr.value;
-					curr = scanner.next();
-					break;
-				case 41:
-					entity.startAngle = curr.value;
-					curr = scanner.next();
-					break;
-				case 42:
-					entity.endAngle = curr.value;
-					curr = scanner.next();
-					break;
-				case 2:
-					entity.name = curr.value;
-					curr = scanner.next();
-					break;
-				default: // check common entity attributes
-					checkCommonEntityProperties(entity);
-					break;
-			}
-		}
-
-		return entity;
-	}
-
-	var parsePOINT = function() {
-		var entity;
-		entity = { type: curr.value };
-		curr = scanner.next();
-		while(curr !== 'EOF') {
-			if(curr.code === 0) break;
-
-			switch(curr.code) {
-				case 10:
-					entity.position = parsePoint();
-					break;
-				case 39:
-					entity.thickness = curr.value;
-					curr = scanner.next();
-					break;
-				case 210:
-					entity.extrusionDirection = parsePoint();
-					break;
-				case 100:
-					if(curr.value == 'AcDbPoint') {
-						curr = scanner.next();
-						break;
-					}
-				default: // check common entity attributes
-					checkCommonEntityProperties(entity);
-					break;
-			}
-		}
-
-		return entity;
+		point.z = curr.value;
+		
+		return point;
 	};
 
 	var ensureHandle = function(entity) {
@@ -2094,7 +1160,1085 @@ module.exports = DxfParser;
 // Code 6 of an entity indicates inheritance of properties (eg. color).
 //   BYBLOCK means inherits from block
 //   BYLAYER (default) mean inherits from layer
-},{"./AutoCadColorIndex":1,"./DxfArrayScanner.js":2,"loglevel":4}],4:[function(require,module,exports){
+},{"./AutoCadColorIndex":1,"./DxfArrayScanner.js":2,"./entities/3dface":5,"./entities/arc":6,"./entities/attdef":7,"./entities/circle":8,"./entities/dimension":9,"./entities/ellipse":10,"./entities/insert":11,"./entities/line":12,"./entities/lwpolyline":13,"./entities/mtext":14,"./entities/point":15,"./entities/polyline":16,"./entities/solid":17,"./entities/spline":18,"./entities/text":19,"loglevel":21}],4:[function(require,module,exports){
+var AUTO_CAD_COLOR_INDEX = require('./AutoCadColorIndex');
+
+/**
+ * Returns the truecolor value of the given AutoCad color index value
+ * @return {Number} truecolor value as a number
+ */
+exports.getAcadColor = function(index) {
+	return AUTO_CAD_COLOR_INDEX[index];
+}
+var getAcadColor = exports.getAcadColor;
+
+/**
+ * Parses the 2D or 3D coordinate, vector, or point. When complete,
+ * the scanner remains on the last group of the coordinate.
+ * @param {*} scanner 
+ */
+exports.parsePoint = function(scanner) {
+    var point = {};
+
+    // Reread group for the first coordinate
+    scanner.rewind();
+    var curr = scanner.next();
+
+    code = curr.code;
+    point.x = curr.value;
+
+    code += 10;
+    curr = scanner.next();
+    if(curr.code != code)
+        throw new Error('Expected code for point value to be ' + code +
+        ' but got ' + curr.code + '.');
+    point.y = curr.value;
+
+    code += 10;
+    curr = scanner.next();
+    if(curr.code != code)
+    {
+        // Only the x and y are specified. Don't read z.
+        scanner.rewind(); // Let the calling code advance off the point
+        return point;
+    }
+    point.z = curr.value;
+    
+    return point;
+};
+
+/**
+ * Attempts to parse codes common to all entities. Returns true if the group
+ * was handled by this function.
+ * @param {*} entity - the entity currently being parsed 
+ * @param {*} curr - the current group being parsed
+ */
+exports.checkCommonEntityProperties = function(entity, curr) {
+    switch(curr.code) {
+        case 0:
+            entity.type = curr.value;
+            break;
+        case 5:
+            entity.handle = curr.value;
+            break;
+        case 6:
+            entity.lineType = curr.value;
+            break;
+        case 8: // Layer name
+            entity.layer = curr.value;
+            break;
+        case 48:
+            entity.lineTypeScale = curr.value;
+            break;
+        case 60:
+            entity.visible = curr.value === 0;
+            break;
+        case 62: // Acad Index Color. 0 inherits ByBlock. 256 inherits ByLayer. Default is bylayer
+            entity.colorIndex = curr.value;
+            entity.color = getAcadColor(Math.abs(curr.value));
+            break;
+        case 67:
+            entity.inPaperSpace = curr.value !== 0;
+            break;
+        case 330:
+            entity.ownerHandle = curr.value;
+            break;
+        case 347:
+            entity.materialObjectHandle = curr.value;
+            break;
+        case 370:
+            //From https://www.woutware.com/Forum/Topic/955/lineweight?returnUrl=%2FForum%2FUserPosts%3FuserId%3D478262319
+            // An integer representing 100th of mm, must be one of the following values:
+            // 0, 5, 9, 13, 15, 18, 20, 25, 30, 35, 40, 50, 53, 60, 70, 80, 90, 100, 106, 120, 140, 158, 200, 211.
+            // -3 = STANDARD, -2 = BYLAYER, -1 = BYBLOCK
+            entity.lineweight = curr.value;
+            break;
+        case 420: // TrueColor Color
+            entity.color = curr.value;
+            break;
+        case 100:
+            //ignore
+            break;
+        default:
+            return false;
+    }
+    return true;
+};
+
+},{"./AutoCadColorIndex":1}],5:[function(require,module,exports){
+
+var helpers = require('../ParseHelpers');
+
+module.exports = EntityParser;
+
+function EntityParser() {}
+
+EntityParser.ForEntityName = '3DFACE';
+
+EntityParser.prototype.parseEntity = function(scanner, curr) {
+
+    var entity = { type: curr.value, vertices: [] };
+    curr = scanner.next();
+    while (curr !== 'EOF') {
+        if (curr.code === 0) break;
+        switch (curr.code) {
+            case 70: // 1 = Closed shape, 128 = plinegen?, 0 = default
+                entity.shape = ((curr.value & 1) === 1);
+                entity.hasContinuousLinetypePattern = ((curr.value & 128) === 128);
+                break;
+            case 10: // X coordinate of point
+                entity.vertices = parse3dFaceVertices(scanner, curr);
+                curr = scanner.lastReadGroup;
+                break;
+            default:
+                checkCommonEntityProperties(entity);
+                break;
+        }
+        curr = scanner.next();
+    }
+    return entity;
+};
+
+function parse3dFaceVertices(scanner, curr) {
+    var vertices = [],
+        i;
+    var vertexIsStarted = false;
+    var vertexIsFinished = false;
+    var verticesPer3dFace = 4; // there can be up to four vertices per face, although 3 is most used for TIN
+    
+    for (i = 0; i <= verticesPer3dFace; i++) {
+        var vertex = {};
+        while (curr !== 'EOF') {
+            if (curr.code === 0 || vertexIsFinished) break;
+
+            switch (curr.code) {
+                case 10: // X0
+                case 11: // X1
+                case 12: // X2
+                case 13: // X3
+                    if (vertexIsStarted) {
+                        vertexIsFinished = true;
+                        continue;
+                    }
+                    vertex.x = curr.value;
+                    vertexIsStarted = true;
+                    break;
+                case 20: // Y
+                case 21:
+                case 22:
+                case 23:
+                    vertex.y = curr.value;
+                    break;
+                case 30: // Z
+                case 31:
+                case 32:
+                case 33:
+                    vertex.z = curr.value;
+                    break;
+                default:
+                    // it is possible to have entity codes after the vertices.  
+                    // So if code is not accounted for return to entity parser where it might be accounted for
+                    return vertices;
+                    continue;
+            }
+            curr = scanner.next();
+        }
+        // See https://groups.google.com/forum/#!topic/comp.cad.autocad/9gn8s5O_w6E
+        vertices.push(vertex);
+        vertexIsStarted = false;
+        vertexIsFinished = false;
+    }
+    scanner.rewind();
+    return vertices;
+};
+},{"../ParseHelpers":4}],6:[function(require,module,exports){
+
+var helpers = require('../ParseHelpers');
+
+module.exports = EntityParser;
+
+function EntityParser() {}
+
+EntityParser.ForEntityName = 'ARC';
+
+EntityParser.prototype.parseEntity = function(scanner, curr) {
+    var entity, endAngle;
+    entity = { type: curr.value };
+    curr = scanner.next();
+    while(curr !== 'EOF') {
+        if(curr.code === 0) break;
+
+        switch(curr.code) {
+            case 10: // X coordinate of point
+                entity.center = helpers.parsePoint(scanner);
+                break;
+            case 40: // radius
+                entity.radius = curr.value;
+                break;
+            case 50: // start angle
+                entity.startAngle = Math.PI / 180 * curr.value;
+                break;
+            case 51: // end angle
+                endAngle = Math.PI / 180 * curr.value;
+                if(endAngle < entity.startAngle)
+                    entity.angleLength = endAngle + 2 * Math.PI - entity.startAngle;
+                else
+                    entity.angleLength = endAngle - entity.startAngle;
+                entity.endAngle = endAngle;
+                break;
+            default: // ignored attribute
+                helpers.checkCommonEntityProperties(entity, curr);
+                break;
+        }
+        curr = scanner.next();
+    }
+    return entity;
+};
+},{"../ParseHelpers":4}],7:[function(require,module,exports){
+
+var helpers = require('../ParseHelpers');
+
+module.exports = EntityParser;
+
+function EntityParser() {}
+
+EntityParser.ForEntityName = 'ATTDEF';
+
+EntityParser.prototype.parseEntity = function(scanner, curr) {
+    var entity = {
+        type: curr.value,
+        scale: 1,
+        textStyle: 'STANDARD'
+     };
+    curr = scanner.next();
+    while (curr !== 'EOF') {
+        if (curr.code === 0) {
+            break;
+        }
+        switch(curr.code) {
+            case 1:
+                entity.text = curr.value;
+                break;
+            case 2:
+                entity.tag = curr.value;
+                break;
+            case 3:
+                entity.prompt = curr.value;
+                break;
+            case 7:
+                entity.textStyle = curr.value;
+                break;
+            case 10:
+                entity.x = curr.value;
+                break;
+            case 20:
+                entity.y = curr.value;
+                break;
+            case 30:
+                entity.z = curr.value;
+                break;
+            case 39:
+                entity.thickness = curr.value;
+                break;
+            case 40:
+                entity.textHeight = curr.value;
+                break;
+            case 41:
+                entity.scale = curr.value;
+                break;
+            case 50:
+                entity.rotation = curr.value;
+                break;
+            case 51:
+                entity.obliqueAngle = curr.value;
+                break;
+            case 70:
+                entity.invisible = !!(curr.value & 0x01);
+                entity.constant = !!(curr.value & 0x02);
+                entity.verificationRequired = !!(curr.value & 0x04);
+                entity.preset = !!(curr.value & 0x08);
+                break;
+            case 71:
+                entity.backwards = !!(curr.value & 0x02);
+                entity.mirrored = !!(curr.value & 0x04);
+                break;
+            case 72:
+                // TODO: enum values?
+                entity.horizontalJustification = curr.value;
+                break;
+            case 73:
+                entity.fieldLength = curr.value;
+                break;
+            case 74:
+                // TODO: enum values?
+                entity.verticalJustification = curr.value;
+                break;
+            case 100:
+                break;
+            case 210:
+                entity.extrusionDirectionX = curr.value;
+                break;
+            case 220:
+                entity.extrusionDirectionY = curr.value;
+                break;
+            case 230:
+                entity.extrusionDirectionZ = curr.value;
+                break;
+            default:
+                helpers.checkCommonEntityProperties(entity, curr);
+                break;
+        }
+        curr = scanner.next();
+    }
+
+    return entity;
+};
+},{"../ParseHelpers":4}],8:[function(require,module,exports){
+
+var helpers = require('../ParseHelpers');
+
+module.exports = EntityParser;
+
+function EntityParser() {}
+
+EntityParser.ForEntityName = 'CIRCLE';
+
+EntityParser.prototype.parseEntity = function(scanner, curr) {
+    var entity, endAngle;
+    entity = { type: curr.value };
+    curr = scanner.next();
+    while(curr !== 'EOF') {
+        if(curr.code === 0) break;
+
+        switch(curr.code) {
+            case 10: // X coordinate of point
+                entity.center = helpers.parsePoint(scanner);
+                break;
+            case 40: // radius
+                entity.radius = curr.value;
+                break;
+            case 50: // start angle
+                entity.startAngle = Math.PI / 180 * curr.value;
+                break;
+            case 51: // end angle
+                endAngle = Math.PI / 180 * curr.value;
+                if(endAngle < entity.startAngle)
+                    entity.angleLength = endAngle + 2 * Math.PI - entity.startAngle;
+                else
+                    entity.angleLength = endAngle - entity.startAngle;
+                entity.endAngle = endAngle;
+                break;
+            default: // ignored attribute
+                helpers.checkCommonEntityProperties(entity, curr);
+                break;
+        }
+        curr = scanner.next();
+    }
+    return entity;
+};
+},{"../ParseHelpers":4}],9:[function(require,module,exports){
+
+var helpers = require('../ParseHelpers');
+
+module.exports = EntityParser;
+
+function EntityParser() {}
+
+EntityParser.ForEntityName = 'DIMENSION';
+
+EntityParser.prototype.parseEntity = function(scanner, curr) {
+    var entity;
+		entity = { type: curr.value };
+		curr = scanner.next();
+		while(curr !== 'EOF') {
+			if(curr.code === 0) break;
+
+			switch(curr.code) {
+				case 2: // Referenced block name
+					entity.block = curr.value;
+					break;
+				case 10: // X coordinate of 'first alignment point'
+					entity.anchorPoint = helpers.parsePoint(scanner);
+					break;
+				case 11:
+					entity.middleOfText = helpers.parsePoint(scanner);
+					break;
+				case 71: // 5 = Middle center
+					entity.attachmentPoint = curr.value;
+					break;
+				case 42: // Actual measurement
+					entity.actualMeasurement = curr.value;
+					break;
+				case 1: // Text entered by user explicitly
+					entity.text = curr.value;
+					break;
+				case 50: // Angle of rotated, horizontal, or vertical dimensions
+					entity.angle = curr.value;
+					break;
+				default: // check common entity attributes
+					helpers.checkCommonEntityProperties(entity, curr);
+					break;
+			}
+			curr = scanner.next();
+		}
+
+		return entity;
+};
+
+
+
+},{"../ParseHelpers":4}],10:[function(require,module,exports){
+
+var helpers = require('../ParseHelpers');
+
+module.exports = EntityParser;
+
+function EntityParser() {}
+
+EntityParser.ForEntityName = 'ELLIPSE';
+
+EntityParser.prototype.parseEntity = function(scanner, curr) {
+    var entity;
+    entity = { type: curr.value };
+    curr = scanner.next();
+    while(curr !== 'EOF') {
+        if(curr.code === 0) break;
+
+        switch(curr.code) {
+            case 10:
+                entity.center = helpers.parsePoint(scanner);
+                break;
+            case 11:
+                entity.majorAxisEndPoint = helpers.parsePoint(scanner);
+                break;
+            case 40:
+                entity.axisRatio = curr.value;
+                break;
+            case 41:
+                entity.startAngle = curr.value;
+                break;
+            case 42:
+                entity.endAngle = curr.value;
+                break;
+            case 2:
+                entity.name = curr.value;
+                break;
+            default: // check common entity attributes
+                helpers.checkCommonEntityProperties(entity, curr);
+                break;
+        }
+        
+        curr = scanner.next();
+    }
+
+    return entity;
+};
+},{"../ParseHelpers":4}],11:[function(require,module,exports){
+
+var helpers = require('../ParseHelpers');
+
+module.exports = EntityParser;
+
+function EntityParser() {}
+
+EntityParser.ForEntityName = 'INSERT';
+
+EntityParser.prototype.parseEntity = function(scanner, curr) {
+    var entity;
+    entity = { type: curr.value };
+    curr = scanner.next();
+    while(curr !== 'EOF') {
+        if(curr.code === 0) break;
+
+        switch(curr.code) {
+            case 2:
+                entity.name = curr.value;
+                break;
+            case 41:
+                entity.xScale = curr.value;
+                break;
+            case 42:
+                entity.yScale = curr.value;
+                break;
+            case 43:
+                entity.zScale = curr.value;
+                break;
+            case 10:
+                entity.position = helpers.parsePoint(scanner);
+                break;
+            case 50:
+                entity.rotation = curr.value;
+                break;
+            case 70:
+                entity.columnCount = curr.value;
+                break;
+            case 71:
+                entity.rowCount = curr.value;
+                break;
+            case 44:
+                entity.columnSpacing = curr.value;
+                break;
+            case 45:
+                entity.rowSpacing = curr.value;
+                break;
+            case 210:
+                entity.extrusionDirection = helpers.parsePoint(scanner);
+                break;
+            default: // check common entity attributes
+                helpers.checkCommonEntityProperties(entity, curr);
+                break;
+        }
+        curr = scanner.next();
+    }
+
+    return entity;
+};
+
+
+
+},{"../ParseHelpers":4}],12:[function(require,module,exports){
+
+var helpers = require('../ParseHelpers');
+
+module.exports = EntityParser;
+
+function EntityParser() {}
+
+EntityParser.ForEntityName = 'LINE';
+
+EntityParser.prototype.parseEntity = function(scanner, curr) {
+    var entity = { type: curr.value, vertices: [] };
+    curr = scanner.next();
+    while(curr !== 'EOF') {
+        if(curr.code === 0) break;
+
+        switch(curr.code) {
+            case 10: // X coordinate of point
+                entity.vertices.unshift(helpers.parsePoint(scanner));
+                break;
+            case 11:
+                entity.vertices.push(helpers.parsePoint(scanner));
+                break;
+            case 210:
+                entity.extrusionDirection = helpers.parsePoint(scanner);
+                break;
+            case 100:
+                break;
+            default:
+                helpers.checkCommonEntityProperties(entity, curr);
+                break;
+        }
+        
+        curr = scanner.next();
+    }
+    return entity;
+};
+},{"../ParseHelpers":4}],13:[function(require,module,exports){
+
+var helpers = require('../ParseHelpers');
+
+module.exports = EntityParser;
+
+function EntityParser() {}
+
+EntityParser.ForEntityName = 'LWPOLYLINE';
+
+EntityParser.prototype.parseEntity = function(scanner, curr) {
+    var entity = { type: curr.value, vertices: [] },
+        numberOfVertices = 0;
+    curr = scanner.next();
+    while(curr !== 'EOF') {
+        if(curr.code === 0) break;
+
+        switch(curr.code) {
+            case 38:
+                entity.elevation = curr.value;
+                break;
+            case 39:
+                entity.depth = curr.value;
+                break;
+            case 70: // 1 = Closed shape, 128 = plinegen?, 0 = default
+                entity.shape = ((curr.value & 1) === 1);
+                entity.hasContinuousLinetypePattern = ((curr.value & 128) === 128);
+                break;
+            case 90:
+                numberOfVertices = curr.value;
+                break;
+            case 10: // X coordinate of point
+                entity.vertices = parseLWPolylineVertices(numberOfVertices, scanner);
+                break;
+            case 43:
+                if(curr.value !== 0) entity.width = curr.value;
+                break;
+            case 210:
+                entity.extrusionDirectionX = curr.value;
+                break;
+            case 220:
+                entity.extrusionDirectionY = curr.value;
+                break;
+            case 230:
+                entity.extrusionDirectionZ = curr.value;
+                break;
+            default:
+                helpers.checkCommonEntityProperties(entity, curr);
+                break;
+        }
+        curr = scanner.next();
+    }
+    return entity;
+};
+
+function parseLWPolylineVertices(n, scanner) {
+    if(!n || n <= 0) throw Error('n must be greater than 0 verticies');
+    var vertices = [], i;
+    var vertexIsStarted = false;
+    var vertexIsFinished = false;
+    var curr = scanner.lastReadGroup;
+
+    for(i = 0; i < n; i++) {
+        var vertex = {};
+        while(curr !== 'EOF') {
+            if(curr.code === 0 || vertexIsFinished) break;
+
+            switch(curr.code) {
+                case 10: // X
+                    if(vertexIsStarted) {
+                        vertexIsFinished = true;
+                        continue;
+                    }
+                    vertex.x = curr.value;
+                    vertexIsStarted = true;
+                    break;
+                case 20: // Y
+                    vertex.y = curr.value;
+                    break;
+                case 30: // Z
+                    vertex.z = curr.value;
+                    break;
+                case 40: // start width
+                    vertex.startWidth = curr.value;
+                    break;
+                case 41: // end width
+                    vertex.endWidth = curr.value;
+                    break;
+                case 42: // bulge
+                    if(curr.value != 0) vertex.bulge = curr.value;
+                    break;
+                default:
+                    // if we do not hit known code return vertices.  Code might belong to entity
+                    if (vertexIsStarted) {
+                        vertices.push(vertex);
+                    }
+                    return vertices;
+            }
+            curr = scanner.next();
+        }
+        // See https://groups.google.com/forum/#!topic/comp.cad.autocad/9gn8s5O_w6E
+        vertices.push(vertex);
+        vertexIsStarted = false;
+        vertexIsFinished = false;
+    }
+    scanner.rewind();
+    return vertices;
+};
+},{"../ParseHelpers":4}],14:[function(require,module,exports){
+
+var helpers = require('../ParseHelpers');
+
+module.exports = EntityParser;
+
+function EntityParser() {}
+
+EntityParser.ForEntityName = 'MTEXT';
+
+EntityParser.prototype.parseEntity = function(scanner, curr) {
+    var entity = { type: curr.value };
+		curr = scanner.next();
+    while(curr !== 'EOF') {
+        if(curr.code === 0) break;
+
+        switch(curr.code) {
+            case 1:
+                entity.text = curr.value;
+                break;
+            case 3:
+                entity.text += curr.value;
+                break;
+            case 10:
+                entity.position = helpers.parsePoint(scanner);
+                break;
+            case 40:
+                //Note: this is the text height
+                entity.height = curr.value;
+                break;
+            case 41:
+                entity.width = curr.value;
+                break;
+            case 50:
+                entity.rotation = curr.value;
+                break;
+            case 71:
+                entity.attachmentPoint = curr.value;
+                break;
+            case 72:
+                entity.drawingDirection = curr.value;
+                break;
+            default:
+                helpers.checkCommonEntityProperties(entity, curr);
+                break;
+        }
+        curr = scanner.next();
+    }
+    return entity;
+};
+},{"../ParseHelpers":4}],15:[function(require,module,exports){
+
+var helpers = require('../ParseHelpers');
+
+module.exports = EntityParser;
+
+function EntityParser() {}
+
+EntityParser.ForEntityName = 'POINT';
+
+EntityParser.prototype.parseEntity = function(scanner, curr) {
+    var entity;
+    entity = { type: curr.value };
+    curr = scanner.next();
+    while(curr !== 'EOF') {
+        if(curr.code === 0) break;
+
+        switch(curr.code) {
+            case 10:
+                entity.position = helpers.parsePoint(scanner);
+                break;
+            case 39:
+                entity.thickness = curr.value;
+                break;
+            case 210:
+                entity.extrusionDirection = helpers.parsePoint(scanner);
+                break;
+            case 100:
+                break;
+            default: // check common entity attributes
+                helpers.checkCommonEntityProperties(entity, curr);
+                break;
+        }
+        curr = scanner.next();
+    }
+
+    return entity;
+};
+},{"../ParseHelpers":4}],16:[function(require,module,exports){
+
+var helpers = require('../ParseHelpers');
+var VertexParser = require('./vertex');
+
+module.exports = EntityParser;
+
+function EntityParser() {}
+
+EntityParser.ForEntityName = 'POLYLINE';
+
+EntityParser.prototype.parseEntity = function(scanner, curr) {
+    var entity = { type: curr.value, vertices: [] };
+		curr = scanner.next();
+		while(curr !== 'EOF') {
+			if(curr.code === 0) break;
+
+			switch(curr.code) {
+				case 10: // always 0
+				case 20: // always 0
+				case 30: // elevation
+				case 39: // thickness
+                    entity.thickness = curr.value;
+					break;
+				case 40: // start width
+				case 41: // end width
+					break;
+				case 70:
+					entity.shape = (curr.value & 1) !== 0;
+                    entity.includesCurveFitVertices = (curr.value & 2) !== 0;
+                    entity.includesSplineFitVertices = (curr.value & 4) !== 0;
+                    entity.is3dPolyline = (curr.value & 8) !== 0;
+                    entity.is3dPolygonMesh = (curr.value & 16) !== 0;
+                    entity.is3dPolygonMeshClosed = (curr.value & 32) !== 0; // 32 = The polygon mesh is closed in the N direction
+                    entity.isPolyfaceMesh = (curr.value & 64) !== 0;
+                    entity.hasContinuousLinetypePattern = (curr.value & 128) !== 0;
+					break;
+				case 71: // Polygon mesh M vertex count
+				case 72: // Polygon mesh N vertex count
+				case 73: // Smooth surface M density
+				case 74: // Smooth surface N density
+				case 75: // Curves and smooth surface type
+					break;
+				case 210:
+                    extrusionDirection = helpers.parsePoint(scanner);
+					break;
+				default:
+					helpers.checkCommonEntityProperties(entity, curr);
+					break;
+			}
+			curr = scanner.next();
+		}
+
+		entity.vertices = parsePolylineVertices(scanner, curr);
+
+		return entity;
+};
+
+function parsePolylineVertices(scanner, curr) {
+    var vertexParser = new VertexParser();
+
+    var vertices = [];
+    while (!scanner.isEOF()) {
+        if (curr.code === 0) {
+            if (curr.value === 'VERTEX') {
+                vertices.push(vertexParser.parseEntity(scanner, curr));
+                curr = scanner.lastReadGroup;
+            } else if (curr.value === 'SEQEND') {
+                parseSeqEnd(scanner, curr);
+                break;
+            }
+        }
+    }
+    return vertices;
+};
+
+function parseSeqEnd(scanner, curr) {
+    var entity = { type: curr.value };
+    curr = scanner.next();
+    while(curr != 'EOF') {
+        if (curr.code == 0) break;
+        helpers.checkCommonEntityProperties(entity, curr);
+        curr = scanner.next();
+    }
+
+    return entity;
+};
+
+},{"../ParseHelpers":4,"./vertex":20}],17:[function(require,module,exports){
+
+var helpers = require('../ParseHelpers');
+
+module.exports = EntityParser;
+
+function EntityParser() {}
+
+EntityParser.ForEntityName = 'SOLID';
+
+EntityParser.prototype.parseEntity = function(scanner, currentGroup) {
+    var entity;
+    entity = { type: currentGroup.value };
+    entity.points = [];
+    currentGroup = scanner.next();
+    while(currentGroup !== 'EOF') {
+        if(currentGroup.code === 0) break;
+
+        switch(currentGroup.code) {
+            case 10:
+                entity.points[0] = helpers.parsePoint(scanner);
+                break;
+            case 11:
+                entity.points[1] = helpers.parsePoint(scanner);
+                break;
+            case 12:
+                entity.points[2] = helpers.parsePoint(scanner);
+                break;
+            case 13:
+                entity.points[3] = helpers.parsePoint(scanner);
+                break;
+            case 210:
+                entity.extrusionDirection = helpers.parsePoint(scanner);
+                break;
+            default: // check common entity attributes
+                helpers.checkCommonEntityProperties(entity, currentGroup);
+                break;
+        }
+        currentGroup = scanner.next();
+    }
+
+    return entity;
+};
+},{"../ParseHelpers":4}],18:[function(require,module,exports){
+
+var helpers = require('../ParseHelpers');
+
+module.exports = EntityParser;
+
+function EntityParser() {}
+
+EntityParser.ForEntityName = 'SPLINE';
+
+EntityParser.prototype.parseEntity = function(scanner, curr) {
+    var entity;
+    entity = { type: curr.value };
+    curr = scanner.next();
+    while(curr !== 'EOF')
+    {
+        if(curr.code === 0) break;
+
+        switch(curr.code) {
+            case 10:
+                if (!entity.controlPoints) entity.controlPoints = [];
+                entity.controlPoints.push(helpers.parsePoint(scanner));
+                break;
+            case 11:
+                if (!entity.fitPoints) entity.fitPoints = [];
+                entity.fitPoints.push(helpers.parsePoint(scanner));
+                break;
+            case 12:
+                entity.startTangent = helpers.parsePoint(scanner);
+                break;
+            case 13:
+                entity.endTangent = helpers.parsePoint(scanner);
+                break;
+            case 40:
+                if (!entity.knotValues) entity.knotValues = [];
+                entity.knotValues.push(curr.value);
+                break;
+            case 70:
+                if ((curr.value & 1) != 0) entity.closed = true;
+                if ((curr.value & 2) != 0) entity.periodic = true;
+                if ((curr.value & 4) != 0) entity.rational = true;
+                if ((curr.value & 8) != 0) entity.planar = true;
+                if ((curr.value & 16) != 0) 
+                {
+                    entity.planar = true;
+                    entity.linear = true;
+                }
+                break;
+                
+            case 71:
+                entity.degreeOfSplineCurve = curr.value;
+                break;
+            case 72:
+                entity.numberOfKnots = curr.value;
+                break;
+            case 73:
+                entity.numberOfControlPoints = curr.value;
+                break;
+            case 74:
+                entity.numberOfFitPoints = curr.value;
+                break;
+            case 210:
+                entity.normalVector = helpers.parsePoint(scanner);
+                break;
+            default:
+                helpers.checkCommonEntityProperties(entity, curr);
+                break;
+        }
+        curr = scanner.next();
+    }
+
+    return entity;
+};
+},{"../ParseHelpers":4}],19:[function(require,module,exports){
+
+var helpers = require('../ParseHelpers');
+
+module.exports = EntityParser;
+
+function EntityParser() {}
+
+EntityParser.ForEntityName = 'TEXT';
+
+EntityParser.prototype.parseEntity = function(scanner, curr) {
+    var entity;
+		entity = { type: curr.value };
+    curr = scanner.next();
+    while(curr !== 'EOF') {
+        if(curr.code === 0) break;
+        switch(curr.code) {
+            case 10: // X coordinate of 'first alignment point'
+                entity.startPoint = helpers.parsePoint(scanner);
+                break;
+            case 11: // X coordinate of 'second alignment point'
+                entity.endPoint = helpers.parsePoint(scanner);
+                break;
+            case 40: // Text height
+                entity.textHeight = curr.value;
+                break;
+            case 41:
+                entity.xScale = curr.value;
+                break;
+            case 50: // Rotation in degrees
+                entity.rotation = curr.value;
+                break;
+            case 1: // Text
+                entity.text = curr.value;
+                break;
+            // NOTE: 72 and 73 are meaningless without 11 (second alignment point)
+            case 72: // Horizontal alignment
+                entity.halign = curr.value;
+                break;
+            case 73: // Vertical alignment
+                entity.valign = curr.value;
+                break;
+            default: // check common entity attributes
+                helpers.checkCommonEntityProperties(entity, curr);
+                break;
+        }
+        curr = scanner.next();
+    }
+    return entity;
+};
+},{"../ParseHelpers":4}],20:[function(require,module,exports){
+
+var helpers = require('../ParseHelpers');
+
+module.exports = EntityParser;
+
+function EntityParser() {}
+
+EntityParser.ForEntityName = 'VERTEX';
+
+EntityParser.prototype.parseEntity = function(scanner, curr) {
+    var entity = { type: curr.value };
+    curr = scanner.next();
+    while(curr !== 'EOF') {
+        if(curr.code === 0) break;
+
+        switch(curr.code) {
+            case 10:	// X
+                entity.x = curr.value;
+                break;
+            case 20: // Y
+                entity.y = curr.value;
+                break;
+            case 30: // Z
+                entity.z = curr.value;
+                break;
+            case 40: // start width
+            case 41: // end width
+            case 42: // bulge
+                if(curr.value != 0) entity.bulge = curr.value;
+                break;
+            case 70: // flags
+                entity.curveFittingVertex = (curr.value & 1) !== 0;
+                entity.curveFitTangent = (curr.value & 2) !== 0;
+                entity.splineVertex = (curr.value & 8) !== 0;
+                entity.splineControlPoint = (curr.value & 16) !== 0;
+                entity.threeDPolylineVertex = (curr.value & 32) !== 0;
+                entity.threeDPolylineMesh = (curr.value & 64) !== 0;
+                entity.polyfaceMeshVertex = (curr.value & 128) !== 0;
+                break;
+            case 50: // curve fit tangent direction
+            case 71: // polyface mesh vertex index
+            case 72: // polyface mesh vertex index
+            case 73: // polyface mesh vertex index
+            case 74: // polyface mesh vertex index
+                break;
+            default:
+                helpers.checkCommonEntityProperties(entity, curr);
+                break;
+        }
+        
+        curr = scanner.next();
+    }
+    return entity;
+};
+},{"../ParseHelpers":4}],21:[function(require,module,exports){
 /*
 * loglevel - https://github.com/pimterry/loglevel
 *

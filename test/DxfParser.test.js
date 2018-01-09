@@ -73,7 +73,8 @@ describe('Parser', function() {
 			dxf = parser.parseSync(file);
 			fs.writeFileSync(path.join(__dirname, 'data', 'blocks.actual.json'), JSON.stringify(dxf, null, 2));
 		}catch(err) {
-			should.not.exist(err);
+			var errMsg = err ? err.stack : undefined;
+			should.not.exist(err, errMsg);
 		}
 		should.exist(dxf);
 
