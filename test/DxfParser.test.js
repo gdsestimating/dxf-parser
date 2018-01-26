@@ -2,6 +2,7 @@ var DxfParser = require('../');
 var fs = require('fs');
 var should = require('should');
 var path = require('path');
+approvals = require('approvals');
 
 describe('Parser', function() {
 
@@ -152,5 +153,25 @@ describe('Parser', function() {
 
 		var expected = fs.readFileSync(path.join(__dirname, 'data', 'splines.expected.json'), {encoding: 'utf8'});
 		dxf.should.eql(JSON.parse(expected));
-    });
+	});
+	
+	it('should parse SPLINE entities that are like arcs and circles', function() {
+		verifyDxf(path.join(__dirname, 'data', 'arcs-as-splines.dxf'));
+	});
+
+	it('should parse ARC entities (1)', function() {
+		verifyDxf(path.join(__dirname, 'data', 'arc1.dxf'));
+	});
 });
+
+function verifyDxf(sourceFilePath) {
+	var baseName = path.basename(sourceFilePath, '.dxf');
+	var sourceDirectory = path.dirname(sourceFilePath);
+
+	var parser = new DxfParser();
+	var file = fs.readFileSync(sourceFilePath, 'utf8');
+
+	var dxf = parser.parseSync(file);
+
+	approvals.verifyAsJSON(sourceDirectory, baseName, dxf);
+}

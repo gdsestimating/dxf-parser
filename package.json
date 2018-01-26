@@ -22,6 +22,7 @@
   ],
   "license": "MIT",
   "devDependencies": {
+    "approvals": "^2.1.2",
     "browserify": "^11.0.1",
     "should": "^6.0.1"
   },

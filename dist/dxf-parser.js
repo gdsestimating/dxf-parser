@@ -1379,12 +1379,8 @@ EntityParser.prototype.parseEntity = function(scanner, curr) {
                 entity.startAngle = Math.PI / 180 * curr.value;
                 break;
             case 51: // end angle
-                endAngle = Math.PI / 180 * curr.value;
-                if(endAngle < entity.startAngle)
-                    entity.angleLength = endAngle + 2 * Math.PI - entity.startAngle;
-                else
-                    entity.angleLength = endAngle - entity.startAngle;
-                entity.endAngle = endAngle;
+                entity.endAngle = Math.PI / 180 * curr.value;
+                entity.angleLength = entity.startAngle - entity.endAngle; // angleLength is deprecated
                 break;
             default: // ignored attribute
                 helpers.checkCommonEntityProperties(entity, curr);

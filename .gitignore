@@ -7,3 +7,4 @@ out.json
 *.log
 *.actual.json
 .vscode/
+*.received.*
