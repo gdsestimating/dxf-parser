@@ -1,0 +1,1219 @@
+{
+  "header": {
+    "$ACADVER": "AC1027",
+    "$ACADMAINTVER": 105,
+    "$DWGCODEPAGE": "ANSI_1252",
+    "$REQUIREDVERSIONS": 0,
+    "$INSBASE": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "$EXTMIN": {
+      "x": 100000000000000000000,
+      "y": 100000000000000000000,
+      "z": 100000000000000000000
+    },
+    "$EXTMAX": {
+      "x": -100000000000000000000,
+      "y": -100000000000000000000,
+      "z": -100000000000000000000
+    },
+    "$LIMMIN": {
+      "x": 0,
+      "y": 0
+    },
+    "$LIMMAX": {
+      "x": 12,
+      "y": 9
+    },
+    "$ORTHOMODE": 0,
+    "$REGENMODE": 1,
+    "$FILLMODE": 1,
+    "$QTEXTMODE": 0,
+    "$MIRRTEXT": 1,
+    "$LTSCALE": 1,
+    "$ATTMODE": 1,
+    "$TEXTSIZE": 0.2,
+    "$TRACEWID": 0.05,
+    "$TEXTSTYLE": "Standard",
+    "$CLAYER": "0",
+    "$CELTYPE": "ByLayer",
+    "$CECOLOR": 256,
+    "$CELTSCALE": 1,
+    "$DISPSILH": 0,
+    "$DIMSCALE": 1,
+    "$DIMASZ": 2.5,
+    "$DIMEXO": 0.625,
+    "$DIMDLI": 0.38,
+    "$DIMRND": 0,
+    "$DIMDLE": 0,
+    "$DIMEXE": 1.25,
+    "$DIMTP": 0,
+    "$DIMTM": 0,
+    "$DIMTXT": 2.5,
+    "$DIMCEN": 0.09,
+    "$DIMTSZ": 0,
+    "$DIMTOL": 0,
+    "$DIMLIM": 0,
+    "$DIMTIH": 1,
+    "$DIMTOH": 1,
+    "$DIMSE1": 0,
+    "$DIMSE2": 0,
+    "$DIMTAD": 0,
+    "$DIMZIN": 8,
+    "$DIMBLK": "",
+    "$DIMASO": 1,
+    "$DIMSHO": 1,
+    "$DIMPOST": "",
+    "$DIMAPOST": "",
+    "$DIMALT": 0,
+    "$DIMALTD": 2,
+    "$DIMALTF": 25.4,
+    "$DIMLFAC": 1,
+    "$DIMTOFL": 0,
+    "$DIMTVP": 0,
+    "$DIMTIX": 0,
+    "$DIMSOXD": 0,
+    "$DIMSAH": 0,
+    "$DIMBLK1": "",
+    "$DIMBLK2": "",
+    "$DIMSTYLE": "Standard",
+    "$DIMCLRD": 0,
+    "$DIMCLRE": 0,
+    "$DIMCLRT": 0,
+    "$DIMTFAC": 1,
+    "$DIMGAP": 0.625,
+    "$DIMJUST": 0,
+    "$DIMSD1": 0,
+    "$DIMSD2": 0,
+    "$DIMTOLJ": 1,
+    "$DIMTZIN": 0,
+    "$DIMALTZ": 0,
+    "$DIMALTTZ": 0,
+    "$DIMUPT": 0,
+    "$DIMDEC": 4,
+    "$DIMTDEC": 4,
+    "$DIMALTU": 2,
+    "$DIMALTTD": 2,
+    "$DIMTXSTY": "Standard",
+    "$DIMAUNIT": 0,
+    "$DIMADEC": 0,
+    "$DIMALTRND": 0,
+    "$DIMAZIN": 2,
+    "$DIMDSEP": 46,
+    "$DIMATFIT": 3,
+    "$DIMFRAC": 0,
+    "$DIMLDRBLK": "",
+    "$DIMLUNIT": 2,
+    "$DIMLWD": -2,
+    "$DIMLWE": -2,
+    "$DIMTMOVE": 0,
+    "$DIMFXL": 1,
+    "$DIMFXLON": 0,
+    "$DIMJOGANG": 0.7853981633974483,
+    "$DIMTFILL": 0,
+    "$DIMTFILLCLR": 0,
+    "$DIMARCSYM": 0,
+    "$DIMLTYPE": "",
+    "$DIMLTEX1": "",
+    "$DIMLTEX2": "",
+    "$DIMTXTDIRECTION": 0,
+    "$LUNITS": 2,
+    "$LUPREC": 4,
+    "$SKETCHINC": 0.1,
+    "$FILLETRAD": 0.5,
+    "$AUNITS": 0,
+    "$AUPREC": 0,
+    "$MENU": ".",
+    "$ELEVATION": 0,
+    "$PELEVATION": 0,
+    "$THICKNESS": 0,
+    "$LIMCHECK": 0,
+    "$CHAMFERA": 0,
+    "$CHAMFERB": 0,
+    "$CHAMFERC": 0,
+    "$CHAMFERD": 0,
+    "$SKPOLY": 0,
+    "$TDCREATE": 2458168.794448727,
+    "$TDUCREATE": 2458168.75278206,
+    "$TDUPDATE": 2458168.794448738,
+    "$TDUUPDATE": 2458168.752782072,
+    "$TDINDWG": 1.16e-8,
+    "$TDUSRTIMER": 1.16e-8,
+    "$USRTIMER": 1,
+    "$ANGBASE": 0,
+    "$ANGDIR": 0,
+    "$PDMODE": 35,
+    "$PDSIZE": 0,
+    "$PLINEWID": 0,
+    "$SPLFRAME": 0,
+    "$SPLINETYPE": 6,
+    "$SPLINESEGS": 8,
+    "$HANDSEED": "125",
+    "$SURFTAB1": 6,
+    "$SURFTAB2": 6,
+    "$SURFTYPE": 6,
+    "$SURFU": 6,
+    "$SURFV": 6,
+    "$UCSBASE": "",
+    "$UCSNAME": "",
+    "$UCSORG": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "$UCSXDIR": {
+      "x": 1,
+      "y": 0,
+      "z": 0
+    },
+    "$UCSYDIR": {
+      "x": 0,
+      "y": 1,
+      "z": 0
+    },
+    "$UCSORTHOREF": "",
+    "$UCSORTHOVIEW": 0,
+    "$UCSORGTOP": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "$UCSORGBOTTOM": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "$UCSORGLEFT": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "$UCSORGRIGHT": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "$UCSORGFRONT": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "$UCSORGBACK": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "$PUCSBASE": "",
+    "$PUCSNAME": "",
+    "$PUCSORG": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "$PUCSXDIR": {
+      "x": 1,
+      "y": 0,
+      "z": 0
+    },
+    "$PUCSYDIR": {
+      "x": 0,
+      "y": 1,
+      "z": 0
+    },
+    "$PUCSORTHOREF": "",
+    "$PUCSORTHOVIEW": 0,
+    "$PUCSORGTOP": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "$PUCSORGBOTTOM": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "$PUCSORGLEFT": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "$PUCSORGRIGHT": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "$PUCSORGFRONT": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "$PUCSORGBACK": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "$USERI1": 0,
+    "$USERI2": 0,
+    "$USERI3": 0,
+    "$USERI4": 0,
+    "$USERI5": 0,
+    "$USERR1": 0,
+    "$USERR2": 0,
+    "$USERR3": 0,
+    "$USERR4": 0,
+    "$USERR5": 0,
+    "$WORLDVIEW": 1,
+    "$SHADEDGE": 3,
+    "$SHADEDIF": 70,
+    "$TILEMODE": 1,
+    "$MAXACTVP": 64,
+    "$PINSBASE": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "$PLIMCHECK": 0,
+    "$PEXTMIN": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "$PEXTMAX": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "$PLIMMIN": {
+      "x": -20,
+      "y": -7.5
+    },
+    "$PLIMMAX": {
+      "x": 277,
+      "y": 202.5
+    },
+    "$UNITMODE": 0,
+    "$VISRETAIN": 1,
+    "$PLINEGEN": 0,
+    "$PSLTSCALE": 1,
+    "$TREEDEPTH": 3020,
+    "$CMLSTYLE": "Standard",
+    "$CMLJUST": 0,
+    "$CMLSCALE": 1,
+    "$PROXYGRAPHICS": 1,
+    "$MEASUREMENT": 1,
+    "$CELWEIGHT": -1,
+    "$ENDCAPS": 0,
+    "$JOINSTYLE": 0,
+    "$LWDISPLAY": false,
+    "$INSUNITS": 4,
+    "$HYPERLINKBASE": "",
+    "$STYLESHEET": "",
+    "$XEDIT": true,
+    "$CEPSNTYPE": 0,
+    "$PSTYLEMODE": true,
+    "$FINGERPRINTGUID": "{34e08c27-075f-494a-a20b-360afee9b846}",
+    "$VERSIONGUID": "{FAEB1C32-E019-11D5-929B-00C0DF256EC4}",
+    "$EXTNAMES": true,
+    "$PSVPSCALE": 0,
+    "$OLESTARTUP": false,
+    "$SORTENTS": 127,
+    "$INDEXCTL": 0,
+    "$HIDETEXT": 1,
+    "$XCLIPFRAME": 2,
+    "$HALOGAP": 0,
+    "$OBSCOLOR": 257,
+    "$OBSLTYPE": 0,
+    "$INTERSECTIONDISPLAY": 0,
+    "$INTERSECTIONCOLOR": 257,
+    "$DIMASSOC": 2,
+    "$PROJECTNAME": "",
+    "$CAMERADISPLAY": false,
+    "$LENSLENGTH": 50,
+    "$CAMERAHEIGHT": 0,
+    "$STEPSPERSEC": 2,
+    "$STEPSIZE": 6,
+    "$3DDWFPREC": 2,
+    "$PSOLWIDTH": 0.25,
+    "$PSOLHEIGHT": 4,
+    "$LOFTANG1": 1.570796326794897,
+    "$LOFTANG2": 1.570796326794897,
+    "$LOFTMAG1": 0,
+    "$LOFTMAG2": 0,
+    "$LOFTPARAM": 7,
+    "$LOFTNORMALS": 1,
+    "$LATITUDE": 37.795,
+    "$LONGITUDE": -122.394,
+    "$NORTHDIRECTION": 0,
+    "$TIMEZONE": -8000,
+    "$LIGHTGLYPHDISPLAY": 1,
+    "$TILEMODELIGHTSYNCH": 1,
+    "$CMATERIAL": "82",
+    "$SOLIDHIST": 0,
+    "$SHOWHIST": 1,
+    "$DWFFRAME": 2,
+    "$DGNFRAME": 2,
+    "$REALWORLDSCALE": true,
+    "$INTERFERECOLOR": 256,
+    "$CSHADOW": 0,
+    "$SHADOWPLANELOCATION": 0
+  },
+  "tables": {
+    "viewPort": {
+      "handle": "47",
+      "ownerHandle": "0",
+      "viewPorts": [
+        {
+          "ownerHandle": "47",
+          "name": "*Active",
+          "lowerLeftCorner": {
+            "x": 0,
+            "y": 0
+          },
+          "upperRightCorner": {
+            "x": 1,
+            "y": 1
+          },
+          "center": {
+            "x": 22.80000000000004,
+            "y": -16.35000000000005
+          },
+          "snapBasePoint": {
+            "x": 0,
+            "y": 0
+          },
+          "snapSpacing": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "gridSpacing": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "viewDirectionFromTarget": {
+            "x": 0,
+            "y": 0,
+            "z": 1
+          },
+          "viewTarget": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "lensLength": 50,
+          "frontClippingPlane": 0,
+          "backClippingPlane": 0,
+          "snapRotationAngle": 0,
+          "viewTwistAngle": 0,
+          "renderMode": 0,
+          "ucsOrigin": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "ucsXAxis": {
+            "x": 1,
+            "y": 0,
+            "z": 0
+          },
+          "ucsYAxis": {
+            "x": 0,
+            "y": 1,
+            "z": 0
+          },
+          "orthographicType": 0,
+          "defaultLightingOn": true,
+          "ambientColor": 250
+        }
+      ]
+    },
+    "lineType": {
+      "handle": "44",
+      "ownerHandle": "0",
+      "lineTypes": {
+        "ByBlock": {
+          "name": "ByBlock",
+          "description": "",
+          "patternLength": 0
+        },
+        "ByLayer": {
+          "name": "ByLayer",
+          "description": "",
+          "patternLength": 0
+        },
+        "Continuous": {
+          "name": "Continuous",
+          "description": "Solid line",
+          "patternLength": 0
+        },
+        "CENTER2": {
+          "name": "CENTER2",
+          "description": "Center (.5x) ___ _ ___ _ ___ _ ___ _ ___ _ ___",
+          "pattern": [
+            19.05,
+            -3.175,
+            3.175,
+            -3.175
+          ],
+          "patternLength": 28.575
+        },
+        "CENTER": {
+          "name": "CENTER",
+          "description": "Center ____ _ ____ _ ____ _ ____ _ ____ _ ____",
+          "pattern": [
+            31.75,
+            -6.35,
+            6.35,
+            -6.35
+          ],
+          "patternLength": 50.8
+        },
+        "BORDERX2": {
+          "name": "BORDERX2",
+          "description": "Border (2x) ____  ____  .  ____  ____  .  ___",
+          "pattern": [
+            25.4,
+            -12.7,
+            25.4,
+            -12.7,
+            0,
+            -12.7
+          ],
+          "patternLength": 88.89999999999999
+        },
+        "BORDER2": {
+          "name": "BORDER2",
+          "description": "Border (.5x) __.__.__.__.__.__.__.__.__.__.__.",
+          "pattern": [
+            6.35,
+            -3.175,
+            6.35,
+            -3.175,
+            0,
+            -3.175
+          ],
+          "patternLength": 22.225
+        },
+        "ACAD_ISO09W100": {
+          "name": "ACAD_ISO09W100",
+          "description": "ISO long-dash double-short-dash ____ __ __ ____",
+          "pattern": [
+            24,
+            -3,
+            6,
+            -3,
+            6,
+            -3
+          ],
+          "patternLength": 45
+        },
+        "ACAD_ISO08W100": {
+          "name": "ACAD_ISO08W100",
+          "description": "ISO long-dash short-dash ____ __ ____ __ ____ _",
+          "pattern": [
+            24,
+            -3,
+            6,
+            -3
+          ],
+          "patternLength": 36
+        },
+        "ACAD_ISO07W100": {
+          "name": "ACAD_ISO07W100",
+          "description": "ISO dot . . . . . . . . . . . . . . . . . . . .",
+          "pattern": [
+            0,
+            -3
+          ],
+          "patternLength": 3
+        },
+        "ACAD_ISO06W100": {
+          "name": "ACAD_ISO06W100",
+          "description": "ISO long-dash triple-dot ____ ... ____ ... ____",
+          "pattern": [
+            24,
+            -3,
+            0,
+            -3,
+            0,
+            -3,
+            0,
+            -3
+          ],
+          "patternLength": 36
+        },
+        "ACAD_ISO05W100": {
+          "name": "ACAD_ISO05W100",
+          "description": "ISO long-dash double-dot ____ .. ____ .. ____ .",
+          "pattern": [
+            24,
+            -3,
+            0,
+            -3,
+            0,
+            -3
+          ],
+          "patternLength": 33
+        },
+        "ACAD_ISO04W100": {
+          "name": "ACAD_ISO04W100",
+          "description": "ISO long-dash dot ____ . ____ . ____ . ____ . _",
+          "pattern": [
+            24,
+            -3,
+            0,
+            -3
+          ],
+          "patternLength": 30
+        },
+        "ACAD_ISO03W100": {
+          "name": "ACAD_ISO03W100",
+          "description": "ISO dash space __    __    __    __    __    __",
+          "pattern": [
+            12,
+            -18
+          ],
+          "patternLength": 30
+        },
+        "ACAD_ISO02W100": {
+          "name": "ACAD_ISO02W100",
+          "description": "ISO dash __ __ __ __ __ __ __ __ __ __ __ __ __",
+          "pattern": [
+            12,
+            -3
+          ],
+          "patternLength": 15
+        },
+        "ZIGZAG": {
+          "name": "ZIGZAG",
+          "description": "Zig zag /\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/",
+          "pattern": [
+            0.00254,
+            -5.08,
+            -10.16,
+            -5.08
+          ],
+          "patternLength": 20.32254
+        },
+        "TRACKS": {
+          "name": "TRACKS",
+          "description": "Tracks -|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-",
+          "pattern": [
+            3.81,
+            3.81
+          ],
+          "patternLength": 7.62
+        },
+        "PHANTOMX2": {
+          "name": "PHANTOMX2",
+          "description": "Phantom (2x) ____________    ____    ____   _",
+          "pattern": [
+            63.5,
+            -12.7,
+            12.7,
+            -12.7,
+            12.7,
+            -12.7
+          ],
+          "patternLength": 127
+        },
+        "PHANTOM2": {
+          "name": "PHANTOM2",
+          "description": "Phantom (.5x) ___ _ _ ___ _ _ ___ _ _ ___ _ _",
+          "pattern": [
+            15.875,
+            -3.175,
+            3.175,
+            -3.175,
+            3.175,
+            -3.175
+          ],
+          "patternLength": 31.75
+        },
+        "PHANTOM": {
+          "name": "PHANTOM",
+          "description": "Phantom ______  __  __  ______  __  __  ______",
+          "pattern": [
+            31.75,
+            -6.35,
+            6.35,
+            -6.35,
+            6.35,
+            -6.35
+          ],
+          "patternLength": 63.50000000000001
+        },
+        "HOT_WATER_SUPPLY": {
+          "name": "HOT_WATER_SUPPLY",
+          "description": "Hot water supply ---- HW ---- HW ---- HW ----",
+          "pattern": [
+            12.7,
+            -5.08,
+            -5.08
+          ],
+          "patternLength": 22.86
+        },
+        "HIDDENX2": {
+          "name": "HIDDENX2",
+          "description": "Hidden (2x) ____ ____ ____ ____ ____ ____ ____",
+          "pattern": [
+            12.7,
+            -6.35
+          ],
+          "patternLength": 19.05
+        },
+        "DOT2": {
+          "name": "DOT2",
+          "description": "Dot (.5x) ........................................",
+          "pattern": [
+            0,
+            -3.175
+          ],
+          "patternLength": 3.175
+        },
+        "DOT": {
+          "name": "DOT",
+          "description": "Dot . . . . . . . . . . . . . . . . . . . . . . . .",
+          "pattern": [
+            0,
+            -6.35
+          ],
+          "patternLength": 6.35
+        },
+        "DIVIDEX2": {
+          "name": "DIVIDEX2",
+          "description": "Divide (2x) ________  .  .  ________  .  .  _",
+          "pattern": [
+            25.4,
+            -12.7,
+            0,
+            -12.7,
+            0,
+            -12.7
+          ],
+          "patternLength": 63.5
+        },
+        "DIVIDE2": {
+          "name": "DIVIDE2",
+          "description": "Divide (.5x) __..__..__..__..__..__..__..__.._",
+          "pattern": [
+            6.35,
+            -3.175,
+            0,
+            -3.175,
+            0,
+            -3.175
+          ],
+          "patternLength": 15.875
+        },
+        "DIVIDE": {
+          "name": "DIVIDE",
+          "description": "Divide ____ . . ____ . . ____ . . ____ . . ____",
+          "pattern": [
+            12.7,
+            -6.35,
+            0,
+            -6.35,
+            0,
+            -6.35
+          ],
+          "patternLength": 31.75
+        },
+        "DASHEDX2": {
+          "name": "DASHEDX2",
+          "description": "Dashed (2x) ____  ____  ____  ____  ____  ___",
+          "pattern": [
+            25.4,
+            -12.7
+          ],
+          "patternLength": 38.09999999999999
+        },
+        "DASHED2": {
+          "name": "DASHED2",
+          "description": "Dashed (.5x) _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _",
+          "pattern": [
+            6.35,
+            -3.175
+          ],
+          "patternLength": 9.524999999999999
+        },
+        "DASHED": {
+          "name": "DASHED",
+          "description": "Dashed __ __ __ __ __ __ __ __ __ __ __ __ __ _",
+          "pattern": [
+            12.7,
+            -6.35
+          ],
+          "patternLength": 19.05
+        },
+        "HIDDEN2": {
+          "name": "HIDDEN2",
+          "description": "Hidden (.5x) _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _",
+          "pattern": [
+            3.175,
+            -1.5875
+          ],
+          "patternLength": 4.762499999999999
+        },
+        "HIDDEN": {
+          "name": "HIDDEN",
+          "description": "Hidden __ __ __ __ __ __ __ __ __ __ __ __ __ __",
+          "pattern": [
+            6.35,
+            -3.175
+          ],
+          "patternLength": 9.524999999999999
+        },
+        "GAS_LINE": {
+          "name": "GAS_LINE",
+          "description": "Gas line ----GAS----GAS----GAS----GAS----GAS----GAS--",
+          "pattern": [
+            12.7,
+            -5.08,
+            -6.35
+          ],
+          "patternLength": 24.13
+        },
+        "FENCELINE2": {
+          "name": "FENCELINE2",
+          "description": "Fenceline square ----[]-----[]----[]-----[]----[]---",
+          "pattern": [
+            6.35,
+            -2.54,
+            -2.54,
+            25.4
+          ],
+          "patternLength": 36.83
+        },
+        "FENCELINE1": {
+          "name": "FENCELINE1",
+          "description": "Fenceline circle ----0-----0----0-----0----0-----0--",
+          "pattern": [
+            6.35,
+            -2.54,
+            -2.54,
+            25.4
+          ],
+          "patternLength": 36.83
+        },
+        "DRAINAGE2": {
+          "name": "DRAINAGE2",
+          "description": "Drainage reversed----<----<----<----",
+          "pattern": [
+            5.08,
+            5.08
+          ],
+          "patternLength": 10.16
+        },
+        "DRAINAGE": {
+          "name": "DRAINAGE",
+          "description": "Drainage ---->---->---->----",
+          "pattern": [
+            5.08,
+            5.08
+          ],
+          "patternLength": 10.16
+        },
+        "DOTX2": {
+          "name": "DOTX2",
+          "description": "Dot (2x) .  .  .  .  .  .  .  .  .  .  .  .  .  .",
+          "pattern": [
+            0,
+            -12.7
+          ],
+          "patternLength": 12.7
+        },
+        "BORDER": {
+          "name": "BORDER",
+          "description": "Border __ __ . __ __ . __ __ . __ __ . __ __ .",
+          "pattern": [
+            12.7,
+            -6.35,
+            12.7,
+            -6.35,
+            0,
+            -6.35
+          ],
+          "patternLength": 44.45
+        },
+        "BATTING": {
+          "name": "BATTING",
+          "description": "Batting SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS",
+          "pattern": [
+            0.00254,
+            -2.54,
+            -5.08,
+            -2.54
+          ],
+          "patternLength": 10.16254
+        },
+        "ACAD_ISO15W100": {
+          "name": "ACAD_ISO15W100",
+          "description": "ISO double-dash triple-dot __ __ . . . __ __ . .",
+          "pattern": [
+            12,
+            -3,
+            12,
+            -3,
+            0,
+            -3,
+            0,
+            -3,
+            0,
+            -3
+          ],
+          "patternLength": 39
+        },
+        "ACAD_ISO14W100": {
+          "name": "ACAD_ISO14W100",
+          "description": "ISO dash triple-dot __ . . . __ . . . __ . . . _",
+          "pattern": [
+            12,
+            -3,
+            0,
+            -3,
+            0,
+            -3,
+            0,
+            -3
+          ],
+          "patternLength": 24
+        },
+        "ACAD_ISO13W100": {
+          "name": "ACAD_ISO13W100",
+          "description": "ISO double-dash double-dot __ __ . . __ __ . . _",
+          "pattern": [
+            12,
+            -3,
+            12,
+            -3,
+            0,
+            -3,
+            0,
+            -3
+          ],
+          "patternLength": 36
+        },
+        "ACAD_ISO12W100": {
+          "name": "ACAD_ISO12W100",
+          "description": "ISO dash double-dot __ . . __ . . __ . . __ . .",
+          "pattern": [
+            12,
+            -3,
+            0,
+            -3,
+            0,
+            -3
+          ],
+          "patternLength": 21
+        },
+        "ACAD_ISO11W100": {
+          "name": "ACAD_ISO11W100",
+          "description": "ISO double-dash dot __ __ . __ __ . __ __ . __ _",
+          "pattern": [
+            12,
+            -3,
+            12,
+            -3,
+            0,
+            -3
+          ],
+          "patternLength": 33
+        },
+        "ACAD_ISO10W100": {
+          "name": "ACAD_ISO10W100",
+          "description": "ISO dash dot __ . __ . __ . __ . __ . __ . __ .",
+          "pattern": [
+            12,
+            -3,
+            0,
+            -3
+          ],
+          "patternLength": 18
+        },
+        "DASHDOTX2": {
+          "name": "DASHDOTX2",
+          "description": "Dash dot (2x) ____  .  ____  .  ____  .  ___",
+          "pattern": [
+            25.4,
+            -12.7,
+            0,
+            -12.7
+          ],
+          "patternLength": 50.8
+        },
+        "DASHDOT2": {
+          "name": "DASHDOT2",
+          "description": "Dash dot (.5x) _._._._._._._._._._._._._._._.",
+          "pattern": [
+            6.35,
+            -3.175,
+            0,
+            -3.175
+          ],
+          "patternLength": 12.7
+        },
+        "DASHDOT": {
+          "name": "DASHDOT",
+          "description": "Dash dot __ . __ . __ . __ . __ . __ . __ . __",
+          "pattern": [
+            12.7,
+            -6.35,
+            0,
+            -6.35
+          ],
+          "patternLength": 25.4
+        },
+        "CENTERX2": {
+          "name": "CENTERX2",
+          "description": "Center (2x) ________  __  ________  __  _____",
+          "pattern": [
+            63.5,
+            -12.7,
+            12.7,
+            -12.7
+          ],
+          "patternLength": 101.6
+        }
+      }
+    },
+    "layer": {
+      "handle": "42",
+      "ownerHandle": "0",
+      "layers": {
+        "0": {
+          "name": "0",
+          "frozen": false,
+          "visible": true,
+          "color": 16777215
+        }
+      }
+    }
+  },
+  "blocks": {
+    "*Model_Space": {
+      "handle": "5E",
+      "ownerHandle": "5D",
+      "layer": "0",
+      "name": "*Model_Space",
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "name2": "*Model_Space",
+      "xrefPath": ""
+    },
+    "*Paper_Space": {
+      "handle": "5A",
+      "ownerHandle": "59",
+      "paperSpace": true,
+      "layer": "0",
+      "name": "*Paper_Space",
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "name2": "*Paper_Space",
+      "xrefPath": ""
+    }
+  },
+  "entities": [
+    {
+      "type": "LINE",
+      "vertices": [
+        {
+          "x": -10,
+          "y": -10,
+          "z": 0
+        },
+        {
+          "x": -10,
+          "y": 10,
+          "z": 0
+        }
+      ],
+      "handle": "38",
+      "ownerHandle": "5D",
+      "layer": "0",
+      "extendedData": {
+        "applicationName": "QCAD",
+        "customStrings": [
+          "wertA:das"
+        ]
+      }
+    },
+    {
+      "type": "LINE",
+      "vertices": [
+        {
+          "x": -10,
+          "y": 10,
+          "z": 0
+        },
+        {
+          "x": 10,
+          "y": 10,
+          "z": 0
+        }
+      ],
+      "handle": "39",
+      "ownerHandle": "5D",
+      "layer": "0",
+      "extendedData": {
+        "applicationName": "QCAD",
+        "customStrings": [
+          "wertB:ist"
+        ]
+      }
+    },
+    {
+      "type": "LINE",
+      "vertices": [
+        {
+          "x": 10,
+          "y": 10,
+          "z": 0
+        },
+        {
+          "x": -10,
+          "y": -10,
+          "z": 0
+        }
+      ],
+      "handle": "3A",
+      "ownerHandle": "5D",
+      "layer": "0",
+      "extendedData": {
+        "applicationName": "QCAD",
+        "customStrings": [
+          "wertC:das"
+        ]
+      }
+    },
+    {
+      "type": "LINE",
+      "vertices": [
+        {
+          "x": -10,
+          "y": -10,
+          "z": 0
+        },
+        {
+          "x": 10,
+          "y": -10,
+          "z": 0
+        }
+      ],
+      "handle": "3B",
+      "ownerHandle": "5D",
+      "layer": "0",
+      "extendedData": {
+        "applicationName": "QCAD",
+        "customStrings": [
+          "valeurD:maison",
+          "valueD:house",
+          "wertD:Haus"
+        ]
+      }
+    },
+    {
+      "type": "LINE",
+      "vertices": [
+        {
+          "x": 10,
+          "y": -10,
+          "z": 0
+        },
+        {
+          "x": -10,
+          "y": 10,
+          "z": 0
+        }
+      ],
+      "handle": "3C",
+      "ownerHandle": "5D",
+      "layer": "0",
+      "extendedData": {
+        "applicationName": "QCAD",
+        "customStrings": [
+          "wertE:vom"
+        ]
+      }
+    },
+    {
+      "type": "LINE",
+      "vertices": [
+        {
+          "x": -10,
+          "y": 10,
+          "z": 0
+        },
+        {
+          "x": 0,
+          "y": 20,
+          "z": 0
+        }
+      ],
+      "handle": "3D",
+      "ownerHandle": "5D",
+      "layer": "0",
+      "extendedData": {
+        "applicationName": "QCAD",
+        "customStrings": [
+          "wertF:Ni-"
+        ]
+      }
+    },
+    {
+      "type": "LINE",
+      "vertices": [
+        {
+          "x": 0,
+          "y": 20,
+          "z": 0
+        },
+        {
+          "x": 10,
+          "y": 10,
+          "z": 0
+        }
+      ],
+      "handle": "3E",
+      "ownerHandle": "5D",
+      "layer": "0",
+      "extendedData": {
+        "applicationName": "QCAD",
+        "customStrings": [
+          "wertG:-ko-"
+        ]
+      }
+    },
+    {
+      "type": "LINE",
+      "vertices": [
+        {
+          "x": 10,
+          "y": 10,
+          "z": 0
+        },
+        {
+          "x": 10,
+          "y": -10,
+          "z": 0
+        }
+      ],
+      "handle": "3F",
+      "ownerHandle": "5D",
+      "layer": "0",
+      "extendedData": {
+        "applicationName": "QCAD",
+        "customStrings": [
+          "WertH:-laus"
+        ]
+      }
+    }
+  ]
+}
