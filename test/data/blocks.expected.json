@@ -120,7 +120,10 @@
           ],
           "handle": "3AD",
           "ownerHandle": "2DC",
-          "layer": "0"
+          "layer": "0",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "ATTDEF",
@@ -150,7 +153,10 @@
           "constant": false,
           "verificationRequired": false,
           "preset": false,
-          "verticalJustification": 2
+          "verticalJustification": 2,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "ATTDEF",
@@ -180,7 +186,10 @@
           "constant": false,
           "verificationRequired": false,
           "preset": false,
-          "verticalJustification": 2
+          "verticalJustification": 2,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LINE",
@@ -198,7 +207,10 @@
           ],
           "handle": "3B0",
           "ownerHandle": "2DC",
-          "layer": "0"
+          "layer": "0",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         }
       ]
     },
@@ -251,6 +263,9 @@
             "x": 0,
             "y": 0,
             "z": 0
+          },
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
           }
         },
         {
@@ -269,7 +284,10 @@
           ],
           "handle": "E28",
           "ownerHandle": "E1C",
-          "layer": "FG-Border"
+          "layer": "FG-Border",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -283,7 +301,10 @@
           },
           "textHeight": 0.09375,
           "text": "Sheet No.",
-          "xScale": 0.85
+          "xScale": 0.85,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LINE",
@@ -301,7 +322,10 @@
           ],
           "handle": "E2A",
           "ownerHandle": "E1C",
-          "layer": "FG-Border"
+          "layer": "FG-Border",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -315,7 +339,10 @@
           },
           "textHeight": 0.09375,
           "text": "Scale:",
-          "xScale": 0.85
+          "xScale": 0.85,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LINE",
@@ -333,7 +360,10 @@
           ],
           "handle": "E2C",
           "ownerHandle": "E1C",
-          "layer": "FG-Border"
+          "layer": "FG-Border",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LINE",
@@ -351,7 +381,10 @@
           ],
           "handle": "E2D",
           "ownerHandle": "E1C",
-          "layer": "FG-Border"
+          "layer": "FG-Border",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -365,7 +398,10 @@
           },
           "textHeight": 0.09375,
           "text": "Drawn:",
-          "xScale": 0.85
+          "xScale": 0.85,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -379,7 +415,10 @@
           },
           "textHeight": 0.09375,
           "text": "Date:",
-          "xScale": 0.85
+          "xScale": 0.85,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LINE",
@@ -397,7 +436,10 @@
           ],
           "handle": "E30",
           "ownerHandle": "E1C",
-          "layer": "FG-Border"
+          "layer": "FG-Border",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -411,7 +453,10 @@
           },
           "textHeight": 0.09375,
           "text": "Project No.",
-          "xScale": 0.85
+          "xScale": 0.85,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -426,7 +471,10 @@
           "textHeight": 0.09375,
           "text": "Project Name:",
           "rotation": 90,
-          "xScale": 0.85
+          "xScale": 0.85,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LINE",
@@ -444,7 +492,10 @@
           ],
           "handle": "E33",
           "ownerHandle": "E1C",
-          "layer": "FG-Border"
+          "layer": "FG-Border",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LINE",
@@ -462,7 +513,10 @@
           ],
           "handle": "E34",
           "ownerHandle": "E1C",
-          "layer": "FG-Border"
+          "layer": "FG-Border",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LINE",
@@ -480,7 +534,10 @@
           ],
           "handle": "E35",
           "ownerHandle": "E1C",
-          "layer": "FG-Border"
+          "layer": "FG-Border",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LINE",
@@ -498,7 +555,10 @@
           ],
           "handle": "E36",
           "ownerHandle": "E1C",
-          "layer": "FG-Border"
+          "layer": "FG-Border",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LINE",
@@ -516,7 +576,10 @@
           ],
           "handle": "E37",
           "ownerHandle": "E1C",
-          "layer": "FG-Logo"
+          "layer": "FG-Logo",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LINE",
@@ -534,7 +597,10 @@
           ],
           "handle": "E38",
           "ownerHandle": "E1C",
-          "layer": "FG-Logo"
+          "layer": "FG-Logo",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LINE",
@@ -552,7 +618,10 @@
           ],
           "handle": "E39",
           "ownerHandle": "E1C",
-          "layer": "FG-Logo"
+          "layer": "FG-Logo",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LINE",
@@ -570,7 +639,10 @@
           ],
           "handle": "E3A",
           "ownerHandle": "E1C",
-          "layer": "FG-Logo"
+          "layer": "FG-Logo",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -590,6 +662,9 @@
             "x": 15.43459372187382,
             "y": 8.483758506895393,
             "z": 0
+          },
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
           }
         },
         {
@@ -610,6 +685,9 @@
             "x": 15.43459372187382,
             "y": 9.01982170810002,
             "z": 0
+          },
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
           }
         },
         {
@@ -630,6 +708,9 @@
             "x": 15.43459372187382,
             "y": 9.927267587031489,
             "z": 0
+          },
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
           }
         },
         {
@@ -650,6 +731,9 @@
             "x": 15.47614878817657,
             "y": 10.1444273202113,
             "z": 0
+          },
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
           }
         },
         {
@@ -670,6 +754,9 @@
             "x": 15.38472723081318,
             "y": 10.1444273202113,
             "z": 0
+          },
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
           }
         },
         {
@@ -690,6 +777,9 @@
             "x": 15.47614878817657,
             "y": 9.624213818829995,
             "z": 0
+          },
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
           }
         },
         {
@@ -710,6 +800,9 @@
             "x": 15.38472723081318,
             "y": 9.624213818829995,
             "z": 0
+          },
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
           }
         },
         {
@@ -728,7 +821,10 @@
           ],
           "handle": "E42",
           "ownerHandle": "E1C",
-          "layer": "FG-Logo"
+          "layer": "FG-Logo",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LINE",
@@ -746,7 +842,10 @@
           ],
           "handle": "E43",
           "ownerHandle": "E1C",
-          "layer": "FG-Logo"
+          "layer": "FG-Logo",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LINE",
@@ -764,7 +863,10 @@
           ],
           "handle": "E44",
           "ownerHandle": "E1C",
-          "layer": "FG-Logo"
+          "layer": "FG-Logo",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LINE",
@@ -782,7 +884,10 @@
           ],
           "handle": "E45",
           "ownerHandle": "E1C",
-          "layer": "FG-Logo"
+          "layer": "FG-Logo",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "ATTDEF",
@@ -810,7 +915,10 @@
           "invisible": false,
           "constant": false,
           "verificationRequired": false,
-          "preset": false
+          "preset": false,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "ATTDEF",
@@ -838,7 +946,10 @@
           "invisible": false,
           "constant": false,
           "verificationRequired": false,
-          "preset": false
+          "preset": false,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "ATTDEF",
@@ -866,7 +977,10 @@
           "invisible": false,
           "constant": false,
           "verificationRequired": false,
-          "preset": false
+          "preset": false,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "ATTDEF",
@@ -893,7 +1007,10 @@
           "invisible": false,
           "constant": false,
           "verificationRequired": false,
-          "preset": false
+          "preset": false,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "ATTDEF",
@@ -920,7 +1037,10 @@
           "invisible": false,
           "constant": false,
           "verificationRequired": false,
-          "preset": false
+          "preset": false,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "ATTDEF",
@@ -947,7 +1067,10 @@
           "invisible": false,
           "constant": false,
           "verificationRequired": false,
-          "preset": false
+          "preset": false,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "ATTDEF",
@@ -974,7 +1097,10 @@
           "invisible": false,
           "constant": false,
           "verificationRequired": false,
-          "preset": false
+          "preset": false,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "ATTDEF",
@@ -1001,7 +1127,10 @@
           "invisible": false,
           "constant": false,
           "verificationRequired": false,
-          "preset": false
+          "preset": false,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LINE",
@@ -1019,7 +1148,10 @@
           ],
           "handle": "E4E",
           "ownerHandle": "E1C",
-          "layer": "FG-Border"
+          "layer": "FG-Border",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "ATTDEF",
@@ -1047,7 +1179,10 @@
           "invisible": false,
           "constant": false,
           "verificationRequired": false,
-          "preset": false
+          "preset": false,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -1062,7 +1197,10 @@
           "textHeight": 0.09375,
           "text": "Sheet Title:",
           "rotation": 90,
-          "xScale": 0.85
+          "xScale": 0.85,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -1078,7 +1216,10 @@
           },
           "textHeight": 0.0646223872815218,
           "text": "PRODUCTS, INC.",
-          "rotation": 90
+          "rotation": 90,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -1094,7 +1235,10 @@
           },
           "textHeight": 0.0646223872815218,
           "text": "AMERICAN",
-          "rotation": 90
+          "rotation": 90,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -1110,7 +1254,10 @@
           },
           "textHeight": 0.0939961996822135,
           "text": "CONTACT:KERRI BEALS",
-          "rotation": 90
+          "rotation": 90,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -1126,7 +1273,10 @@
           },
           "textHeight": 0.0939961996822135,
           "text": "12157 W LINEBAUGH AVENUE #335",
-          "rotation": 90
+          "rotation": 90,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -1142,7 +1292,10 @@
           },
           "textHeight": 0.0939961996822135,
           "text": "AMERICAN PRODUCTS, INC. (API)",
-          "rotation": 90
+          "rotation": 90,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -1158,7 +1311,10 @@
           },
           "textHeight": 0.0939961996822135,
           "text": "PH (813)925-0144 /",
-          "rotation": 90
+          "rotation": 90,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -1174,7 +1330,10 @@
           },
           "textHeight": 0.0939961996822135,
           "text": "TAMPA, FL 33626",
-          "rotation": 90
+          "rotation": 90,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -1190,7 +1349,10 @@
           },
           "textHeight": 0.0939961996822135,
           "text": "WWW.AMERICANPROD.COM",
-          "rotation": 90
+          "rotation": 90,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LWPOLYLINE",
@@ -1260,6 +1422,9 @@
             "x": 15.80487678893379,
             "y": 6.766898462159226,
             "z": 0
+          },
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
           }
         },
         {
@@ -1281,6 +1446,9 @@
             "x": 16.1156678639845,
             "y": 6.766898462159226,
             "z": 0
+          },
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
           }
         },
         {
@@ -1301,6 +1469,9 @@
             "x": 15.875,
             "y": 8.22432530753071,
             "z": 0
+          },
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
           }
         },
         {
@@ -1321,6 +1492,9 @@
             "x": 15.875,
             "y": 8.117182450387851,
             "z": 0
+          },
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
           }
         },
         {
@@ -1341,6 +1515,9 @@
             "x": 15.875,
             "y": 8.010039593244995,
             "z": 0
+          },
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
           }
         },
         {
@@ -1361,6 +1538,9 @@
             "x": 15.875,
             "y": 7.902896736102137,
             "z": 0
+          },
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
           }
         }
       ]
@@ -1395,7 +1575,10 @@
           "handle": "13FB",
           "ownerHandle": "13F9",
           "layer": "0",
-          "lineType": "CENTER2"
+          "lineType": "CENTER2",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LWPOLYLINE",
@@ -1472,7 +1655,10 @@
           "handle": "1400",
           "ownerHandle": "13FE",
           "layer": "0",
-          "lineType": "CENTER2"
+          "lineType": "CENTER2",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LWPOLYLINE",
@@ -6153,7 +6339,10 @@
           ],
           "handle": "220D",
           "ownerHandle": "2209",
-          "layer": "0"
+          "layer": "0",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "ATTDEF",
@@ -6183,7 +6372,10 @@
           "constant": false,
           "verificationRequired": false,
           "preset": false,
-          "verticalJustification": 2
+          "verticalJustification": 2,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "ATTDEF",
@@ -6213,7 +6405,10 @@
           "constant": false,
           "verificationRequired": false,
           "preset": false,
-          "verticalJustification": 2
+          "verticalJustification": 2,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LINE",
@@ -6231,7 +6426,10 @@
           ],
           "handle": "2210",
           "ownerHandle": "2209",
-          "layer": "0"
+          "layer": "0",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         }
       ]
     },
@@ -6291,7 +6489,10 @@
           ],
           "handle": "226C",
           "ownerHandle": "2268",
-          "layer": "0"
+          "layer": "0",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "ATTDEF",
@@ -6321,7 +6522,10 @@
           "constant": false,
           "verificationRequired": false,
           "preset": false,
-          "verticalJustification": 2
+          "verticalJustification": 2,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "ATTDEF",
@@ -6351,7 +6555,10 @@
           "constant": false,
           "verificationRequired": false,
           "preset": false,
-          "verticalJustification": 2
+          "verticalJustification": 2,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LINE",
@@ -6369,7 +6576,10 @@
           ],
           "handle": "226F",
           "ownerHandle": "2268",
-          "layer": "0"
+          "layer": "0",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         }
       ]
     },
@@ -6429,7 +6639,10 @@
           ],
           "handle": "22A9",
           "ownerHandle": "22A5",
-          "layer": "0"
+          "layer": "0",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "ATTDEF",
@@ -6459,7 +6672,10 @@
           "constant": false,
           "verificationRequired": false,
           "preset": false,
-          "verticalJustification": 2
+          "verticalJustification": 2,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "ATTDEF",
@@ -6489,7 +6705,10 @@
           "constant": false,
           "verificationRequired": false,
           "preset": false,
-          "verticalJustification": 2
+          "verticalJustification": 2,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LINE",
@@ -6507,7 +6726,10 @@
           ],
           "handle": "22AC",
           "ownerHandle": "22A5",
-          "layer": "0"
+          "layer": "0",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         }
       ]
     },
@@ -6567,7 +6789,10 @@
           ],
           "handle": "22C6",
           "ownerHandle": "22C2",
-          "layer": "0"
+          "layer": "0",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "ATTDEF",
@@ -6597,7 +6822,10 @@
           "constant": false,
           "verificationRequired": false,
           "preset": false,
-          "verticalJustification": 2
+          "verticalJustification": 2,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "ATTDEF",
@@ -6627,7 +6855,10 @@
           "constant": false,
           "verificationRequired": false,
           "preset": false,
-          "verticalJustification": 2
+          "verticalJustification": 2,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LINE",
@@ -6645,7 +6876,10 @@
           ],
           "handle": "22C9",
           "ownerHandle": "22C2",
-          "layer": "0"
+          "layer": "0",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         }
       ]
     },
@@ -6698,6 +6932,9 @@
             "x": 0,
             "y": 0,
             "z": 0
+          },
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
           }
         },
         {
@@ -6716,7 +6953,10 @@
           ],
           "handle": "22E4",
           "ownerHandle": "22DF",
-          "layer": "FG-Border"
+          "layer": "FG-Border",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -6730,7 +6970,10 @@
           },
           "textHeight": 0.09375,
           "text": "Sheet No.",
-          "xScale": 0.85
+          "xScale": 0.85,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LINE",
@@ -6748,7 +6991,10 @@
           ],
           "handle": "22E6",
           "ownerHandle": "22DF",
-          "layer": "FG-Border"
+          "layer": "FG-Border",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -6762,7 +7008,10 @@
           },
           "textHeight": 0.09375,
           "text": "Scale:",
-          "xScale": 0.85
+          "xScale": 0.85,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LINE",
@@ -6780,7 +7029,10 @@
           ],
           "handle": "22E8",
           "ownerHandle": "22DF",
-          "layer": "FG-Border"
+          "layer": "FG-Border",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LINE",
@@ -6798,7 +7050,10 @@
           ],
           "handle": "22E9",
           "ownerHandle": "22DF",
-          "layer": "FG-Border"
+          "layer": "FG-Border",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -6812,7 +7067,10 @@
           },
           "textHeight": 0.09375,
           "text": "Drawn:",
-          "xScale": 0.85
+          "xScale": 0.85,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -6826,7 +7084,10 @@
           },
           "textHeight": 0.09375,
           "text": "Date:",
-          "xScale": 0.85
+          "xScale": 0.85,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LINE",
@@ -6844,7 +7105,10 @@
           ],
           "handle": "22EC",
           "ownerHandle": "22DF",
-          "layer": "FG-Border"
+          "layer": "FG-Border",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -6858,7 +7122,10 @@
           },
           "textHeight": 0.09375,
           "text": "Project No.",
-          "xScale": 0.85
+          "xScale": 0.85,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -6873,7 +7140,10 @@
           "textHeight": 0.09375,
           "text": "Project Name:",
           "rotation": 90,
-          "xScale": 0.85
+          "xScale": 0.85,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LINE",
@@ -6891,7 +7161,10 @@
           ],
           "handle": "22EF",
           "ownerHandle": "22DF",
-          "layer": "FG-Border"
+          "layer": "FG-Border",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LINE",
@@ -6909,7 +7182,10 @@
           ],
           "handle": "22F0",
           "ownerHandle": "22DF",
-          "layer": "FG-Border"
+          "layer": "FG-Border",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LINE",
@@ -6927,7 +7203,10 @@
           ],
           "handle": "22F1",
           "ownerHandle": "22DF",
-          "layer": "FG-Border"
+          "layer": "FG-Border",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LINE",
@@ -6945,7 +7224,10 @@
           ],
           "handle": "22F2",
           "ownerHandle": "22DF",
-          "layer": "FG-Border"
+          "layer": "FG-Border",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LINE",
@@ -6963,7 +7245,10 @@
           ],
           "handle": "22F3",
           "ownerHandle": "22DF",
-          "layer": "FG-Logo"
+          "layer": "FG-Logo",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LINE",
@@ -6981,7 +7266,10 @@
           ],
           "handle": "22F4",
           "ownerHandle": "22DF",
-          "layer": "FG-Logo"
+          "layer": "FG-Logo",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LINE",
@@ -6999,7 +7287,10 @@
           ],
           "handle": "22F5",
           "ownerHandle": "22DF",
-          "layer": "FG-Logo"
+          "layer": "FG-Logo",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LINE",
@@ -7017,7 +7308,10 @@
           ],
           "handle": "22F6",
           "ownerHandle": "22DF",
-          "layer": "FG-Logo"
+          "layer": "FG-Logo",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -7037,6 +7331,9 @@
             "x": 15.43459372187382,
             "y": 8.483758506895393,
             "z": 0
+          },
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
           }
         },
         {
@@ -7057,6 +7354,9 @@
             "x": 15.43459372187382,
             "y": 9.01982170810002,
             "z": 0
+          },
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
           }
         },
         {
@@ -7077,6 +7377,9 @@
             "x": 15.43459372187382,
             "y": 9.927267587031489,
             "z": 0
+          },
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
           }
         },
         {
@@ -7097,6 +7400,9 @@
             "x": 15.47614878817657,
             "y": 10.1444273202113,
             "z": 0
+          },
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
           }
         },
         {
@@ -7117,6 +7423,9 @@
             "x": 15.38472723081318,
             "y": 10.1444273202113,
             "z": 0
+          },
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
           }
         },
         {
@@ -7137,6 +7446,9 @@
             "x": 15.47614878817657,
             "y": 9.624213818829995,
             "z": 0
+          },
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
           }
         },
         {
@@ -7157,6 +7469,9 @@
             "x": 15.38472723081318,
             "y": 9.624213818829995,
             "z": 0
+          },
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
           }
         },
         {
@@ -7175,7 +7490,10 @@
           ],
           "handle": "22FE",
           "ownerHandle": "22DF",
-          "layer": "FG-Logo"
+          "layer": "FG-Logo",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LINE",
@@ -7193,7 +7511,10 @@
           ],
           "handle": "22FF",
           "ownerHandle": "22DF",
-          "layer": "FG-Logo"
+          "layer": "FG-Logo",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LINE",
@@ -7211,7 +7532,10 @@
           ],
           "handle": "2300",
           "ownerHandle": "22DF",
-          "layer": "FG-Logo"
+          "layer": "FG-Logo",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LINE",
@@ -7229,7 +7553,10 @@
           ],
           "handle": "2301",
           "ownerHandle": "22DF",
-          "layer": "FG-Logo"
+          "layer": "FG-Logo",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "ATTDEF",
@@ -7257,7 +7584,10 @@
           "invisible": false,
           "constant": false,
           "verificationRequired": false,
-          "preset": false
+          "preset": false,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "ATTDEF",
@@ -7285,7 +7615,10 @@
           "invisible": false,
           "constant": false,
           "verificationRequired": false,
-          "preset": false
+          "preset": false,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "ATTDEF",
@@ -7313,7 +7646,10 @@
           "invisible": false,
           "constant": false,
           "verificationRequired": false,
-          "preset": false
+          "preset": false,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "ATTDEF",
@@ -7340,7 +7676,10 @@
           "invisible": false,
           "constant": false,
           "verificationRequired": false,
-          "preset": false
+          "preset": false,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "ATTDEF",
@@ -7367,7 +7706,10 @@
           "invisible": false,
           "constant": false,
           "verificationRequired": false,
-          "preset": false
+          "preset": false,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "ATTDEF",
@@ -7394,7 +7736,10 @@
           "invisible": false,
           "constant": false,
           "verificationRequired": false,
-          "preset": false
+          "preset": false,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "ATTDEF",
@@ -7421,7 +7766,10 @@
           "invisible": false,
           "constant": false,
           "verificationRequired": false,
-          "preset": false
+          "preset": false,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "ATTDEF",
@@ -7448,7 +7796,10 @@
           "invisible": false,
           "constant": false,
           "verificationRequired": false,
-          "preset": false
+          "preset": false,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LINE",
@@ -7466,7 +7817,10 @@
           ],
           "handle": "230A",
           "ownerHandle": "22DF",
-          "layer": "FG-Border"
+          "layer": "FG-Border",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "ATTDEF",
@@ -7494,7 +7848,10 @@
           "invisible": false,
           "constant": false,
           "verificationRequired": false,
-          "preset": false
+          "preset": false,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -7509,7 +7866,10 @@
           "textHeight": 0.09375,
           "text": "Sheet Title:",
           "rotation": 90,
-          "xScale": 0.85
+          "xScale": 0.85,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -7524,7 +7884,10 @@
           },
           "textHeight": 0.0646223872815218,
           "text": "PRODUCTS, INC.",
-          "rotation": 90
+          "rotation": 90,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -7539,7 +7902,10 @@
           },
           "textHeight": 0.0646223872815218,
           "text": "AMERICAN",
-          "rotation": 90
+          "rotation": 90,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -7554,7 +7920,10 @@
           },
           "textHeight": 0.0939961996822135,
           "text": "CONTACT:KERRI BEALS",
-          "rotation": 90
+          "rotation": 90,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -7569,7 +7938,10 @@
           },
           "textHeight": 0.0939961996822135,
           "text": "12157 W LINEBAUGH AVENUE #335",
-          "rotation": 90
+          "rotation": 90,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -7584,7 +7956,10 @@
           },
           "textHeight": 0.0939961996822135,
           "text": "AMERICAN PRODUCTS, INC. (API)",
-          "rotation": 90
+          "rotation": 90,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -7599,7 +7974,10 @@
           },
           "textHeight": 0.0939961996822135,
           "text": "PH (813)925-0144 /",
-          "rotation": 90
+          "rotation": 90,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -7614,7 +7992,10 @@
           },
           "textHeight": 0.0939961996822135,
           "text": "TAMPA, FL 33626",
-          "rotation": 90
+          "rotation": 90,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -7629,7 +8010,10 @@
           },
           "textHeight": 0.0939961996822135,
           "text": "WWW.AMERICANPROD.COM",
-          "rotation": 90
+          "rotation": 90,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LWPOLYLINE",
@@ -7700,6 +8084,9 @@
             "x": 15.80487678893379,
             "y": 6.766898462159226,
             "z": 0
+          },
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
           }
         },
         {
@@ -7722,6 +8109,9 @@
             "x": 16.1156678639845,
             "y": 6.766898462159226,
             "z": 0
+          },
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
           }
         },
         {
@@ -7743,6 +8133,9 @@
             "x": 15.875,
             "y": 8.22432530753071,
             "z": 0
+          },
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
           }
         },
         {
@@ -7764,6 +8157,9 @@
             "x": 15.875,
             "y": 8.117182450387851,
             "z": 0
+          },
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
           }
         },
         {
@@ -7785,6 +8181,9 @@
             "x": 15.875,
             "y": 8.010039593244995,
             "z": 0
+          },
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
           }
         },
         {
@@ -7806,6 +8205,9 @@
             "x": 15.875,
             "y": 7.902896736102137,
             "z": 0
+          },
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
           }
         }
       ]
@@ -8335,7 +8737,10 @@
           ],
           "handle": "2B5F",
           "ownerHandle": "2B5B",
-          "layer": "0"
+          "layer": "0",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "ATTDEF",
@@ -8365,7 +8770,10 @@
           "constant": false,
           "verificationRequired": false,
           "preset": false,
-          "verticalJustification": 2
+          "verticalJustification": 2,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "ATTDEF",
@@ -8395,7 +8803,10 @@
           "constant": false,
           "verificationRequired": false,
           "preset": false,
-          "verticalJustification": 2
+          "verticalJustification": 2,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LINE",
@@ -8413,7 +8824,10 @@
           ],
           "handle": "2B62",
           "ownerHandle": "2B5B",
-          "layer": "0"
+          "layer": "0",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         }
       ]
     },
@@ -8447,7 +8861,10 @@
           ],
           "handle": "31B8",
           "ownerHandle": "31B5",
-          "layer": "0"
+          "layer": "0",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -8466,7 +8883,10 @@
             "y": -0.117137496905297,
             "z": 0
           },
-          "valign": 2
+          "valign": 2,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LINE",
@@ -8484,7 +8904,10 @@
           ],
           "handle": "31BA",
           "ownerHandle": "31B5",
-          "layer": "0"
+          "layer": "0",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LINE",
@@ -8502,7 +8925,10 @@
           ],
           "handle": "31BB",
           "ownerHandle": "31B5",
-          "layer": "0"
+          "layer": "0",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -8515,7 +8941,10 @@
             "z": 0
           },
           "textHeight": 0.09375,
-          "text": "SCALE:"
+          "text": "SCALE:",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -8528,7 +8957,10 @@
             "z": 0
           },
           "textHeight": 0.09375,
-          "text": "ARCH. REF."
+          "text": "ARCH. REF.",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LWPOLYLINE",
@@ -8582,7 +9014,10 @@
           "constant": false,
           "verificationRequired": false,
           "preset": false,
-          "verticalJustification": 2
+          "verticalJustification": 2,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "ATTDEF",
@@ -8609,7 +9044,10 @@
           "invisible": false,
           "constant": false,
           "verificationRequired": false,
-          "preset": false
+          "preset": false,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "ATTDEF",
@@ -8636,7 +9074,10 @@
           "invisible": false,
           "constant": false,
           "verificationRequired": false,
-          "preset": false
+          "preset": false,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         }
       ]
     },
@@ -8670,7 +9111,10 @@
           ],
           "handle": "3204",
           "ownerHandle": "3201",
-          "layer": "0"
+          "layer": "0",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -8689,7 +9133,10 @@
             "y": -0.117137496905297,
             "z": 0
           },
-          "valign": 2
+          "valign": 2,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LINE",
@@ -8707,7 +9154,10 @@
           ],
           "handle": "3206",
           "ownerHandle": "3201",
-          "layer": "0"
+          "layer": "0",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LINE",
@@ -8725,7 +9175,10 @@
           ],
           "handle": "3207",
           "ownerHandle": "3201",
-          "layer": "0"
+          "layer": "0",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -8738,7 +9191,10 @@
             "z": 0
           },
           "textHeight": 0.09375,
-          "text": "SCALE:"
+          "text": "SCALE:",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -8751,7 +9207,10 @@
             "z": 0
           },
           "textHeight": 0.09375,
-          "text": "ARCH. REF."
+          "text": "ARCH. REF.",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LWPOLYLINE",
@@ -8805,7 +9264,10 @@
           "constant": false,
           "verificationRequired": false,
           "preset": false,
-          "verticalJustification": 2
+          "verticalJustification": 2,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "ATTDEF",
@@ -8832,7 +9294,10 @@
           "invisible": false,
           "constant": false,
           "verificationRequired": false,
-          "preset": false
+          "preset": false,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "ATTDEF",
@@ -8859,7 +9324,10 @@
           "invisible": false,
           "constant": false,
           "verificationRequired": false,
-          "preset": false
+          "preset": false,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         }
       ]
     },
@@ -9168,7 +9636,10 @@
             "y": 0.0160843249549316,
             "z": 0
           },
-          "valign": 2
+          "valign": 2,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -9188,7 +9659,10 @@
             "y": 0.008042154335886,
             "z": 0
           },
-          "valign": 2
+          "valign": 2,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         }
       ]
     },
@@ -15790,7 +16264,10 @@
             "y": 0.004021094615787,
             "z": 0
           },
-          "valign": 2
+          "valign": 2,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         }
       ]
     },
@@ -60426,7 +60903,10 @@
           ],
           "handle": "99CF",
           "ownerHandle": "99C2",
-          "layer": "01-detail"
+          "layer": "01-detail",
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -60442,7 +60922,10 @@
           "textHeight": 0.0646223872815218,
           "text": "PRODUCTS, INC.",
           "rotation": 90,
-          "xScale": 0.85
+          "xScale": 0.85,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -60458,7 +60941,10 @@
           "textHeight": 0.0646223872815218,
           "text": "AMERICAN",
           "rotation": 90,
-          "xScale": 0.85
+          "xScale": 0.85,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -60474,7 +60960,10 @@
           "textHeight": 0.0939961996822135,
           "text": "CONTACT: KERRI BEALS",
           "rotation": 90,
-          "xScale": 0.85
+          "xScale": 0.85,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -60490,7 +60979,10 @@
           "textHeight": 0.0939961996822135,
           "text": "12157 W. LINEBAUGH AVENUE #335",
           "rotation": 90,
-          "xScale": 0.85
+          "xScale": 0.85,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -60506,7 +60998,10 @@
           "textHeight": 0.0939961996822135,
           "text": "AMERICAN PRODUCTS, INC. (API)",
           "rotation": 90,
-          "xScale": 0.85
+          "xScale": 0.85,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -60522,7 +61017,10 @@
           "textHeight": 0.0939961996822135,
           "text": "PH (813)925-0144",
           "rotation": 90,
-          "xScale": 0.85
+          "xScale": 0.85,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -60538,7 +61036,10 @@
           "textHeight": 0.0939961996822135,
           "text": "TAMPA, FL 33626",
           "rotation": 90,
-          "xScale": 0.85
+          "xScale": 0.85,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -60554,7 +61055,10 @@
           "textHeight": 0.0939961996822135,
           "text": "WWW.AMERICANPROD.COM",
           "rotation": 90,
-          "xScale": 0.85
+          "xScale": 0.85,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LWPOLYLINE",
@@ -60592,7 +61096,10 @@
           "textHeight": 0.0939961996822135,
           "text": "with storefront elevations and section",
           "rotation": 90,
-          "xScale": 0.85
+          "xScale": 0.85,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -60608,7 +61115,10 @@
           "textHeight": 0.0939961996822135,
           "text": "API Recommends that this note appear",
           "rotation": 90,
-          "xScale": 0.85
+          "xScale": 0.85,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -60624,7 +61134,10 @@
           "textHeight": 0.0939961996822135,
           "text": "view details in your blueprints.",
           "rotation": 90,
-          "xScale": 0.85
+          "xScale": 0.85,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LINE",
@@ -60658,7 +61171,10 @@
           "textHeight": 0.0939961996822135,
           "text": "American Products, Inc. (API). No substitutions",
           "rotation": 90,
-          "xScale": 0.85
+          "xScale": 0.85,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -60674,7 +61190,10 @@
           "textHeight": 0.0939961996822135,
           "text": "Storefront and related materials provided by",
           "rotation": 90,
-          "xScale": 0.85
+          "xScale": 0.85,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -60690,7 +61209,10 @@
           "textHeight": 0.0939961996822135,
           "text": "without written consent from store owner/",
           "rotation": 90,
-          "xScale": 0.85
+          "xScale": 0.85,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -60706,7 +61228,10 @@
           "textHeight": 0.0939961996822135,
           "text": "Architect. API (813)925-0144",
           "rotation": 90,
-          "xScale": 0.85
+          "xScale": 0.85,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LINE",
@@ -60740,7 +61265,10 @@
           "textHeight": 0.0939961996822135,
           "text": "Customer:",
           "rotation": 90,
-          "xScale": 0.85
+          "xScale": 0.85,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -60756,7 +61284,10 @@
           "textHeight": 0.0939961996822135,
           "text": "Assembly:",
           "rotation": 90,
-          "xScale": 0.85
+          "xScale": 0.85,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -60772,7 +61303,10 @@
           "textHeight": 0.0939961996822135,
           "text": "Scale:",
           "rotation": 90,
-          "xScale": 0.85
+          "xScale": 0.85,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -60788,7 +61322,10 @@
           "textHeight": 0.0939961996822135,
           "text": "Drawn By:",
           "rotation": 90,
-          "xScale": 0.85
+          "xScale": 0.85,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -60804,7 +61341,10 @@
           "textHeight": 0.0939961996822135,
           "text": "Date:",
           "rotation": 90,
-          "xScale": 0.85
+          "xScale": 0.85,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LINE",
@@ -60838,7 +61378,10 @@
           "textHeight": 0.0939961996822135,
           "text": "Sheet:",
           "rotation": 90,
-          "xScale": 0.85
+          "xScale": 0.85,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "ATTDEF",
