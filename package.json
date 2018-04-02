@@ -1,6 +1,6 @@
 {
   "name": "dxf-parser",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "Parse dxf files into a readable, logical js object.",
   "main": "index.js",
   "scripts": {
