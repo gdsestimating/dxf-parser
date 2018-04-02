@@ -1240,6 +1240,9 @@ exports.checkCommonEntityProperties = function(entity, curr) {
         case 67:
             entity.inPaperSpace = curr.value !== 0;
             break;
+        case 100:
+            //ignore
+            break;
         case 330:
             entity.ownerHandle = curr.value;
             break;
@@ -1256,8 +1259,14 @@ exports.checkCommonEntityProperties = function(entity, curr) {
         case 420: // TrueColor Color
             entity.color = curr.value;
             break;
-        case 100:
-            //ignore
+        case 1000: 
+            entity.extendedData = entity.extendedData || {};
+            entity.extendedData.customStrings = entity.extendedData.customStrings || []; 
+            entity.extendedData.customStrings.push(curr.value);
+            break;
+        case 1001: 
+            entity.extendedData = entity.extendedData || {};
+            entity.extendedData.applicationName = curr.value;
             break;
         default:
             return false;
@@ -1424,14 +1433,11 @@ EntityParser.prototype.parseEntity = function(scanner, curr) {
             case 7:
                 entity.textStyle = curr.value;
                 break;
-            case 10:
-                entity.x = curr.value;
+            case 10: // X coordinate of 'first alignment point'
+                entity.startPoint = helpers.parsePoint(scanner);
                 break;
-            case 20:
-                entity.y = curr.value;
-                break;
-            case 30:
-                entity.z = curr.value;
+            case 11: // X coordinate of 'second alignment point'
+                entity.endPoint = helpers.parsePoint(scanner);
                 break;
             case 39:
                 entity.thickness = curr.value;

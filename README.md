@@ -45,6 +45,7 @@ Support
 * Block table and inserts
 * VPort table
 * Text and some MTEXT
+* Some XData
 
 Does not yet support
 * 3DSolids
