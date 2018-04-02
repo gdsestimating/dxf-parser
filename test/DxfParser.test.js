@@ -66,22 +66,7 @@ describe('Parser', function() {
 	});
 
 	it('should parse a complex BLOCKS section', function() {
-		var file = fs.readFileSync(path.join(__dirname, 'data', 'blocks.dxf'), 'utf8');
-
-		var parser = new DxfParser();
-		var dxf;
-		try {
-			dxf = parser.parseSync(file);
-			fs.writeFileSync(path.join(__dirname, 'data', 'blocks.actual.json'), JSON.stringify(dxf, null, 2));
-		}catch(err) {
-			var errMsg = err ? err.stack : undefined;
-			should.not.exist(err, errMsg);
-		}
-		should.exist(dxf);
-
-
-		var expected = fs.readFileSync(path.join(__dirname,'data','blocks.expected.json'), {encoding: 'utf8'});
-		dxf.should.eql(JSON.parse(expected));
+		verifyDxf(path.join(__dirname, 'data', 'blocks.dxf'))
 	});
 	
 	it('should parse a simple BLOCKS section', function() {
