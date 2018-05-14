@@ -6,12 +6,14 @@
       "frozen": false,
       "name": "0",
       "visible": true,
+      "colorIndex": 7,
       "color": 16777215
     },
     "Layer 1": {
       "frozen": true,
       "name": "Layer 1",
       "visible": true,
+      "colorIndex": 7,
       "color": 16777215
     }
   }
