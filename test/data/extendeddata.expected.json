@@ -986,6 +986,7 @@
           "name": "0",
           "frozen": false,
           "visible": true,
+          "colorIndex": 7,
           "color": 16777215
         }
       }
