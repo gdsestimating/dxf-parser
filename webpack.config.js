@@ -6,7 +6,8 @@ module.exports = {
     filename: 'dxf-parser.js',
     path: path.resolve(__dirname, 'dist'),
     library: 'DxfParser',
-    libraryTarget: 'var',
-    libraryExport: 'default'
+    libraryTarget: 'umd',
+    libraryExport: 'default',
+    globalObject: 'typeof self !== \'undefined\' ? self : this'
   }
 };

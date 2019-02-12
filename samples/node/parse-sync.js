@@ -1,8 +1,8 @@
-var DxfParser = require('../src');
+var DxfParser = require('../../dist/dxf-parser');
 var fs = require('fs');
 var path = require('path');
 
-var DXF_FILE_PATH = path.join(__dirname, 'data', 'api-cw750-details.dxf');
+var DXF_FILE_PATH = path.join(__dirname, '..', 'data', 'api-cw750-details.dxf');
 var OUTPUT_FILE_NAME = "out.json";
 
 var fileText = fs.readFileSync(DXF_FILE_PATH, 'utf8');
