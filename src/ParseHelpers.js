@@ -4,24 +4,23 @@ var AUTO_CAD_COLOR_INDEX = require('./AutoCadColorIndex');
  * Returns the truecolor value of the given AutoCad color index value
  * @return {Number} truecolor value as a number
  */
-exports.getAcadColor = function(index) {
+export function getAcadColor(index) {
 	return AUTO_CAD_COLOR_INDEX[index];
 }
-var getAcadColor = exports.getAcadColor;
 
 /**
  * Parses the 2D or 3D coordinate, vector, or point. When complete,
  * the scanner remains on the last group of the coordinate.
  * @param {*} scanner 
  */
-exports.parsePoint = function(scanner) {
+export function parsePoint(scanner) {
     var point = {};
 
     // Reread group for the first coordinate
     scanner.rewind();
     var curr = scanner.next();
 
-    code = curr.code;
+    var code = curr.code;
     point.x = curr.value;
 
     code += 10;
@@ -50,7 +49,7 @@ exports.parsePoint = function(scanner) {
  * @param {*} entity - the entity currently being parsed 
  * @param {*} curr - the current group being parsed
  */
-exports.checkCommonEntityProperties = function(entity, curr) {
+export function checkCommonEntityProperties(entity, curr) {
     switch(curr.code) {
         case 0:
             entity.type = curr.value;

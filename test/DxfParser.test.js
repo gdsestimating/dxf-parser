@@ -1,4 +1,4 @@
-var DxfParser = require('../');
+var DxfParser = require('../src');
 var fs = require('fs');
 var should = require('should');
 var path = require('path');

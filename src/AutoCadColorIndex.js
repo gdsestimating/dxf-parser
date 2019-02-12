@@ -5,7 +5,7 @@
  * values in AutoCad so they should not be used for index color lookups.
  */
 
-module.exports = [
+export default [
  0,
  16711680,
  16776960,

@@ -2,6 +2,8 @@
 <html>
 	<head>
 		<title>Dxf-Parser - Browser Sample</title>
+		
+		<script src="../../dist/dxf-parser.js"></script>
 	</head>
 	<body>
 		<input id="file-field" type="file"/>
@@ -9,8 +11,6 @@
 		<pre id="output" stlye="font-family: monospace;">
 			
 		</pre>
-		
-		<script src="../../dist/dxf-parser.js"></script>
 		<script>
 			var outputElement = document.getElementById('output');
 			document.getElementById("file-field").onchange = function() {

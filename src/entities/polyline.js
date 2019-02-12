@@ -1,10 +1,8 @@
 
-var helpers = require('../ParseHelpers');
+import * as helpers from '../ParseHelpers'
 var VertexParser = require('./vertex');
 
-module.exports = EntityParser;
-
-function EntityParser() {}
+export default function EntityParser() {}
 
 EntityParser.ForEntityName = 'POLYLINE';
 

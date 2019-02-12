@@ -1,5 +1,22 @@
-var DxfArrayScanner = require('./DxfArrayScanner.js'),
-	AUTO_CAD_COLOR_INDEX = require('./AutoCadColorIndex');
+import DxfArrayScanner from './DxfArrayScanner';
+import AUTO_CAD_COLOR_INDEX from './AutoCadColorIndex';
+
+import Face from './entities/3dface';
+import Arc from './entities/arc';
+import AttDef from './entities/attdef';
+import Circle from './entities/circle';
+import Dimension from './entities/dimension';
+import Ellipse from './entities/ellipse';
+import Insert from './entities/insert';
+import Line from './entities/line';
+import LWPolyline from './entities/lwpolyline';
+import MText from './entities/mtext';
+import Point from './entities/point';
+import Polyline from './entities/polyline';
+import Solid from './entities/solid';
+import Spline from './entities/spline';
+import Text from './entities/text';
+//import Vertex from './entities/';
 
 var log = require('loglevel');
 
@@ -12,25 +29,25 @@ log.setLevel('error');
 
 function registerDefaultEntityHandlers(dxfParser) {
 	// Supported entities here (some entity code is still being refactored into this flow)
-	dxfParser.registerEntityHandler(require('./entities/3dface'));
-	dxfParser.registerEntityHandler(require('./entities/arc'));
-	dxfParser.registerEntityHandler(require('./entities/attdef'));
-	dxfParser.registerEntityHandler(require('./entities/circle'));
-	dxfParser.registerEntityHandler(require('./entities/dimension'));
-	dxfParser.registerEntityHandler(require('./entities/ellipse'));
-	dxfParser.registerEntityHandler(require('./entities/insert'));
-	dxfParser.registerEntityHandler(require('./entities/line'));
-	dxfParser.registerEntityHandler(require('./entities/lwpolyline'));
-	dxfParser.registerEntityHandler(require('./entities/mtext'));
-	dxfParser.registerEntityHandler(require('./entities/point'));
-	dxfParser.registerEntityHandler(require('./entities/polyline'));
-	dxfParser.registerEntityHandler(require('./entities/solid'));
-	dxfParser.registerEntityHandler(require('./entities/spline'));
-	dxfParser.registerEntityHandler(require('./entities/text'));
+	dxfParser.registerEntityHandler(Face);
+	dxfParser.registerEntityHandler(Arc);
+	dxfParser.registerEntityHandler(AttDef);
+	dxfParser.registerEntityHandler(Circle);
+	dxfParser.registerEntityHandler(Dimension);
+	dxfParser.registerEntityHandler(Ellipse);
+	dxfParser.registerEntityHandler(Insert);
+	dxfParser.registerEntityHandler(Line);
+	dxfParser.registerEntityHandler(LWPolyline);
+	dxfParser.registerEntityHandler(MText);
+	dxfParser.registerEntityHandler(Point);
+	dxfParser.registerEntityHandler(Polyline);
+	dxfParser.registerEntityHandler(Solid);
+	dxfParser.registerEntityHandler(Spline);
+	dxfParser.registerEntityHandler(Text);
 	//dxfParser.registerEntityHandler(require('./entities/vertex'));
 }
 
-function DxfParser() {
+export default function DxfParser() {
 	this._entityHandlers = {};
 
 	registerDefaultEntityHandlers(this);
@@ -738,10 +755,6 @@ const BLOCK_XREF_OVERLAY_FLAG = 8;
 const BLOCK_EXTERNALLY_DEPENDENT_FLAG = 16;
 const BLOCK_RESOLVED_OR_DEPENDENT_FLAG = 32;
 const BLOCK_REFERENCED_XREF = 64;
-
-
-
-module.exports = DxfParser;
 
 
 /* Notes */

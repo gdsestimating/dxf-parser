@@ -9,7 +9,7 @@
  * @param data - an array where each element represents a line in the dxf file
  * @constructor
  */
-function DxfArrayScanner(data) {
+export default function DxfArrayScanner(data) {
 	this._pointer = 0;
 	this._data = data;
 	this._eof = false;
@@ -141,5 +141,3 @@ function parseBoolean(str) {
 	if(str === '1') return true;
 	throw TypeError('String \'' + str + '\' cannot be cast to Boolean type');
 }
-
-module.exports = DxfArrayScanner;

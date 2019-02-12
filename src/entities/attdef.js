@@ -1,9 +1,7 @@
 
-var helpers = require('../ParseHelpers');
+import * as helpers from '../ParseHelpers'
 
-module.exports = EntityParser;
-
-function EntityParser() {}
+export default function EntityParser() {}
 
 EntityParser.ForEntityName = 'ATTDEF';
 
