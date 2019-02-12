@@ -12,11 +12,11 @@ EntityParser.prototype.parseEntity = function(scanner, curr) {
         if(curr.code === 0) break;
 
         switch(curr.code) {
-            case 1:
-                entity.text = curr.value;
-                break;
             case 3:
-                entity.text += curr.value;
+                entity.text ? entity.text += curr.value : entity.text = curr.value;
+                break;
+            case 1:
+                entity.text ? entity.text += curr.value : entity.text = curr.value;
                 break;
             case 10:
                 entity.position = helpers.parsePoint(scanner);
