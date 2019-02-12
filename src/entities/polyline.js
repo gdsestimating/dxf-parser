@@ -1,6 +1,6 @@
 
 import * as helpers from '../ParseHelpers'
-var VertexParser = require('./vertex');
+import VertexParser from './vertex';
 
 export default function EntityParser() {}
 

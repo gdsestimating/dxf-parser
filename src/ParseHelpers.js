@@ -1,4 +1,4 @@
-var AUTO_CAD_COLOR_INDEX = require('./AutoCadColorIndex');
+import AUTO_CAD_COLOR_INDEX from './AutoCadColorIndex';
 
 /**
  * Returns the truecolor value of the given AutoCad color index value

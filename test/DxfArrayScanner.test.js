@@ -1,5 +1,5 @@
-var Scanner = require('../lib/DxfArrayScanner.js');
-require('should');
+import Scanner from '../src/DxfArrayScanner.js';
+import 'should';
 
 describe('Scanner', function() {
 	describe('.hasNext()', function() {
