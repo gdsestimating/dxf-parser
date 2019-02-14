@@ -65,9 +65,9 @@ describe('Parser', function() {
 		tables.viewPort.should.eql(JSON.parse(expected));
 	});
 
-	// it('should parse a complex BLOCKS section', function() {
-	// 	verifyDxf(path.join(__dirname, 'data', 'blocks.dxf'))
-	// });
+	it('should parse a complex BLOCKS section', function() {
+		verifyDxf(path.join(__dirname, 'data', 'blocks.dxf'))
+	});
 	
 	it('should parse a simple BLOCKS section', function() {
 		var file = fs.readFileSync(path.join(__dirname, 'data', 'blocks2.dxf'), 'utf8');
@@ -164,6 +164,10 @@ describe('Parser', function() {
 
 	it('should parse ARC entities (1)', function() {
 		verifyDxf(path.join(__dirname, 'data', 'arc1.dxf'));
+	});
+
+	it('should parse MTEXT entities', function() {
+		verifyDxf(path.join(__dirname, 'data', 'mtext-test.dxf'));
 	});
 });
 

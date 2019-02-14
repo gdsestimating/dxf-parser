@@ -1,0 +1,553 @@
+{
+  "header": {
+    "$ACADVER": "AC1027",
+    "$ACADMAINTVER": 125,
+    "$DWGCODEPAGE": "ANSI_1252",
+    "$LASTSAVEDBY": "bzuil",
+    "$REQUIREDVERSIONS": 0,
+    "$INSBASE": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "$EXTMIN": {
+      "x": 0.2965236846618869,
+      "y": 0.443001332753784,
+      "z": 0
+    },
+    "$EXTMAX": {
+      "x": 35.77780313523698,
+      "y": 23.59224206458088,
+      "z": 0
+    },
+    "$LIMMIN": {
+      "x": 0,
+      "y": 0
+    },
+    "$LIMMAX": {
+      "x": 12,
+      "y": 9
+    },
+    "$ORTHOMODE": 0,
+    "$REGENMODE": 1,
+    "$FILLMODE": 1,
+    "$QTEXTMODE": 0,
+    "$MIRRTEXT": 0,
+    "$LTSCALE": 1,
+    "$ATTMODE": 1,
+    "$TEXTSIZE": 0.2,
+    "$TRACEWID": 0.05,
+    "$TEXTSTYLE": "Standard",
+    "$CLAYER": "0",
+    "$CELTYPE": "ByLayer",
+    "$CECOLOR": 256,
+    "$CELTSCALE": 1,
+    "$DISPSILH": 0,
+    "$DIMSCALE": 1,
+    "$DIMASZ": 0.18,
+    "$DIMEXO": 0.0625,
+    "$DIMDLI": 0.38,
+    "$DIMRND": 0,
+    "$DIMDLE": 0,
+    "$DIMEXE": 0.18,
+    "$DIMTP": 0,
+    "$DIMTM": 0,
+    "$DIMTXT": 0.18,
+    "$DIMCEN": 0.09,
+    "$DIMTSZ": 0,
+    "$DIMTOL": 0,
+    "$DIMLIM": 0,
+    "$DIMTIH": 1,
+    "$DIMTOH": 1,
+    "$DIMSE1": 0,
+    "$DIMSE2": 0,
+    "$DIMTAD": 0,
+    "$DIMZIN": 0,
+    "$DIMBLK": "",
+    "$DIMASO": 1,
+    "$DIMSHO": 1,
+    "$DIMPOST": "",
+    "$DIMAPOST": "",
+    "$DIMALT": 0,
+    "$DIMALTD": 2,
+    "$DIMALTF": 25.4,
+    "$DIMLFAC": 1,
+    "$DIMTOFL": 0,
+    "$DIMTVP": 0,
+    "$DIMTIX": 0,
+    "$DIMSOXD": 0,
+    "$DIMSAH": 0,
+    "$DIMBLK1": "",
+    "$DIMBLK2": "",
+    "$DIMSTYLE": "Standard",
+    "$DIMCLRD": 0,
+    "$DIMCLRE": 0,
+    "$DIMCLRT": 0,
+    "$DIMTFAC": 1,
+    "$DIMGAP": 0.09,
+    "$DIMJUST": 0,
+    "$DIMSD1": 0,
+    "$DIMSD2": 0,
+    "$DIMTOLJ": 1,
+    "$DIMTZIN": 0,
+    "$DIMALTZ": 0,
+    "$DIMALTTZ": 0,
+    "$DIMUPT": 0,
+    "$DIMDEC": 4,
+    "$DIMTDEC": 4,
+    "$DIMALTU": 2,
+    "$DIMALTTD": 2,
+    "$DIMTXSTY": "Standard",
+    "$DIMAUNIT": 0,
+    "$DIMADEC": 0,
+    "$DIMALTRND": 0,
+    "$DIMAZIN": 0,
+    "$DIMDSEP": 46,
+    "$DIMATFIT": 3,
+    "$DIMFRAC": 0,
+    "$DIMLDRBLK": "",
+    "$DIMLUNIT": 2,
+    "$DIMLWD": -2,
+    "$DIMLWE": -2,
+    "$DIMTMOVE": 0,
+    "$DIMFXL": 1,
+    "$DIMFXLON": 0,
+    "$DIMJOGANG": 0.7853981633974483,
+    "$DIMTFILL": 0,
+    "$DIMTFILLCLR": 0,
+    "$DIMARCSYM": 0,
+    "$DIMLTYPE": "",
+    "$DIMLTEX1": "",
+    "$DIMLTEX2": "",
+    "$DIMTXTDIRECTION": 0,
+    "$LUNITS": 2,
+    "$LUPREC": 4,
+    "$SKETCHINC": 0.1,
+    "$FILLETRAD": 0,
+    "$AUNITS": 0,
+    "$AUPREC": 0,
+    "$MENU": ".",
+    "$ELEVATION": 0,
+    "$PELEVATION": 0,
+    "$THICKNESS": 0,
+    "$LIMCHECK": 0,
+    "$CHAMFERA": 0,
+    "$CHAMFERB": 0,
+    "$CHAMFERC": 0,
+    "$CHAMFERD": 0,
+    "$SKPOLY": 0,
+    "$TDCREATE": 2458528.811944445,
+    "$TDUCREATE": 2458529.145277778,
+    "$TDUPDATE": 2458528.989722222,
+    "$TDUUPDATE": 2458529.323055556,
+    "$TDINDWG": 0.0113888889,
+    "$TDUSRTIMER": 0.0113888889,
+    "$USRTIMER": 1,
+    "$ANGBASE": 0,
+    "$ANGDIR": 0,
+    "$PDMODE": 0,
+    "$PDSIZE": 0,
+    "$PLINEWID": 0,
+    "$SPLFRAME": 0,
+    "$SPLINETYPE": 6,
+    "$SPLINESEGS": 8,
+    "$HANDSEED": "289",
+    "$SURFTAB1": 6,
+    "$SURFTAB2": 6,
+    "$SURFTYPE": 6,
+    "$SURFU": 6,
+    "$SURFV": 6,
+    "$UCSBASE": "",
+    "$UCSNAME": "",
+    "$UCSORG": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "$UCSXDIR": {
+      "x": 1,
+      "y": 0,
+      "z": 0
+    },
+    "$UCSYDIR": {
+      "x": 0,
+      "y": 1,
+      "z": 0
+    },
+    "$UCSORTHOREF": "",
+    "$UCSORTHOVIEW": 0,
+    "$UCSORGTOP": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "$UCSORGBOTTOM": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "$UCSORGLEFT": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "$UCSORGRIGHT": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "$UCSORGFRONT": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "$UCSORGBACK": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "$PUCSBASE": "",
+    "$PUCSNAME": "",
+    "$PUCSORG": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "$PUCSXDIR": {
+      "x": 1,
+      "y": 0,
+      "z": 0
+    },
+    "$PUCSYDIR": {
+      "x": 0,
+      "y": 1,
+      "z": 0
+    },
+    "$PUCSORTHOREF": "",
+    "$PUCSORTHOVIEW": 0,
+    "$PUCSORGTOP": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "$PUCSORGBOTTOM": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "$PUCSORGLEFT": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "$PUCSORGRIGHT": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "$PUCSORGFRONT": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "$PUCSORGBACK": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "$USERI1": 0,
+    "$USERI2": 0,
+    "$USERI3": 0,
+    "$USERI4": 0,
+    "$USERI5": 0,
+    "$USERR1": 0,
+    "$USERR2": 0,
+    "$USERR3": 0,
+    "$USERR4": 0,
+    "$USERR5": 0,
+    "$WORLDVIEW": 1,
+    "$SHADEDGE": 3,
+    "$SHADEDIF": 70,
+    "$TILEMODE": 1,
+    "$MAXACTVP": 64,
+    "$PINSBASE": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "$PLIMCHECK": 0,
+    "$PEXTMIN": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "$PEXTMAX": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "$PLIMMIN": {
+      "x": 0,
+      "y": 0
+    },
+    "$PLIMMAX": {
+      "x": 12,
+      "y": 9
+    },
+    "$UNITMODE": 0,
+    "$VISRETAIN": 1,
+    "$PLINEGEN": 0,
+    "$PSLTSCALE": 1,
+    "$TREEDEPTH": 3020,
+    "$CMLSTYLE": "Standard",
+    "$CMLJUST": 0,
+    "$CMLSCALE": 1,
+    "$PROXYGRAPHICS": 1,
+    "$MEASUREMENT": 0,
+    "$CELWEIGHT": -1,
+    "$ENDCAPS": 0,
+    "$JOINSTYLE": 0,
+    "$LWDISPLAY": false,
+    "$INSUNITS": 1,
+    "$HYPERLINKBASE": "",
+    "$STYLESHEET": "",
+    "$XEDIT": true,
+    "$CEPSNTYPE": 0,
+    "$PSTYLEMODE": true,
+    "$FINGERPRINTGUID": "{FDAE80E6-93AC-8B41-9270-67E6B58D8DBE}",
+    "$VERSIONGUID": "{8C84135B-E9E2-8A4F-B585-309CF8EF7F09}",
+    "$EXTNAMES": true,
+    "$PSVPSCALE": 0,
+    "$OLESTARTUP": false,
+    "$SORTENTS": 127,
+    "$INDEXCTL": 0,
+    "$HIDETEXT": 1,
+    "$XCLIPFRAME": 2,
+    "$HALOGAP": 0,
+    "$OBSCOLOR": 257,
+    "$OBSLTYPE": 0,
+    "$INTERSECTIONDISPLAY": 0,
+    "$INTERSECTIONCOLOR": 257,
+    "$DIMASSOC": 2,
+    "$PROJECTNAME": "",
+    "$CAMERADISPLAY": false,
+    "$LENSLENGTH": 50,
+    "$CAMERAHEIGHT": 0,
+    "$STEPSPERSEC": 2,
+    "$STEPSIZE": 6,
+    "$3DDWFPREC": 2,
+    "$PSOLWIDTH": 0.25,
+    "$PSOLHEIGHT": 4,
+    "$LOFTANG1": 1.570796326794896,
+    "$LOFTANG2": 1.570796326794896,
+    "$LOFTMAG1": 0,
+    "$LOFTMAG2": 0,
+    "$LOFTPARAM": 7,
+    "$LOFTNORMALS": 1,
+    "$LATITUDE": 37.795,
+    "$LONGITUDE": -122.394,
+    "$NORTHDIRECTION": 0,
+    "$TIMEZONE": -8000,
+    "$LIGHTGLYPHDISPLAY": 1,
+    "$TILEMODELIGHTSYNCH": 1,
+    "$CMATERIAL": "96",
+    "$SOLIDHIST": 0,
+    "$SHOWHIST": 1,
+    "$DWFFRAME": 2,
+    "$DGNFRAME": 0,
+    "$REALWORLDSCALE": true,
+    "$INTERFERECOLOR": 1,
+    "$INTERFEREOBJVS": "A3",
+    "$INTERFEREVPVS": "A0",
+    "$CSHADOW": 0,
+    "$SHADOWPLANELOCATION": 0
+  },
+  "tables": {
+    "viewPort": {
+      "handle": "8",
+      "ownerHandle": "0",
+      "viewPorts": [
+        {
+          "ownerHandle": "8",
+          "name": "*Active",
+          "lowerLeftCorner": {
+            "x": 0,
+            "y": 0
+          },
+          "upperRightCorner": {
+            "x": 1,
+            "y": 1
+          },
+          "center": {
+            "x": 13.93835439371528,
+            "y": 3.720281475640653
+          },
+          "snapBasePoint": {
+            "x": 0,
+            "y": 0
+          },
+          "snapSpacing": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "gridSpacing": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "viewDirectionFromTarget": {
+            "x": 0,
+            "y": 0,
+            "z": 1
+          },
+          "viewTarget": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "lensLength": 50,
+          "frontClippingPlane": 0,
+          "backClippingPlane": 0,
+          "snapRotationAngle": 0,
+          "viewTwistAngle": 0,
+          "renderMode": 0,
+          "ucsOrigin": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "ucsXAxis": {
+            "x": 1,
+            "y": 0,
+            "z": 0
+          },
+          "ucsYAxis": {
+            "x": 0,
+            "y": 1,
+            "z": 0
+          },
+          "orthographicType": 0,
+          "defaultLightingOn": true,
+          "ambientColor": 3355443
+        }
+      ]
+    },
+    "lineType": {
+      "handle": "5",
+      "ownerHandle": "0",
+      "lineTypes": {
+        "ByBlock": {
+          "name": "ByBlock",
+          "description": "",
+          "patternLength": 0
+        },
+        "ByLayer": {
+          "name": "ByLayer",
+          "description": "",
+          "patternLength": 0
+        },
+        "Continuous": {
+          "name": "Continuous",
+          "description": "Solid line",
+          "patternLength": 0
+        }
+      }
+    },
+    "layer": {
+      "handle": "2",
+      "ownerHandle": "0",
+      "layers": {
+        "0": {
+          "name": "0",
+          "frozen": false,
+          "visible": true,
+          "colorIndex": 7,
+          "color": 16777215
+        }
+      }
+    }
+  },
+  "blocks": {
+    "*Model_Space": {
+      "handle": "20",
+      "ownerHandle": "1F",
+      "layer": "0",
+      "name": "*Model_Space",
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "name2": "*Model_Space",
+      "xrefPath": ""
+    },
+    "*Paper_Space": {
+      "handle": "5A",
+      "ownerHandle": "58",
+      "paperSpace": true,
+      "layer": "0",
+      "name": "*Paper_Space",
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "name2": "*Paper_Space",
+      "xrefPath": ""
+    },
+    "*Paper_Space0": {
+      "handle": "5F",
+      "ownerHandle": "5D",
+      "paperSpace": true,
+      "layer": "0",
+      "name": "*Paper_Space0",
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "name2": "*Paper_Space0",
+      "xrefPath": ""
+    }
+  },
+  "entities": [
+    {
+      "type": "MTEXT",
+      "handle": "26B",
+      "ownerHandle": "1F",
+      "layer": "0",
+      "position": {
+        "x": 0.3180789370493358,
+        "y": 5.389340577865198,
+        "z": 0
+      },
+      "height": 0.2,
+      "width": 8.98565600810167,
+      "attachmentPoint": 1,
+      "drawingDirection": 5,
+      "text": "Lorem ipsum dolor sit amet consectetur adipiscing elit vitae, congue mus odio lobortis habitasse parturient sem. Rutrum volutpat sagittis fringilla sollicitudin cum nisl suspendisse non, mi habitant habitasse nunc pellentesque vitae maecenas, cursuslectus nascetur nulla parturient leo luctus. Interdum sapien augue ullamcorper dis ultrices mollis leo netus ante, platea quam at eros urna natoque habitasse nulla fringilla curabitur, egestas facilisis iaculis euismod tempor aliquet curae molestie.Dapibus bibendum scelerisque tempus netus mus hac euismod vestibulum proin tristique non, congue ultrices cras lobortis nam lacus magnis iaculis at donec justo maecenas, est convallis inceptos vel nisi eu natoque ante nisl sapien. Facilisi per dui lobortis eleifend facilisis quam luctus, nunc semper neque cubilia cursus fringilla, nisl vehicula viverra diam auctor vitae. Est enim gravida nibh non pretium aptent nulla egestas praesent, varius malesuada felis commodo leo id lacinia montes, magna turpis sagittis imperdie.",
+      "extendedData": {
+        "applicationName": "ACAD",
+        "customStrings": [
+          "ACAD_MTEXT_COLUMN_INFO_BEGIN",
+          "ACAD_MTEXT_COLUMN_INFO_END"
+        ]
+      }
+    },
+    {
+      "type": "MTEXT",
+      "handle": "272",
+      "ownerHandle": "1F",
+      "layer": "0",
+      "position": {
+        "x": 16.6297525520321,
+        "y": 5.552640932220924,
+        "z": 0
+      },
+      "height": 0.2,
+      "width": 8.98565600810167,
+      "attachmentPoint": 2,
+      "drawingDirection": 5,
+      "text": "Lorem ipsum dolor sit amet consectetur adipiscing elit vitae, congue mus odio lobortis habitasse parturient sem."
+    }
+  ]
+}
