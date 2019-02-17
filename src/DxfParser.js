@@ -7,6 +7,7 @@ import AttDef from './entities/attdef';
 import Circle from './entities/circle';
 import Dimension from './entities/dimension';
 import Ellipse from './entities/ellipse';
+import Hatch from './entities/hatch';
 import Insert from './entities/insert';
 import Line from './entities/line';
 import LWPolyline from './entities/lwpolyline';
@@ -35,6 +36,7 @@ function registerDefaultEntityHandlers(dxfParser) {
 	dxfParser.registerEntityHandler(Circle);
 	dxfParser.registerEntityHandler(Dimension);
 	dxfParser.registerEntityHandler(Ellipse);
+	dxfParser.registerEntityHandler(Hatch);
 	dxfParser.registerEntityHandler(Insert);
 	dxfParser.registerEntityHandler(Line);
 	dxfParser.registerEntityHandler(LWPolyline);
@@ -717,7 +719,7 @@ DxfParser.prototype._parse = function(dxfString) {
 			return point;
 		}
 		point.z = curr.value;
-		
+
 		return point;
 	};
 
