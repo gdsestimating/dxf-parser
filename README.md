@@ -29,8 +29,10 @@ See the [wiki Example Output page](https://github.com/gdsestimating/dxf-parser/w
 #### Run Samples
 node.js
 ```
-node samples/parseSync
-node samples/parseStream
+npm install
+npm run build
+node samples/node/parseSync
+node samples/node/parseStream
 ```
 
 browser - the [three-dxf repo](https://github.com/gdsestimating/three-dxf) has a sample for viewing dxf cad in the browser 
