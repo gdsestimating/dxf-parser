@@ -18,7 +18,7 @@ import Spline from './entities/spline';
 import Text from './entities/text';
 //import Vertex from './entities/';
 
-var log = require('loglevel');
+import log from 'loglevel';
 
 //log.setLevel('trace');
 //log.setLevel('debug');
