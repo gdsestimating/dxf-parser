@@ -102,7 +102,10 @@
           "ownerHandle": "2DC",
           "layer": "0",
           "shape": true,
-          "hasContinuousLinetypePattern": false
+          "hasContinuousLinetypePattern": false,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LINE",
@@ -252,7 +255,10 @@
           "ownerHandle": "E1C",
           "layer": "FG-Border",
           "shape": true,
-          "hasContinuousLinetypePattern": false
+          "hasContinuousLinetypePattern": false,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "POINT",
@@ -1375,7 +1381,10 @@
           "layer": "FG-Note",
           "visible": false,
           "shape": true,
-          "hasContinuousLinetypePattern": false
+          "hasContinuousLinetypePattern": false,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LWPOLYLINE",
@@ -1401,7 +1410,10 @@
           "ownerHandle": "E1C",
           "layer": "FG-Border",
           "shape": true,
-          "hasContinuousLinetypePattern": false
+          "hasContinuousLinetypePattern": false,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -1621,7 +1633,10 @@
           "ownerHandle": "13F9",
           "layer": "0",
           "shape": true,
-          "hasContinuousLinetypePattern": false
+          "hasContinuousLinetypePattern": false,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         }
       ]
     },
@@ -1676,7 +1691,10 @@
           "ownerHandle": "13FE",
           "layer": "0",
           "shape": false,
-          "hasContinuousLinetypePattern": false
+          "hasContinuousLinetypePattern": false,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LWPOLYLINE",
@@ -1694,7 +1712,10 @@
           "ownerHandle": "13FE",
           "layer": "0",
           "shape": false,
-          "hasContinuousLinetypePattern": false
+          "hasContinuousLinetypePattern": false,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LWPOLYLINE",
@@ -1712,7 +1733,10 @@
           "ownerHandle": "13FE",
           "layer": "0",
           "shape": false,
-          "hasContinuousLinetypePattern": false
+          "hasContinuousLinetypePattern": false,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LWPOLYLINE",
@@ -1749,7 +1773,10 @@
           "ownerHandle": "13FE",
           "layer": "0",
           "shape": false,
-          "hasContinuousLinetypePattern": false
+          "hasContinuousLinetypePattern": false,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LWPOLYLINE",
@@ -1775,7 +1802,10 @@
           "ownerHandle": "13FE",
           "layer": "0",
           "shape": false,
-          "hasContinuousLinetypePattern": false
+          "hasContinuousLinetypePattern": false,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LWPOLYLINE",
@@ -1801,7 +1831,10 @@
           "ownerHandle": "13FE",
           "layer": "0",
           "shape": true,
-          "hasContinuousLinetypePattern": false
+          "hasContinuousLinetypePattern": false,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LWPOLYLINE",
@@ -1831,7 +1864,10 @@
           "ownerHandle": "13FE",
           "layer": "0",
           "shape": false,
-          "hasContinuousLinetypePattern": false
+          "hasContinuousLinetypePattern": false,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         }
       ]
     },
@@ -2054,7 +2090,10 @@
           "layer": "0",
           "lineType": "Continuous",
           "shape": true,
-          "hasContinuousLinetypePattern": false
+          "hasContinuousLinetypePattern": false,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         }
       ]
     },
@@ -6321,7 +6360,10 @@
           "ownerHandle": "2209",
           "layer": "0",
           "shape": true,
-          "hasContinuousLinetypePattern": false
+          "hasContinuousLinetypePattern": false,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LINE",
@@ -6471,7 +6513,10 @@
           "ownerHandle": "2268",
           "layer": "0",
           "shape": true,
-          "hasContinuousLinetypePattern": false
+          "hasContinuousLinetypePattern": false,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LINE",
@@ -6621,7 +6666,10 @@
           "ownerHandle": "22A5",
           "layer": "0",
           "shape": true,
-          "hasContinuousLinetypePattern": false
+          "hasContinuousLinetypePattern": false,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LINE",
@@ -6771,7 +6819,10 @@
           "ownerHandle": "22C2",
           "layer": "0",
           "shape": true,
-          "hasContinuousLinetypePattern": false
+          "hasContinuousLinetypePattern": false,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LINE",
@@ -6921,7 +6972,10 @@
           "ownerHandle": "22DF",
           "layer": "FG-Border",
           "shape": true,
-          "hasContinuousLinetypePattern": false
+          "hasContinuousLinetypePattern": false,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "POINT",
@@ -8035,7 +8089,10 @@
           "ownerHandle": "22DF",
           "layer": "FG-Note",
           "shape": true,
-          "hasContinuousLinetypePattern": false
+          "hasContinuousLinetypePattern": false,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LWPOLYLINE",
@@ -8062,7 +8119,10 @@
           "layer": "FG-Border",
           "visible": false,
           "shape": true,
-          "hasContinuousLinetypePattern": false
+          "hasContinuousLinetypePattern": false,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
@@ -8719,7 +8779,10 @@
           "ownerHandle": "2B5B",
           "layer": "0",
           "shape": true,
-          "hasContinuousLinetypePattern": false
+          "hasContinuousLinetypePattern": false,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "LINE",
@@ -8986,7 +9049,10 @@
           "ownerHandle": "31B5",
           "layer": "0",
           "shape": true,
-          "hasContinuousLinetypePattern": false
+          "hasContinuousLinetypePattern": false,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "ATTDEF",
@@ -9236,7 +9302,10 @@
           "ownerHandle": "3201",
           "layer": "0",
           "shape": true,
-          "hasContinuousLinetypePattern": false
+          "hasContinuousLinetypePattern": false,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "ATTDEF",
@@ -61080,7 +61149,10 @@
           "ownerHandle": "99C2",
           "layer": "A-ANNO-NOTES",
           "shape": true,
-          "hasContinuousLinetypePattern": false
+          "hasContinuousLinetypePattern": false,
+          "extendedData": {
+            "applicationName": "AcDbBlockRepETag"
+          }
         },
         {
           "type": "TEXT",
