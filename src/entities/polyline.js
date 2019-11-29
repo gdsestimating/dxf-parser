@@ -13,13 +13,17 @@ EntityParser.prototype.parseEntity = function(scanner, curr) {
 			if(curr.code === 0) break;
 
 			switch(curr.code) {
-				case 10: // always 0
+                case 10: // always 0
+                    break;
 				case 20: // always 0
+                    break;
 				case 30: // elevation
+                    break;
 				case 39: // thickness
                     entity.thickness = curr.value;
 					break;
 				case 40: // start width
+                    break;
 				case 41: // end width
 					break;
 				case 70:
@@ -33,9 +37,13 @@ EntityParser.prototype.parseEntity = function(scanner, curr) {
                     entity.hasContinuousLinetypePattern = (curr.value & 128) !== 0;
 					break;
 				case 71: // Polygon mesh M vertex count
+                    break;
 				case 72: // Polygon mesh N vertex count
+                    break;
 				case 73: // Smooth surface M density
+                    break;
 				case 74: // Smooth surface N density
+                    break;
 				case 75: // Curves and smooth surface type
 					break;
 				case 210:

@@ -494,7 +494,9 @@ DxfParser.prototype._parse = function(dxfString) {
 					curr = scanner.next();
 					break;
 				case 63:
+					break;
 				case 421:
+					break;
 				case 431:
 					viewPort.ambientColor = curr.value;
 					curr = scanner.next();

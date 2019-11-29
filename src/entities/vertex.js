@@ -22,7 +22,9 @@ EntityParser.prototype.parseEntity = function(scanner, curr) {
                 entity.z = curr.value;
                 break;
             case 40: // start width
+                break;
             case 41: // end width
+                break;
             case 42: // bulge
                 if(curr.value != 0) entity.bulge = curr.value;
                 break;
@@ -36,6 +38,7 @@ EntityParser.prototype.parseEntity = function(scanner, curr) {
                 entity.polyfaceMeshVertex = (curr.value & 128) !== 0;
                 break;
             case 50: // curve fit tangent direction
+                break;
             case 71: // polyface mesh vertex index
                 entity.faceA = curr.value;
                 break;
