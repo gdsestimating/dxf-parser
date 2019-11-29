@@ -493,10 +493,8 @@ DxfParser.prototype._parse = function(dxfString) {
 					viewPort.ownerHandle = curr.value;
 					curr = scanner.next();
 					break;
-				case 63:
-					break;
+				case 63: // These are all ambient color. Perhaps should be a gradient when multiple are set.
 				case 421:
-					break;
 				case 431:
 					viewPort.ambientColor = curr.value;
 					curr = scanner.next();
