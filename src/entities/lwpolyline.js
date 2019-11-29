@@ -91,6 +91,7 @@ function parseLWPolylineVertices(n, scanner) {
                     if (vertexIsStarted) {
                         vertices.push(vertex);
                     }
+                    scanner.rewind();
                     return vertices;
             }
             curr = scanner.next();
