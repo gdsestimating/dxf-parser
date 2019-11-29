@@ -88,22 +88,8 @@ describe('Parser', function() {
 	});
     
     it('should parse POLYLINES', function() {
-		verifyDxf
-		var file = fs.readFileSync(path.join(__dirname, 'data', 'polylines.dxf'), 'utf8');
-
-		var parser = new DxfParser();
-		var dxf;
-		try {
-			dxf = parser.parseSync(file);
-			fs.writeFileSync(path.join(__dirname, 'data', 'polylines.actual.json'), JSON.stringify(dxf, null, 2));
-		}catch(err) {
-			should.not.exist(err);
-		}
-		should.exist(dxf);
-
-
-		var expected = fs.readFileSync(path.join(__dirname, 'data', 'polylines.expected.json'), {encoding: 'utf8'});
-		dxf.should.eql(JSON.parse(expected));
+		
+		verifyDxf(path.join(__dirname, 'data', 'polylines.dxf'));
     });
 
 	it('should parse ELLIPSE entities', function() {

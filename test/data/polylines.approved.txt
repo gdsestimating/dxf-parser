@@ -111,7 +111,6 @@
       "is3dPolygonMeshClosed": false,
       "isPolyfaceMesh": false,
       "hasContinuousLinetypePattern": false,
-      "thickness": 0,
       "handle": 0
     },
     {
@@ -827,7 +826,6 @@
       "is3dPolygonMeshClosed": false,
       "isPolyfaceMesh": false,
       "hasContinuousLinetypePattern": false,
-      "thickness": 0,
       "handle": 1
     },
     {
@@ -1081,7 +1079,6 @@
       "is3dPolygonMeshClosed": false,
       "isPolyfaceMesh": false,
       "hasContinuousLinetypePattern": false,
-      "thickness": 0,
       "handle": 2
     },
     {
@@ -1993,7 +1990,6 @@
       "is3dPolygonMeshClosed": false,
       "isPolyfaceMesh": false,
       "hasContinuousLinetypePattern": false,
-      "thickness": 0,
       "handle": 3
     },
     {
@@ -2569,7 +2565,6 @@
       "is3dPolygonMeshClosed": false,
       "isPolyfaceMesh": false,
       "hasContinuousLinetypePattern": false,
-      "thickness": 0,
       "handle": 4
     },
     {
@@ -2725,7 +2720,6 @@
       "is3dPolygonMeshClosed": false,
       "isPolyfaceMesh": false,
       "hasContinuousLinetypePattern": false,
-      "thickness": 0,
       "handle": 5
     },
     {
@@ -3007,7 +3001,6 @@
       "is3dPolygonMeshClosed": false,
       "isPolyfaceMesh": false,
       "hasContinuousLinetypePattern": false,
-      "thickness": 0,
       "handle": 6
     },
     {
@@ -3219,7 +3212,6 @@
       "is3dPolygonMeshClosed": false,
       "isPolyfaceMesh": false,
       "hasContinuousLinetypePattern": false,
-      "thickness": 0,
       "handle": 7
     },
     {
@@ -3795,7 +3787,6 @@
       "is3dPolygonMeshClosed": false,
       "isPolyfaceMesh": false,
       "hasContinuousLinetypePattern": false,
-      "thickness": 0,
       "handle": 8
     },
     {
@@ -3951,7 +3942,6 @@
       "is3dPolygonMeshClosed": false,
       "isPolyfaceMesh": false,
       "hasContinuousLinetypePattern": false,
-      "thickness": 0,
       "handle": 9
     },
     {
@@ -4359,7 +4349,6 @@
       "is3dPolygonMeshClosed": false,
       "isPolyfaceMesh": false,
       "hasContinuousLinetypePattern": false,
-      "thickness": 0,
       "handle": 10
     },
     {
@@ -4613,7 +4602,6 @@
       "is3dPolygonMeshClosed": false,
       "isPolyfaceMesh": false,
       "hasContinuousLinetypePattern": false,
-      "thickness": 0,
       "handle": 11
     }
   ]
