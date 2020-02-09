@@ -589,6 +589,10 @@ DxfParser.prototype._parse = function(dxfString) {
 					layerName = curr.value;
 					curr = scanner.next();
 					break;
+				case 6: // line type 
+					layer.lineType = curr.value;
+					curr = scanner.next();
+					break;
 				case 62: // color, visibility
 					layer.visible = curr.value >= 0;
 					// TODO 0 and 256 are BYBLOCK and BYLAYER respectively. Need to handle these values for layers?.
