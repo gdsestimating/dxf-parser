@@ -7,7 +7,8 @@
   "scripts": {
     "test": "mocha --require @babel/register test",
     "start": "webpack --mode development",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "build-module": "webpack --mode production --config webpack.config.module.js"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,7 @@
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.3.1",
     "@babel/register": "^7.0.0",
+    "@purtuga/esm-webpack-plugin": "^1.2.1",
     "approvals": "^2.1.2",
     "mocha": "^5.2.0",
     "should": "^6.0.1",
