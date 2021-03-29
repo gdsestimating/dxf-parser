@@ -79,14 +79,8 @@ export function checkCommonEntityProperties(entity, curr) {
         case 100:
             //ignore
             break;
-	case 210:
-	    entity.extrusionDirectionX = curr.value;
-	    break;
-        case 220:
-            entity.extrusionDirectionY = curr.value;
-            break;
-        case 230:
-            entity.extrusionDirectionZ = curr.value;
+        case 210:
+            entity.normalVector = helpers.parsePoint(scanner);
             break;
         case 330:
             entity.ownerHandle = curr.value;
