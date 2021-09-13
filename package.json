@@ -1,13 +1,13 @@
 {
   "name": "dxf-parser",
-  "version": "1.0.0-alpha.2",
+  "version": "1.0.0-alpha.3",
   "description": "Parse dxf files into a readable, logical js object.",
   "main": "dist/dxf-parser.js",
   "module": "src/index.js",
   "scripts": {
     "test": "mocha --require @babel/register test",
-    "start": "webpack --mode development",
-    "build": "webpack --mode production"
+    "dev": "webpack --mode development",
+    "prod": "webpack --mode production"
   },
   "repository": {
     "type": "git",
@@ -31,7 +31,8 @@
     "loglevel": "^1.6.8",
     "mocha": "^8.0.1",
     "should": "^13.2.3",
-    "webpack": "^4.43.0"
+    "webpack": "^5.52.1",
+    "webpack-cli": "^4.8.0"
   },
   "dependencies": {},
   "keywords": [
