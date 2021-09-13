@@ -24,7 +24,7 @@ EntityParser.prototype.parseEntity = function(scanner, curr) {
             case 100:
                 break;
             default:
-                helpers.checkCommonEntityProperties(entity, curr);
+                helpers.checkCommonEntityProperties(entity, curr, scanner);
                 break;
         }
         

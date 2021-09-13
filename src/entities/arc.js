@@ -27,7 +27,7 @@ EntityParser.prototype.parseEntity = function(scanner, curr) {
                 entity.angleLength = entity.endAngle - entity.startAngle; // angleLength is deprecated
                 break;
             default: // ignored attribute
-                helpers.checkCommonEntityProperties(entity, curr);
+                helpers.checkCommonEntityProperties(entity, curr, scanner);
                 break;
         }
         curr = scanner.next();

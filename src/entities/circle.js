@@ -31,7 +31,7 @@ EntityParser.prototype.parseEntity = function(scanner, curr) {
                 entity.endAngle = endAngle;
                 break;
             default: // ignored attribute
-                helpers.checkCommonEntityProperties(entity, curr);
+                helpers.checkCommonEntityProperties(entity, curr, scanner);
                 break;
         }
         curr = scanner.next();

@@ -49,7 +49,7 @@ export function parsePoint(scanner) {
  * @param {*} entity - the entity currently being parsed 
  * @param {*} curr - the current group being parsed
  */
-export function checkCommonEntityProperties(entity, curr) {
+export function checkCommonEntityProperties(entity, curr, scanner) {
     switch(curr.code) {
         case 0:
             entity.type = curr.value;
@@ -78,6 +78,13 @@ export function checkCommonEntityProperties(entity, curr) {
             break;
         case 100:
             //ignore
+            break;
+        case 101: // Embedded Object in ACAD 2018.
+            // See https://ezdxf.readthedocs.io/en/master/dxfinternals/dxftags.html#embedded-objects
+            while(curr.code != 0) {
+                curr = scanner.next();
+            }
+            scanner.rewind();
             break;
         case 330:
             entity.ownerHandle = curr.value;

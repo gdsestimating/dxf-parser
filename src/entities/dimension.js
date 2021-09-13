@@ -53,7 +53,7 @@ EntityParser.prototype.parseEntity = function(scanner, curr) {
 					entity.angle = curr.value;
 					break;
 				default: // check common entity attributes
-					helpers.checkCommonEntityProperties(entity, curr);
+					helpers.checkCommonEntityProperties(entity, curr, scanner);
 					break;
 			}
 			curr = scanner.next();

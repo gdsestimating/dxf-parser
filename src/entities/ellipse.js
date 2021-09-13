@@ -32,7 +32,7 @@ EntityParser.prototype.parseEntity = function(scanner, curr) {
                 entity.name = curr.value;
                 break;
             default: // check common entity attributes
-                helpers.checkCommonEntityProperties(entity, curr);
+                helpers.checkCommonEntityProperties(entity, curr, scanner);
                 break;
         }
         
