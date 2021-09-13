@@ -28,13 +28,14 @@
     "@babel/preset-env": "^7.10.4",
     "@babel/register": "^7.10.4",
     "approvals": "^3.0.5",
-    "loglevel": "^1.6.8",
     "mocha": "^8.0.1",
     "should": "^13.2.3",
     "webpack": "^5.52.1",
     "webpack-cli": "^4.8.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "loglevel": "^1.7.1"
+  },
   "keywords": [
     "dxf",
     "cad",
