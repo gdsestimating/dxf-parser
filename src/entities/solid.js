@@ -5,15 +5,15 @@ export default function EntityParser() {}
 
 EntityParser.ForEntityName = 'SOLID';
 
-EntityParser.prototype.parseEntity = function(scanner, currentGroup) {
+EntityParser.prototype.parseEntity = function(scanner, curr) {
     var entity;
-    entity = { type: currentGroup.value };
+    entity = { type: curr.value };
     entity.points = [];
-    currentGroup = scanner.next();
-    while(currentGroup !== 'EOF') {
-        if(currentGroup.code === 0) break;
+    curr = scanner.next();
+    while(curr !== 'EOF') {
+        if(curr.code === 0) break;
 
-        switch(currentGroup.code) {
+        switch(curr.code) {
             case 10:
                 entity.points[0] = helpers.parsePoint(scanner);
                 break;
@@ -30,10 +30,10 @@ EntityParser.prototype.parseEntity = function(scanner, currentGroup) {
                 entity.extrusionDirection = helpers.parsePoint(scanner);
                 break;
             default: // check common entity attributes
-                helpers.checkCommonEntityProperties(entity, currentGroup);
+                helpers.checkCommonEntityProperties(entity, curr);
                 break;
         }
-        currentGroup = scanner.next();
+        curr = scanner.next();
     }
 
     return entity;
