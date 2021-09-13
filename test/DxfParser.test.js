@@ -4,6 +4,23 @@ import DxfParser from '../src/index.js';
 import should from 'should';
 import approvals from 'approvals';
 
+// Note: fialOnLineEndingDifferences doesn't appear to work right now. Filed an issue with approvals.
+approvals.configure({
+	reporters: [
+		'vscode',
+		'opendiff',
+		'p4merge',
+		'tortoisemerge',
+		'nodediff',
+		'gitdiff'
+	],
+	normalizeLineEndingsTo: '\n',
+	EOL: '\n',
+	maxLaunches: 5,
+	failOnLineEndingDifferences: false,
+	stripBOM: true,
+});
+
 describe('Parser', function() {
 
 	it('should parse the dxf header variables into an object', function(done) {
@@ -88,7 +105,6 @@ describe('Parser', function() {
 	});
     
     it('should parse POLYLINES', function() {
-		
 		verifyDxf(path.join(__dirname, 'data', 'polylines.dxf'));
     });
 

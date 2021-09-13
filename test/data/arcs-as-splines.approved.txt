@@ -1,36 +1,7 @@
 {
   "entities": [
     {
-      "type": "SPLINE",
-      "handle": "6E",
-      "ownerHandle": "1F",
-      "normalVector": {
-        "x": 0,
-        "y": 0,
-        "z": 1
-      },
       "closed": true,
-      "periodic": true,
-      "rational": true,
-      "planar": true,
-      "degreeOfSplineCurve": 2,
-      "numberOfKnots": 12,
-      "numberOfControlPoints": 9,
-      "numberOfFitPoints": 0,
-      "knotValues": [
-        0,
-        0,
-        0,
-        17.27875959474386,
-        17.27875959474386,
-        34.55751918948772,
-        34.55751918948772,
-        51.83627878423158,
-        51.83627878423158,
-        69.11503837897544,
-        69.11503837897544,
-        69.11503837897544
-      ],
       "controlPoints": [
         {
           "x": 233.6663114494559,
@@ -77,39 +48,39 @@
           "y": 180.0700474977344,
           "z": 0
         }
-      ]
-    },
-    {
-      "type": "SPLINE",
-      "handle": "6F",
-      "ownerHandle": "1F",
+      ],
+      "degreeOfSplineCurve": 2,
+      "handle": "6E",
+      "knotValues": [
+        0,
+        0,
+        0,
+        17.27875959474386,
+        17.27875959474386,
+        34.55751918948772,
+        34.55751918948772,
+        51.83627878423158,
+        51.83627878423158,
+        69.11503837897544,
+        69.11503837897544,
+        69.11503837897544
+      ],
       "normalVector": {
         "x": 0,
         "y": 0,
         "z": 1
       },
-      "closed": true,
-      "periodic": true,
-      "rational": true,
-      "planar": true,
-      "degreeOfSplineCurve": 2,
-      "numberOfKnots": 12,
       "numberOfControlPoints": 9,
       "numberOfFitPoints": 0,
-      "knotValues": [
-        0,
-        0,
-        0,
-        3.926990816987241,
-        3.926990816987241,
-        7.853981633974483,
-        7.853981633974483,
-        11.78097245096172,
-        11.78097245096172,
-        15.70796326794897,
-        15.70796326794897,
-        15.70796326794897
-      ],
+      "numberOfKnots": 12,
+      "ownerHandle": "1F",
+      "periodic": true,
+      "planar": true,
+      "rational": true,
+      "type": "SPLINE"
+    },
+    {
+      "closed": true,
       "controlPoints": [
         {
           "x": 208.6916144697202,
@@ -156,31 +127,38 @@
           "y": 243.2413398582423,
           "z": 0
         }
-      ]
-    },
-    {
-      "type": "SPLINE",
-      "handle": "73",
-      "ownerHandle": "1F",
+      ],
+      "degreeOfSplineCurve": 2,
+      "handle": "6F",
+      "knotValues": [
+        0,
+        0,
+        0,
+        3.926990816987241,
+        3.926990816987241,
+        7.853981633974483,
+        7.853981633974483,
+        11.78097245096172,
+        11.78097245096172,
+        15.70796326794897,
+        15.70796326794897,
+        15.70796326794897
+      ],
       "normalVector": {
         "x": 0,
         "y": 0,
         "z": 1
       },
-      "rational": true,
-      "planar": true,
-      "degreeOfSplineCurve": 2,
-      "numberOfKnots": 6,
-      "numberOfControlPoints": 3,
+      "numberOfControlPoints": 9,
       "numberOfFitPoints": 0,
-      "knotValues": [
-        0,
-        0,
-        0,
-        17.83485687076171,
-        17.83485687076171,
-        17.83485687076171
-      ],
+      "numberOfKnots": 12,
+      "ownerHandle": "1F",
+      "periodic": true,
+      "planar": true,
+      "rational": true,
+      "type": "SPLINE"
+    },
+    {
       "controlPoints": [
         {
           "x": 280.7529837541637,
@@ -197,7 +175,29 @@
           "y": 323.6179587245282,
           "z": 0
         }
-      ]
+      ],
+      "degreeOfSplineCurve": 2,
+      "handle": "73",
+      "knotValues": [
+        0,
+        0,
+        0,
+        17.83485687076171,
+        17.83485687076171,
+        17.83485687076171
+      ],
+      "normalVector": {
+        "x": 0,
+        "y": 0,
+        "z": 1
+      },
+      "numberOfControlPoints": 3,
+      "numberOfFitPoints": 0,
+      "numberOfKnots": 6,
+      "ownerHandle": "1F",
+      "planar": true,
+      "rational": true,
+      "type": "SPLINE"
     }
   ]
 }
