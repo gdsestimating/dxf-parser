@@ -20918,6 +20918,11 @@
         },
         {
           "attachmentPoint": 5,
+          "directionVector": {
+            "x": 1e-16,
+            "y": 1,
+            "z": 0
+          },
           "drawingDirection": 1,
           "handle": "A706",
           "height": 4.5,
@@ -22939,6 +22944,11 @@
         },
         {
           "attachmentPoint": 5,
+          "directionVector": {
+            "x": 1e-16,
+            "y": 1,
+            "z": 0
+          },
           "drawingDirection": 1,
           "handle": "A70F",
           "height": 4.5,
@@ -26634,6 +26644,11 @@
         },
         {
           "attachmentPoint": 5,
+          "directionVector": {
+            "x": 1e-16,
+            "y": 1,
+            "z": 0
+          },
           "drawingDirection": 1,
           "handle": "B33A",
           "height": 0.1875,
@@ -28704,6 +28719,11 @@
         },
         {
           "attachmentPoint": 5,
+          "directionVector": {
+            "x": 1e-16,
+            "y": 1,
+            "z": 0
+          },
           "drawingDirection": 1,
           "handle": "B32B",
           "height": 0.1875,
@@ -30307,6 +30327,11 @@
         },
         {
           "attachmentPoint": 5,
+          "directionVector": {
+            "x": 1e-16,
+            "y": 1,
+            "z": 0
+          },
           "drawingDirection": 1,
           "handle": "B333",
           "height": 0.1875,
@@ -32415,6 +32440,11 @@
         },
         {
           "attachmentPoint": 5,
+          "directionVector": {
+            "x": 1e-16,
+            "y": 1,
+            "z": 0
+          },
           "drawingDirection": 1,
           "handle": "B343",
           "height": 0.1875,
@@ -38254,6 +38284,11 @@
         },
         {
           "attachmentPoint": 5,
+          "directionVector": {
+            "x": 1e-16,
+            "y": 1,
+            "z": 0
+          },
           "drawingDirection": 1,
           "handle": "BD8C",
           "height": 0.1875,
@@ -40433,6 +40468,11 @@
         },
         {
           "attachmentPoint": 5,
+          "directionVector": {
+            "x": 1e-16,
+            "y": 1,
+            "z": 0
+          },
           "drawingDirection": 1,
           "handle": "B35C",
           "height": 0.1875,
@@ -42579,6 +42619,11 @@
         },
         {
           "attachmentPoint": 5,
+          "directionVector": {
+            "x": 1e-16,
+            "y": 1,
+            "z": 0
+          },
           "drawingDirection": 1,
           "handle": "B364",
           "height": 0.1875,
@@ -44366,6 +44411,11 @@
         },
         {
           "attachmentPoint": 5,
+          "directionVector": {
+            "x": 1e-16,
+            "y": 1,
+            "z": 0
+          },
           "drawingDirection": 1,
           "handle": "BD94",
           "height": 0.1875,
@@ -44751,6 +44801,11 @@
         },
         {
           "attachmentPoint": 5,
+          "directionVector": {
+            "x": 1e-16,
+            "y": 1,
+            "z": 0
+          },
           "drawingDirection": 1,
           "handle": "A771",
           "height": 4.5,
@@ -48933,6 +48988,11 @@
         },
         {
           "attachmentPoint": 5,
+          "directionVector": {
+            "x": 1e-16,
+            "y": 1,
+            "z": 0
+          },
           "drawingDirection": 1,
           "handle": "B2C9",
           "height": 0.1875,
@@ -51017,6 +51077,11 @@
         },
         {
           "attachmentPoint": 5,
+          "directionVector": {
+            "x": 1e-16,
+            "y": 1,
+            "z": 0
+          },
           "drawingDirection": 1,
           "handle": "B2D0",
           "height": 0.1875,
@@ -52963,6 +53028,11 @@
         },
         {
           "attachmentPoint": 5,
+          "directionVector": {
+            "x": 1e-16,
+            "y": 1,
+            "z": 0
+          },
           "drawingDirection": 1,
           "handle": "B2D8",
           "height": 0.1875,

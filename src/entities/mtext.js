@@ -21,6 +21,9 @@ EntityParser.prototype.parseEntity = function(scanner, curr) {
             case 10:
                 entity.position = helpers.parsePoint(scanner);
                 break;
+            case 11:
+                entity.directionVector = helpers.parsePoint(scanner);
+                break;
             case 40:
                 //Note: this is the text height
                 entity.height = curr.value;
