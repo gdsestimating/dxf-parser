@@ -1,6 +1,6 @@
 {
   "name": "dxf-parser",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Parse dxf files into a readable, logical js object.",
   "main": "dist/dxf-parser.js",
   "module": "src/index.js",
@@ -8,7 +8,7 @@
     "test": "mocha --require @babel/register test",
     "dev": "webpack --mode development",
     "prod": "webpack --mode production",
-    "publishOnly": "npm run prod"
+    "prepublishOnly": "npm run prod"
   },
   "repository": {
     "type": "git",
