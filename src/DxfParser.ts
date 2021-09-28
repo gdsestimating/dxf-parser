@@ -32,12 +32,12 @@ log.setLevel('error');
 interface IBlock {
 	entities: IEntity[];
 	type: number;
-	ownerHandle: number;
+	ownerHandle: string;
 	// entities: any[];
 	xrefPath: string;
 	name: string;
 	name2: string;
-	handle: number;
+	handle: string;
 	layer: string;
 	position: IPoint;
 	paperSpace: boolean;
@@ -66,7 +66,7 @@ interface IViewPort {
 	renderMode: string;
 	defaultLightingType: string;
 	defaultLightingOn: string;
-	ownerHandle: number;
+	ownerHandle: string;
 	ambientColor: number;
 }
 
@@ -113,8 +113,8 @@ interface ITableDefinitions {
 }
 
 interface IBaseTable {
-	handle: number;
-	ownerHandle: number;
+	handle: string;
+	ownerHandle: string;
 }
 
 interface IViewPortTable extends IBaseTable {
@@ -353,7 +353,7 @@ export default class DxfParser {
 						curr = scanner.next();
 						break;
 					case 5:
-						block.handle = curr.value as number;
+						block.handle = curr.value as string;
 						curr = scanner.next();
 						break;
 					case 8:
@@ -386,7 +386,7 @@ export default class DxfParser {
 						curr = scanner.next();
 						break;
 					case 330:
-						block.ownerHandle = curr.value as number;
+						block.ownerHandle = curr.value as string;
 						curr = scanner.next();
 						break;
 					case 0:
@@ -451,11 +451,11 @@ export default class DxfParser {
 
 				switch (curr.code) {
 					case 5:
-						table.handle = curr.value as number;
+						table.handle = curr.value as string;
 						curr = scanner.next();
 						break;
 					case 330:
-						table.ownerHandle = curr.value as number;
+						table.ownerHandle = curr.value as string;
 						curr = scanner.next();
 						break;
 					case 100:
@@ -603,7 +603,7 @@ export default class DxfParser {
 						curr = scanner.next();
 						break;
 					case 330:
-						viewPort.ownerHandle = curr.value as number;
+						viewPort.ownerHandle = curr.value as string;
 						curr = scanner.next();
 						break;
 					case 63: // These are all ambient color. Perhaps should be a gradient when multiple are set.
@@ -835,7 +835,7 @@ export default class DxfParser {
 		function ensureHandle(entity: IEntity | IBlock) {
 			if (!entity) throw new TypeError('entity cannot be undefined or null');
 
-			if (!entity.handle) entity.handle = lastHandle++;
+			if (!entity.handle) entity.handle = (lastHandle++).toString();
 		}
 
 		parseAll();

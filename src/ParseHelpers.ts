@@ -56,7 +56,7 @@ export function checkCommonEntityProperties(entity: IEntity, curr:IGroup, scanne
 			entity.type = curr.value as string;
 			break;
 		case 5:
-			entity.handle = curr.value as number;
+			entity.handle = curr.value as string;
 			break;
 		case 6:
 			entity.lineType = curr.value as string;
@@ -88,7 +88,7 @@ export function checkCommonEntityProperties(entity: IEntity, curr:IGroup, scanne
 			scanner.rewind();
 			break;
 		case 330:
-			entity.ownerHandle = curr.value as number;
+			entity.ownerHandle = curr.value as string;
 			break;
 		case 347:
 			entity.materialObjectHandle = curr.value as number;
