@@ -12,13 +12,31 @@ npm install dxf-parser
 Browsers -- As of 0.1.3 standalone browserify version is in the dist/ folder. Copy it out of the install directory or just download it from the GitHub repo directly. We may evetually publish this to bower, but the build environment needs a little work first.
 
 #### Usage
-```
-// Grab fileText in node.js or browser
-var fileText = ...;
 
-var parser = new DxfParser();
+``` js
+import DxfParser from 'dxf-parser';
+
+// Grab fileText in node.js or browser
+const fileText = ...;
+
+const parser = new DxfParser();
 try {
-    var dxf = parser.parseSync(fileText);
+    const dxf = parser.parseSync(fileText);
+}catch(err) {
+    return console.error(err.stack);
+}
+```
+
+or
+
+```ts
+// Grab fileText in node.js or browser
+import { parse } from 'dxf-parser';
+
+const fileText = ...;
+
+try {
+    const dxf = parse(fileText);
 }catch(err) {
     return console.error(err.stack);
 }
