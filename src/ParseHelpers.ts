@@ -56,7 +56,7 @@ export function checkCommonEntityProperties(entity: IEntity, curr:IGroup, scanne
 			entity.type = curr.value as string;
 			break;
 		case 5:
-			entity.handle = curr.value as string;
+			entity.handle = curr.value as number;
 			break;
 		case 6:
 			entity.lineType = curr.value as string;

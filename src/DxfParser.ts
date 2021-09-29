@@ -835,7 +835,7 @@ export default class DxfParser {
 		function ensureHandle(entity: IEntity | IBlock) {
 			if (!entity) throw new TypeError('entity cannot be undefined or null');
 
-			if (!entity.handle) entity.handle = (lastHandle++).toString();
+			if (!entity.handle) entity.handle = lastHandle++;
 		}
 
 		parseAll();

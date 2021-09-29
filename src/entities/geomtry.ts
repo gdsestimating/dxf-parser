@@ -22,7 +22,7 @@ export interface IEntity {
 		applicationName: string;
 	};
 	type: string;
-	handle: string;
+	handle: number;
 }
 
 export type EntityName = 'POINT'

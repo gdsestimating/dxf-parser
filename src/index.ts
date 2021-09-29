@@ -1,9 +1,10 @@
 import DxfParser from './DxfParser';
+export { default as DxfParser } from './DxfParser';
 export { IDxf, IBlock, ILayerTypesTable, ILayersTable, ITables, IViewPortTable, IBaseTable, ILayer, ILayerTableDefinition, ILineType, ILineTypeTableDefinition, ITable, ITableDefinitions, IViewPort, IViewPortTableDefinition } from './DxfParser';
 export { IEntity, IPoint } from './entities/geomtry';
 export { I3DfaceEntity } from './entities/3dface';
 export { IArcEntity } from './entities/arc';
-export { IAttdefEntity  } from './entities/attdef';
+export { IAttdefEntity } from './entities/attdef';
 export { ICircleEntity } from './entities/circle';
 export { IDimensionEntity } from './entities/dimension';
 export { IEllipseEntity } from './entities/ellipse';
@@ -18,8 +19,6 @@ export { ISplineEntity } from './entities/spline';
 export { ITextEntity } from './entities/text';
 export { IVertexEntity } from './entities/vertex';
 
-export default DxfParser;
-
-export function parse(source: string) {
+export default function parse(source: string) {
 	return new DxfParser().parse(source);
 }

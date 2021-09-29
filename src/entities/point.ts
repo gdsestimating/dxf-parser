@@ -12,7 +12,7 @@ export interface IPointEntity extends IEntity{
 export default class Point implements IGeometry{
 	public ForEntityName= 'POINT' as const;
 	public parseEntity(scanner: DxfArrayScanner, curr: IGroup) {
-		const type = curr.value as string;	// todo
+		const type = curr.value as string;
 		const entity = { type } as unknown as IPointEntity;
 		curr = scanner.next();
 		while(!scanner.isEOF()) {
