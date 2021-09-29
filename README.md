@@ -6,15 +6,17 @@
 Also, keep an eye on [three-dxf](https://github.com/gdsestimating/three-dxf), a browser module for rendering the output of Dxf-Parser in the browser.
 
 #### Install
-```
+
+```sh
 npm install dxf-parser
 ```
+
 Browsers -- As of 0.1.3 standalone browserify version is in the dist/ folder. Copy it out of the install directory or just download it from the GitHub repo directly. We may evetually publish this to bower, but the build environment needs a little work first.
 
 #### Usage
 
 ``` js
-import DxfParser from 'dxf-parser';
+import parse, { DxfParser } from 'dxf-parser';
 
 // Grab fileText in node.js or browser
 const fileText = ...;
@@ -31,7 +33,7 @@ or
 
 ```ts
 // Grab fileText in node.js or browser
-import { parse } from 'dxf-parser';
+import parse from 'dxf-parser';
 
 const fileText = ...;
 
@@ -45,19 +47,22 @@ try {
 See the [wiki Example Output page](https://github.com/gdsestimating/dxf-parser/wiki/Example-Output) to get an idea of what the results look like.
 
 #### Run Samples
+
 node.js
-```
+
+```sh
 npm install
 npm run build
 node samples/node/parseSync
 node samples/node/parseStream
 ```
 
-browser - the [three-dxf repo](https://github.com/gdsestimating/three-dxf) has a sample for viewing dxf cad in the browser 
+browser - the [three-dxf repo](https://github.com/gdsestimating/three-dxf) has a sample for viewing dxf cad in the browser
 
 #### What's Supported
 
 Support
+
 * Header
 * Most 2D entities
 * Layers
@@ -68,6 +73,7 @@ Support
 * Some XData
 
 Does not yet support
+
 * 3DSolids
 * All types of Leaders
 * other less common objects and entities.
@@ -77,7 +83,8 @@ Does not yet support
 See the [wiki](https://github.com/gdsestimating/dxf-parser/wiki) for info on contributing
 
 #### Run Tests
-```
+
+```sh
 npm install -g mocha
 //Then
 npm test
