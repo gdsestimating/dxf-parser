@@ -29,7 +29,7 @@ import IGeometry, { EntityName, IEntity, IPoint } from './entities/geomtry';
 log.setLevel('error');
 //log.setLevel('silent');
 
-interface IBlock {
+export interface IBlock {
 	entities: IEntity[];
 	type: number;
 	ownerHandle: string;
@@ -43,7 +43,7 @@ interface IBlock {
 	paperSpace: boolean;
 }
 
-interface IViewPort {
+export interface IViewPort {
 	name: string;
 	lowerLeftCorner: IPoint;
 	upperRightCorner: IPoint;
@@ -70,28 +70,28 @@ interface IViewPort {
 	ambientColor: number;
 }
 
-interface IViewPortTableDefinition {
+export interface IViewPortTableDefinition {
 	tableRecordsProperty: 'viewPorts';
 	tableName: 'viewPort';
 	dxfSymbolName: 'VPORT';
 	parseTableRecords(): IViewPort[];
 }
 
-interface ILineType {
+export interface ILineType {
 	name: string;
 	description: string;
 	pattern: string[];
 	patternLength: number;
 }
 
-interface ILineTypeTableDefinition {
+export interface ILineTypeTableDefinition {
 	tableRecordsProperty: 'lineTypes';
 	tableName: 'lineType';
 	dxfSymbolName: 'LTYPE';
 	parseTableRecords(): Record<string, ILineType>;
 }
 
-interface ILayer {
+export interface ILayer {
 	name: string;
 	visible: boolean;
 	colorIndex: number;
@@ -99,43 +99,43 @@ interface ILayer {
 	frozen: boolean;
 }
 
-interface ILayerTableDefinition {
+export interface ILayerTableDefinition {
 	tableRecordsProperty: 'layers';
 	tableName: 'layer';
 	dxfSymbolName: 'LAYER';
 	parseTableRecords(): Record<string, ILayer>;
 }
 
-interface ITableDefinitions {
+export interface ITableDefinitions {
 	VPORT: IViewPortTableDefinition;
 	LTYPE: ILineTypeTableDefinition;
 	LAYER: ILayerTableDefinition;
 }
 
-interface IBaseTable {
+export interface IBaseTable {
 	handle: string;
 	ownerHandle: string;
 }
 
-interface IViewPortTable extends IBaseTable {
+export interface IViewPortTable extends IBaseTable {
 	viewPorts: IViewPort[];
 }
 
-interface ILayerTypesTable extends IBaseTable {
+export interface ILayerTypesTable extends IBaseTable {
 	lineTypes: Record<string, ILineType>;
 }
 
-interface ILayersTable extends IBaseTable {
+export interface ILayersTable extends IBaseTable {
 	layers: Record<string, ILayer>;
 }
 
-interface ITables {
+export interface ITables {
 	viewPort: IViewPortTable;
 	lineType: ILayerTypesTable;
 	layer: ILayersTable;
 }
 
-type ITable = IViewPortTable | ILayerTypesTable | ILayersTable;
+export type ITable = IViewPortTable | ILayerTypesTable | ILayersTable;
 
 export interface IDxf {
 	header: Record<string, IPoint | number>;
