@@ -1,4 +1,4 @@
-import Scanner from '../src/DxfArrayScanner.js';
+import Scanner from '../dist/DxfArrayScanner.js';
 import 'should';
 
 describe('Scanner', function() {

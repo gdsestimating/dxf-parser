@@ -1,20 +1,35 @@
 
+import DxfArrayScanner, { IGroup } from '../DxfArrayScanner';
 import * as helpers from '../ParseHelpers'
+import IGeometry, { IEntity, IPoint } from './geomtry';
 
-export default function EntityParser() {}
+export interface IDimensionEntity extends IEntity{
+	block: string;
+	anchorPoint: IPoint;
+	middleOfText: IPoint;
+	insertionPoint: IPoint;
+	linearOrAngularPoint1: IPoint;
+	linearOrAngularPoint2: IPoint;
+	diameterOrRadiusPoint: IPoint;
+	arcPoint: IPoint;
+	dimensionType: number;
+	attachmentPoint: number;
+	actualMeasurement: number;
+	text: string;
+	angle: number;
+}
 
-EntityParser.ForEntityName = 'DIMENSION';
-
-EntityParser.prototype.parseEntity = function(scanner, curr) {
-    var entity;
-		entity = { type: curr.value };
+export default class Dimension implements IGeometry {
+	public ForEntityName = 'DIMENSION' as const;
+	public parseEntity(scanner: DxfArrayScanner, curr: IGroup) {
+		const entity = { type: curr.value } as IDimensionEntity;
 		curr = scanner.next();
-		while(curr !== 'EOF') {
+		while(!scanner.isEOF()) {
 			if(curr.code === 0) break;
 
 			switch(curr.code) {
 				case 2: // Referenced block name
-					entity.block = curr.value;
+					entity.block = curr.value as string;
 					break;
 				case 10: // X coordinate of 'first alignment point'
 					entity.anchorPoint = helpers.parsePoint(scanner);
@@ -38,19 +53,19 @@ EntityParser.prototype.parseEntity = function(scanner, curr) {
 					entity.arcPoint = helpers.parsePoint(scanner);
 					break;
 				case 70: // Dimension type
-					entity.dimensionType = curr.value;
+					entity.dimensionType = curr.value as number;
 					break;
 				case 71: // 5 = Middle center
-					entity.attachmentPoint = curr.value;
+					entity.attachmentPoint = curr.value as number;
 					break;
 				case 42: // Actual measurement
-					entity.actualMeasurement = curr.value;
+					entity.actualMeasurement = curr.value as number;
 					break;
 				case 1: // Text entered by user explicitly
-					entity.text = curr.value;
+					entity.text = curr.value as string;
 					break;
 				case 50: // Angle of rotated, horizontal, or vertical dimensions
-					entity.angle = curr.value;
+					entity.angle = curr.value as number;
 					break;
 				default: // check common entity attributes
 					helpers.checkCommonEntityProperties(entity, curr, scanner);
@@ -60,6 +75,5 @@ EntityParser.prototype.parseEntity = function(scanner, curr) {
 		}
 
 		return entity;
-};
-
-
+	}
+}

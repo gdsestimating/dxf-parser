@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import DxfParser from '../src/index.js';
+import parse,{DxfParser} from '../dist/index.js';
 import should from 'should';
 import approvals from 'approvals';
 
@@ -27,11 +27,12 @@ describe('Parser', function() {
 		var file = fs.createReadStream(__dirname + '/data/header.dxf', { encoding: 'utf8' });
 		var parser = new DxfParser();
 
-		parser.parseStream(file, function(err, result) {
-			should.not.exist(err);
+		parser.parseStream(file).then((result) => {
 			var expected = fs.readFileSync(__dirname + '/data/header.parser.out', {encoding: 'utf8'});
 			result.should.eql(JSON.parse(expected));
 			done();
+		}, (err) => {
+			should.not.exist(err);
 		});
 	});
 
@@ -41,15 +42,16 @@ describe('Parser', function() {
 		var file = fs.createReadStream(__dirname + '/data/tables.dxf', { encoding: 'utf8' });
 		var parser = new DxfParser();
 
-		parser.parseStream(file, function(err, result) {
-			var errMsg = err ? err.stack : undefined;
-			should.not.exist(err, errMsg);
+		parser.parseStream(file).then((result) => {
 			tables = result.tables;
 			fs.writeFileSync(path.join(__dirname, 'data', 'layer-table.actual.json'), JSON.stringify(tables.layer, null, 2));
 			fs.writeFileSync(path.join(__dirname, 'data', 'ltype-table.actual.json'), JSON.stringify(tables.lineType, null, 2));
             fs.writeFileSync(path.join(__dirname, 'data', 'viewport-table.actual.json'), JSON.stringify(tables.viewPort, null, 2));
 			done();
-		});
+		}, (err) => {
+			var errMsg = err ? err.stack : undefined;
+			should.not.exist(err, errMsg);
+		})
 	});
 
 	it('should parse the dxf layers', function() {
@@ -177,10 +179,9 @@ function verifyDxf(sourceFilePath) {
 	var baseName = path.basename(sourceFilePath, '.dxf');
 	var sourceDirectory = path.dirname(sourceFilePath);
 
-	var parser = new DxfParser();
 	var file = fs.readFileSync(sourceFilePath, 'utf8');
 
-	var dxf = parser.parseSync(file);
+	var dxf = parse(file);
 
 	approvals.verifyAsJSON(sourceDirectory, baseName, dxf);
 }
