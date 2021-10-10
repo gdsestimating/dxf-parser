@@ -9,7 +9,7 @@
 		"test": "mocha --require @babel/register test",
 		"dev": "tsc -w & webpack --mode development",
 		"prod": "tsc && webpack --mode production",
-		"publishOnly": "npm run prod"
+		"prepublishOnly": "npm run prod"
 	},
 	"repository": {
 		"type": "git",
@@ -49,4 +49,5 @@
 		"dist",
 		"src"
 	]
+
 }
