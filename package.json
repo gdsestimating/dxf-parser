@@ -1,5 +1,5 @@
 {
-	"name": "dxf-parser",
+	"name": "@taoqf/dxf-parser",
 	"version": "1.0.1",
 	"description": "Parse dxf files into a readable, logical js object.",
 	"main": "./dist/dxf-parser.js",

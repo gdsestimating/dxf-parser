@@ -1,6 +1,8 @@
 
 # Dxf-Parser
 
+**This comes from <https://www.npmjs.com/package/dxf-parser> and will be merged to that if this [pr](https://github.com/gdsestimating/dxf-parser/pull/76) is published.**
+
 **Dxf Parser** is a javascript parser for dxf files. It reads dxf files into one large javascript object with readable properties and a more logical structure.
 
 Also, keep an eye on [three-dxf](https://github.com/gdsestimating/three-dxf), a browser module for rendering the output of Dxf-Parser in the browser.
