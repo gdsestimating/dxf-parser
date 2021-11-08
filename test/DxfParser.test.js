@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import parse,{DxfParser} from '../dist/index.js';
+import DxfParser from '../dist/index.js';
 import should from 'should';
 import approvals from 'approvals';
 
@@ -180,8 +180,9 @@ function verifyDxf(sourceFilePath) {
 	var sourceDirectory = path.dirname(sourceFilePath);
 
 	var file = fs.readFileSync(sourceFilePath, 'utf8');
-
-	var dxf = parse(file);
+	
+	var parser = new DxfParser();
+	var dxf = parser.parse(file);
 
 	approvals.verifyAsJSON(sourceDirectory, baseName, dxf);
 }
