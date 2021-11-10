@@ -10,6 +10,9 @@ export interface IArcEntity extends IEntity {
 	startAngle: number;
 	endAngle: number;
 	angleLength: number;
+	extrusionDirectionX: number;
+	extrusionDirectionY: number;
+	extrusionDirectionZ: number;
 }
 
 export default class Arc implements IGeometry {
@@ -33,6 +36,15 @@ export default class Arc implements IGeometry {
 				case 51: // end angle
 					entity.endAngle = Math.PI / 180 * (curr.value as number);
 					entity.angleLength = entity.endAngle - entity.startAngle; // angleLength is deprecated
+					break;
+				case 210:
+					entity.extrusionDirectionX = curr.value as number;
+					break;
+				case 220:
+					entity.extrusionDirectionY = curr.value as number;
+					break;
+				case 230:
+					entity.extrusionDirectionZ = curr.value as number;
 					break;
 				default: // ignored attribute
 					helpers.checkCommonEntityProperties(entity, curr, scanner);
