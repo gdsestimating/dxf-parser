@@ -19,6 +19,4 @@ export { ISplineEntity } from './entities/spline';
 export { ITextEntity } from './entities/text';
 export { IVertexEntity } from './entities/vertex';
 
-export default function parse(source: string) {
-	return new DxfParser().parse(source);
-}
+export default DxfParser

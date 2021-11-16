@@ -5,9 +5,11 @@ module.exports = {
 	output: {
 		filename: 'dxf-parser.js',
 		path: path.resolve(__dirname, 'dist'),
-		library: 'DxfParser',
-		libraryTarget: 'umd',
-		libraryExport: 'default',
+		library: {
+			name: 'DxfParser',
+			type: 'umd',
+			export: 'DxfParser'
+		},
 		globalObject: 'typeof self !== \'undefined\' ? self : this'
 	}
 };

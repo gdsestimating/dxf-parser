@@ -5,7 +5,7 @@
 	],
 	"compileOnSave": false,
 	"compilerOptions": {
-		"module": "commonjs",
+		"module": "es2015",
 		"target": "esnext",
 		"jsx": "react",
 		"noImplicitAny": true,
