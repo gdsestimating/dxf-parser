@@ -10,3 +10,4 @@ out.json
 *.received.*
 dist/
 *.tgz
+*.lock
