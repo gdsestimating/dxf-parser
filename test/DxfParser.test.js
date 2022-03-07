@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import DxfParser from '../dist/index.js';
+import DxfParser from '../esm/index.js';
 import should from 'should';
 import approvals from 'approvals';
 
@@ -20,6 +20,8 @@ approvals.configure({
 	failOnLineEndingDifferences: false,
 	stripBOM: true,
 });
+
+const __dirname = path.dirname(new URL(import.meta.url).pathname)
 
 describe('Parser', function() {
 

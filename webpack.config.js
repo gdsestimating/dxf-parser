@@ -1,10 +1,10 @@
-const path = require('path');
+import { resolve, dirname } from 'path';
 
-module.exports = {
-	entry: './dist/index.js',
+export default {
+	entry: './esm/index.js',
 	output: {
-		filename: 'dxf-parser.js',
-		path: path.resolve(__dirname, 'dist'),
+		filename: 'index.js',
+		path: resolve(dirname(new URL(import.meta.url).pathname), 'commonjs'),
 		library: {
 			name: 'DxfParser',
 			type: 'umd',

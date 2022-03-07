@@ -1,26 +1,26 @@
 import { Readable } from 'stream';
-import DxfArrayScanner, { IGroup } from './DxfArrayScanner';
-import AUTO_CAD_COLOR_INDEX from './AutoCadColorIndex';
+import DxfArrayScanner, { IGroup } from './DxfArrayScanner.js';
+import AUTO_CAD_COLOR_INDEX from './AutoCadColorIndex.js';
 
-import Face from './entities/3dface';
-import Arc from './entities/arc';
-import AttDef from './entities/attdef';
-import Circle from './entities/circle';
-import Dimension from './entities/dimension';
-import Ellipse from './entities/ellipse';
-import Insert from './entities/insert';
-import Line from './entities/line';
-import LWPolyline from './entities/lwpolyline';
-import MText from './entities/mtext';
-import Point from './entities/point';
-import Polyline from './entities/polyline';
-import Solid from './entities/solid';
-import Spline from './entities/spline';
-import Text from './entities/text';
-//import Vertex from './entities/';
+import Face from './entities/3dface.js';
+import Arc from './entities/arc.js';
+import AttDef from './entities/attdef.js';
+import Circle from './entities/circle.js';
+import Dimension from './entities/dimension.js';
+import Ellipse from './entities/ellipse.js';
+import Insert from './entities/insert.js';
+import Line from './entities/line.js';
+import LWPolyline from './entities/lwpolyline.js';
+import MText from './entities/mtext.js';
+import Point from './entities/point.js';
+import Polyline from './entities/polyline.js';
+import Solid from './entities/solid.js';
+import Spline from './entities/spline.js';
+import Text from './entities/text.js';
+//import Vertex from './entities/.js';
 
 import log from 'loglevel';
-import IGeometry, { EntityName, IEntity, IPoint } from './entities/geomtry';
+import IGeometry, { EntityName, IEntity, IPoint } from './entities/geomtry.js';
 
 //log.setLevel('trace');
 //log.setLevel('debug');

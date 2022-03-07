@@ -1,24 +1,19 @@
-import DxfParser from './DxfParser';
-export { default as DxfParser } from './DxfParser';
-export { IDxf, IBlock, ILayerTypesTable, ILayersTable, ITables, IViewPortTable, IBaseTable, ILayer, ILayerTableDefinition, ILineType, ILineTypeTableDefinition, ITable, ITableDefinitions, IViewPort, IViewPortTableDefinition } from './DxfParser';
-export { IEntity, IPoint } from './entities/geomtry';
-export { I3DfaceEntity } from './entities/3dface';
-export { IArcEntity } from './entities/arc';
-export { IAttdefEntity } from './entities/attdef';
-export { ICircleEntity } from './entities/circle';
-export { IDimensionEntity } from './entities/dimension';
-export { IEllipseEntity } from './entities/ellipse';
-export { IInsertEntity } from './entities/insert';
-export { ILineEntity } from './entities/line';
-export { ILwpolylineEntity } from './entities/lwpolyline';
-export { IMtextEntity } from './entities/mtext';
-export { IPointEntity } from './entities/point';
-export { IPolylineEntity } from './entities/polyline';
-export { ISolidEntity } from './entities/solid';
-export { ISplineEntity } from './entities/spline';
-export { ITextEntity } from './entities/text';
-export { IVertexEntity } from './entities/vertex';
-
-export default function parse(source: string) {
-	return new DxfParser().parse(source);
-}
+export { default, default as DxfParser } from './DxfParser.js';
+export { IDxf, IBlock, ILayerTypesTable, ILayersTable, ITables, IViewPortTable, IBaseTable, ILayer, ILayerTableDefinition, ILineType, ILineTypeTableDefinition, ITable, ITableDefinitions, IViewPort, IViewPortTableDefinition } from './DxfParser.js';
+export { IEntity, IPoint } from './entities/geomtry.js';
+export { I3DfaceEntity } from './entities/3dface.js';
+export { IArcEntity } from './entities/arc.js';
+export { IAttdefEntity } from './entities/attdef.js';
+export { ICircleEntity } from './entities/circle.js';
+export { IDimensionEntity } from './entities/dimension.js';
+export { IEllipseEntity } from './entities/ellipse.js';
+export { IInsertEntity } from './entities/insert.js';
+export { ILineEntity } from './entities/line.js';
+export { ILwpolylineEntity } from './entities/lwpolyline.js';
+export { IMtextEntity } from './entities/mtext.js';
+export { IPointEntity } from './entities/point.js';
+export { IPolylineEntity } from './entities/polyline.js';
+export { ISolidEntity } from './entities/solid.js';
+export { ISplineEntity } from './entities/spline.js';
+export { ITextEntity } from './entities/text.js';
+export { IVertexEntity } from './entities/vertex.js';
