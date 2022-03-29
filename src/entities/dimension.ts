@@ -17,6 +17,9 @@ export interface IDimensionEntity extends IEntity{
 	actualMeasurement: number;
 	text: string;
 	angle: number;
+	extrusionDirectionX: number;
+	extrusionDirectionY: number;
+	extrusionDirectionZ: number;
 }
 
 export default class Dimension implements IGeometry {
@@ -66,6 +69,15 @@ export default class Dimension implements IGeometry {
 					break;
 				case 50: // Angle of rotated, horizontal, or vertical dimensions
 					entity.angle = curr.value as number;
+					break;
+				case 210:
+					entity.extrusionDirectionX = curr.value as number;
+					break;
+				case 220:
+					entity.extrusionDirectionY = curr.value as number;
+					break;
+				case 230:
+					entity.extrusionDirectionZ = curr.value as number;
 					break;
 				default: // check common entity attributes
 					helpers.checkCommonEntityProperties(entity, curr, scanner);
