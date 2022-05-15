@@ -1,8 +1,7 @@
-
-import * as helpers from '../ParseHelpers'
-import VertexParser, { IVertexEntity } from './vertex';
-import IGeometry, { IEntity, IPoint } from './geomtry';
-import DxfArrayScanner, { IGroup } from '../DxfArrayScanner';
+import * as helpers from '../ParseHelpers.js';
+import VertexParser, { IVertexEntity } from './vertex.js';
+import IGeometry, { IEntity, IPoint } from './geomtry.js';
+import DxfArrayScanner, { IGroup } from '../DxfArrayScanner.js';
 
 export interface IPolylineEntity extends IEntity {
 	vertices: IVertexEntity[];

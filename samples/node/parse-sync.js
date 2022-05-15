@@ -1,6 +1,8 @@
-var DxfParser = require('../../dist/dxf-parser');
-var fs = require('fs');
-var path = require('path');
+import DxfParser from '../../esm/index.js'
+import fs from 'fs'
+import path from 'path'
+
+const __dirname = path.dirname(new URL(import.meta.url).pathname)
 
 var DXF_FILE_PATH = path.join(__dirname, '..', 'data', 'api-cw750-details.dxf');
 var OUTPUT_FILE_NAME = "out.json";

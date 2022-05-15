@@ -15,7 +15,7 @@
 		"strictNullChecks": true,
 		"noImplicitThis": true,
 		"rootDir": "./src",
-		"outDir": "./dist/",
+		"outDir": "./esm/",
 		"allowJs": false,
 		"allowUnreachableCode": false,
 		"allowUnusedLabels": false,

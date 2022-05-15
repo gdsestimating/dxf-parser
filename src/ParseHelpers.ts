@@ -1,6 +1,6 @@
-import AUTO_CAD_COLOR_INDEX from './AutoCadColorIndex';
-import DxfArrayScanner, { IGroup } from './DxfArrayScanner';
-import { IEntity, IPoint } from './entities/geomtry';
+import AUTO_CAD_COLOR_INDEX from './AutoCadColorIndex.js';
+import DxfArrayScanner, { IGroup } from './DxfArrayScanner.js';
+import { IEntity, IPoint } from './entities/geomtry.js';
 
 /**
  * Returns the truecolor value of the given AutoCad color index value

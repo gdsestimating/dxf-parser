@@ -2,9 +2,14 @@
 	"name": "dxf-parser",
 	"version": "1.1.2",
 	"description": "Parse dxf files into a readable, logical js object.",
-	"main": "./dist/dxf-parser.js",
-	"module": "./dist/index.js",
-	"types": "./dist/index.d.ts",
+	"type": "module",
+	"main": "./commonjs/index.js",
+	"module": "./esm/index.js",
+	"exports": {
+		"import": "./esm/index.js",
+		"require": "./commonjs/index.js"
+	},
+	"types": "./esm/index.d.ts",
 	"scripts": {
 		"test": "mocha --require @babel/register test",
 		"dev": "tsc -w & webpack --mode development",
@@ -46,7 +51,8 @@
 		"reader"
 	],
 	"files": [
-		"dist",
+		"commonjs",
+		"esm",
 		"src"
 	]
 }
