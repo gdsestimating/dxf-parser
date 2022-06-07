@@ -7,6 +7,7 @@ import Arc from './entities/arc.js';
 import AttDef from './entities/attdef.js';
 import Circle from './entities/circle.js';
 import Dimension from './entities/dimension.js';
+import MLeader from './entities/mleader.js';
 import Ellipse from './entities/ellipse.js';
 import Insert from './entities/insert.js';
 import Line from './entities/line.js';
@@ -151,6 +152,7 @@ function registerDefaultEntityHandlers(dxfParser: DxfParser) {
 	dxfParser.registerEntityHandler(AttDef);
 	dxfParser.registerEntityHandler(Circle);
 	dxfParser.registerEntityHandler(Dimension);
+	dxfParser.registerEntityHandler(MLeader);
 	dxfParser.registerEntityHandler(Ellipse);
 	dxfParser.registerEntityHandler(Insert);
 	dxfParser.registerEntityHandler(Line);

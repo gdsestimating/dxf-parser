@@ -6,6 +6,7 @@ export { IArcEntity } from './entities/arc.js';
 export { IAttdefEntity } from './entities/attdef.js';
 export { ICircleEntity } from './entities/circle.js';
 export { IDimensionEntity } from './entities/dimension.js';
+export { ILeaderEntity } from './entities/mleader.js';
 export { IEllipseEntity } from './entities/ellipse.js';
 export { IInsertEntity } from './entities/insert.js';
 export { ILineEntity } from './entities/line.js';
