@@ -713,6 +713,10 @@ export default class DxfParser {
 						layer.frozen = (((curr.value as number) & 1) != 0 || ((curr.value as number) & 2) != 0);
 						curr = scanner.next();
 						break;
+					case 420: // TrueColor
+						layer.color = Math.abs(curr.value as number);
+						curr = scanner.next();
+						break;
 					case 0:
 						// New Layer
 						if (curr.value === 'LAYER') {
