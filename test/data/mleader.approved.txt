@@ -101,7 +101,8 @@
           "z": 0
         },
         "textFlowDirection": 1,
-        "textHeight": 0,
+        "textHeight": 350,
+        "textHeightAlt": 0,
         "textLineSpacingFactor": 1,
         "textLineSpacingStyle": 1,
         "textLocation": {
@@ -250,7 +251,8 @@
           "z": 0
         },
         "textFlowDirection": 1,
-        "textHeight": 0,
+        "textHeight": 350,
+        "textHeightAlt": 0,
         "textLineSpacingFactor": 1,
         "textLineSpacingStyle": 1,
         "textLocation": {
@@ -384,7 +386,8 @@
           "z": 0
         },
         "textFlowDirection": 1,
-        "textHeight": 0,
+        "textHeight": 350,
+        "textHeightAlt": 0,
         "textLineSpacingFactor": 1,
         "textLineSpacingStyle": 1,
         "textLocation": {
