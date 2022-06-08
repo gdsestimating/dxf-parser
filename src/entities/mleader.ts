@@ -85,7 +85,7 @@ interface IMLeaderContextData {
     blockContentScale: number; // 16
     blockContentRotation: number; // 46
     blockContentColor: number; // 93
-    // blockTransformationMatrix // 47
+    blockTransformationMatrix: number[]; // 47
     planeOriginPoint: IPoint; // 110 (120,130)
     planeXAxisDirection: IPoint; // 111 (121,131)
     planeYAxisDirection: IPoint; // 112 (122,132)
@@ -119,7 +119,6 @@ export default class MLeader implements IGeometry {
     public ForEntityName = "MULTILEADER" as const;
 
     public parseEntity(scanner: DxfArrayScanner, curr: IGroup) {
-        console.info("START LEADER ----");
         const entity = { type: curr.value } as ILeaderEntity;
         entity.contextData = {
             leaders: [],
@@ -246,7 +245,6 @@ export default class MLeader implements IGeometry {
                         parseContextData();
                         break;
                     default:
-                        console.log("common " + curr.code + "=" + curr.value);
                         helpers.checkCommonEntityProperties(
                             entity,
                             curr,
@@ -391,6 +389,9 @@ export default class MLeader implements IGeometry {
                         entity.contextData.blockContentColor =
                             curr.value as number;
                         break;
+					case 47:
+						entity.contextData.blockTransformationMatrix = helpers.parseMatrix(scanner, 47);
+						break;
                     case 110:
                         entity.contextData.planeOriginPoint =
                             helpers.parsePoint(scanner);
@@ -413,7 +414,6 @@ export default class MLeader implements IGeometry {
                         parseLeaderData();
                         break;
                     default:
-                        console.log("context " + curr.code + "=" + curr.value);
                         break;
                 }
 
@@ -456,7 +456,6 @@ export default class MLeader implements IGeometry {
                         parseLeaderLineData();
                         break;
                     default:
-                        console.log("leader " + curr.code + "=" + curr.value);
                         break;
                 }
 
@@ -482,7 +481,6 @@ export default class MLeader implements IGeometry {
                     case 305: // END LEADER_LINE
                         return;
                     default:
-                        console.log("line " + curr.code + "=" + curr.value);
                         break;
                 }
 

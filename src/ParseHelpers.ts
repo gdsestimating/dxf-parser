@@ -44,6 +44,30 @@ export function parsePoint(scanner: DxfArrayScanner) {
 	return point;
 }
 
+
+/**
+ * Parses 16 numbers as an array. When complete,
+ * the scanner remains on the last group of the value.
+ * @param {*} scanner 
+ * @param {*} groupCode
+ */
+ export function parseMatrix(scanner: DxfArrayScanner, groupCode: number) {
+	// Reread group for the first coordinate
+	scanner.rewind();
+	const matrix: number[] = [];
+
+	for (let i=0;i<16;i++) {
+		const curr = scanner.next();
+		if (curr.code !== groupCode) {
+			throw new Error('Expected code for matrix value to be ' + groupCode +
+				' but got ' + curr.code + '.');
+		}
+		
+		matrix.push(curr.value as number);
+	}
+	return matrix;
+}
+
 /**
  * Attempts to parse codes common to all entities. Returns true if the group
  * was handled by this function.
