@@ -175,6 +175,10 @@ describe('Parser', function() {
 	it('should parse MTEXT entities', function() {
 		verifyDxf(path.join(__dirname, 'data', 'mtext-test.dxf'));
 	});
+	
+	it('should parse MULTILEADER entities', function() {
+		verifyDxf(path.join(__dirname, 'data', 'leaders.dxf'));
+	});
 });
 
 function verifyDxf(sourceFilePath) {

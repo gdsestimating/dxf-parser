@@ -1,0 +1,431 @@
+{
+  "entities": [
+    {
+      "arrowHeadSize": 350,
+      "blockAttributeId": "1F",
+      "blockContentColor": -1056964608,
+      "blockContentConnectionType": 0,
+      "blockContentRotation": 0,
+      "blockContentScale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "contentType": 2,
+      "contextData": {
+        "arrowHeadSize": 350,
+        "contentBasePosition": {
+          "x": 7132.85123236126,
+          "y": -1009.033075955183,
+          "z": 0
+        },
+        "contentScale": 100,
+        "defaultTextContents": "I am curvy leader ?",
+        "hasBlock": false,
+        "hasMText": true,
+        "landingGap": 100,
+        "leaders": [
+          {
+            "doglegLength": 0,
+            "doglegVector": {
+              "x": 1,
+              "y": 0,
+              "z": 0
+            },
+            "hasSetDoglegVector": true,
+            "hasSetLastLeaderLinePoint": true,
+            "lastLeaderLinePoint": {
+              "x": 7132.85123236126,
+              "y": -1009.033075955183,
+              "z": 0
+            },
+            "leaderBranchIndex": 0,
+            "leaderLines": [
+              {
+                "vertices": [
+                  [
+                    {
+                      "x": 175.8864995559104,
+                      "y": -69.50729210365648,
+                      "z": 0
+                    },
+                    {
+                      "x": 242.9954841167346,
+                      "y": -2306.473444131101,
+                      "z": 0
+                    },
+                    {
+                      "x": 2726.027912867196,
+                      "y": -2888.084643658236,
+                      "z": 0
+                    },
+                    {
+                      "x": 4202.42557320531,
+                      "y": -1299.838675718751,
+                      "z": 0
+                    }
+                  ]
+                ]
+              }
+            ]
+          }
+        ],
+        "planeNormalReversed": false,
+        "planeOriginPoint": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "planeXAxisDirection": {
+          "x": 1,
+          "y": 0,
+          "z": 0
+        },
+        "planeYAxisDirection": {
+          "x": 0,
+          "y": 1,
+          "z": 0
+        },
+        "textAttachment": 1,
+        "textBackgroundColorOn": false,
+        "textBackgroundFillOn": false,
+        "textBackgroundScaleFactor": 1.5,
+        "textBackgroundTransparency": 0,
+        "textColor": -939524096,
+        "textColumnGutterWidth": 0,
+        "textColumnType": 0,
+        "textColumnWidth": 0,
+        "textDirection": {
+          "x": 1,
+          "y": 0,
+          "z": 0
+        },
+        "textFlowDirection": 1,
+        "textHeight": 0,
+        "textLineSpacingFactor": 1,
+        "textLineSpacingStyle": 1,
+        "textLocation": {
+          "x": 7232.85123236126,
+          "y": -782.7580759551835,
+          "z": 0
+        },
+        "textNormalDirection": {
+          "x": 0,
+          "y": 0,
+          "z": 1
+        },
+        "textRotation": 0,
+        "textUseAutoHeight": false,
+        "textUseWordBreak": false,
+        "textWidth": 0
+      },
+      "doglegLength": 0,
+      "enableAnotationScale": false,
+      "enableDogLeg": false,
+      "enableFrameText": false,
+      "enableLanding": false,
+      "extendedData": {
+        "applicationName": "ACAD_MLEADERVER"
+      },
+      "handle": "62",
+      "layer": "Default",
+      "leaderLineColor": -1056964608,
+      "leaderLineType": 1,
+      "leaderLineTypeId": "14",
+      "leaderLineWeight": -2,
+      "leaderStyleId": "61",
+      "textAlignInIPE": 0,
+      "textAlignmentType": 0,
+      "textAngleType": 2,
+      "textAttachmentPoint": 1,
+      "textColor": -939524096,
+      "textDirectionNegative": false,
+      "textLeftAttachmentType": 1,
+      "textStyleId": "60",
+      "type": "MULTILEADER"
+    },
+    {
+      "arrowHeadSize": 350,
+      "blockAttributeId": "1F",
+      "blockContentColor": -1056964608,
+      "blockContentConnectionType": 0,
+      "blockContentRotation": 0,
+      "blockContentScale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "contentType": 2,
+      "contextData": {
+        "arrowHeadSize": 350,
+        "contentBasePosition": {
+          "x": 6320.904102092164,
+          "y": 2833.188934631764,
+          "z": 0
+        },
+        "contentScale": 100,
+        "defaultTextContents": "I am leader too",
+        "hasBlock": false,
+        "hasMText": true,
+        "landingGap": 100,
+        "leaders": [
+          {
+            "doglegLength": 0,
+            "doglegVector": {
+              "x": 1,
+              "y": 0,
+              "z": 0
+            },
+            "hasSetDoglegVector": true,
+            "hasSetLastLeaderLinePoint": true,
+            "lastLeaderLinePoint": {
+              "x": 6320.904102092164,
+              "y": 2833.188934631764,
+              "z": 0
+            },
+            "leaderBranchIndex": 0,
+            "leaderLines": [
+              {
+                "vertices": [
+                  [
+                    {
+                      "x": 2328.832202913205,
+                      "y": 749.092575501571,
+                      "z": 0
+                    },
+                    {
+                      "x": 3282.819972937589,
+                      "y": 3244.137512488422,
+                      "z": 0
+                    },
+                    {
+                      "x": 4398.251827119944,
+                      "y": 2114.028923382613,
+                      "z": 0
+                    },
+                    {
+                      "x": 4809.200404976602,
+                      "y": 3567.025680804367,
+                      "z": 0
+                    },
+                    {
+                      "x": 5792.541644847891,
+                      "y": 2833.188934631764,
+                      "z": 0
+                    }
+                  ]
+                ]
+              }
+            ]
+          }
+        ],
+        "planeNormalReversed": false,
+        "planeOriginPoint": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "planeXAxisDirection": {
+          "x": 1,
+          "y": 0,
+          "z": 0
+        },
+        "planeYAxisDirection": {
+          "x": 0,
+          "y": 1,
+          "z": 0
+        },
+        "textAttachment": 1,
+        "textBackgroundColorOn": false,
+        "textBackgroundFillOn": false,
+        "textBackgroundScaleFactor": 1.5,
+        "textBackgroundTransparency": 0,
+        "textColor": -939524096,
+        "textColumnGutterWidth": 0,
+        "textColumnType": 0,
+        "textColumnWidth": 0,
+        "textDirection": {
+          "x": 1,
+          "y": 0,
+          "z": 0
+        },
+        "textFlowDirection": 1,
+        "textHeight": 0,
+        "textLineSpacingFactor": 1,
+        "textLineSpacingStyle": 1,
+        "textLocation": {
+          "x": 6420.904102092164,
+          "y": 3010.988934631764,
+          "z": 0
+        },
+        "textNormalDirection": {
+          "x": 0,
+          "y": 0,
+          "z": 1
+        },
+        "textRotation": 0,
+        "textUseAutoHeight": false,
+        "textUseWordBreak": false,
+        "textWidth": 0
+      },
+      "doglegLength": 0,
+      "enableAnotationScale": false,
+      "enableDogLeg": false,
+      "enableFrameText": false,
+      "enableLanding": false,
+      "extendedData": {
+        "applicationName": "ACAD_MLEADERVER"
+      },
+      "handle": "63",
+      "layer": "Default",
+      "leaderLineColor": -1056964608,
+      "leaderLineType": 1,
+      "leaderLineTypeId": "14",
+      "leaderLineWeight": -2,
+      "leaderStyleId": "61",
+      "textAlignInIPE": 0,
+      "textAlignmentType": 0,
+      "textAngleType": 2,
+      "textAttachmentPoint": 1,
+      "textColor": -939524096,
+      "textDirectionNegative": false,
+      "textLeftAttachmentType": 1,
+      "textStyleId": "60",
+      "type": "MULTILEADER"
+    },
+    {
+      "arrowHeadSize": 350,
+      "blockAttributeId": "1F",
+      "blockContentColor": -1056964608,
+      "blockContentConnectionType": 0,
+      "blockContentRotation": 0,
+      "blockContentScale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "contentType": 2,
+      "contextData": {
+        "arrowHeadSize": 350,
+        "contentBasePosition": {
+          "x": -3005.890492848878,
+          "y": 3229.460777564969,
+          "z": 0
+        },
+        "contentScale": 100,
+        "defaultTextContents": "I am leader",
+        "hasBlock": false,
+        "hasMText": true,
+        "landingGap": 100,
+        "leaders": [
+          {
+            "doglegLength": 0,
+            "doglegVector": {
+              "x": -1,
+              "y": 0,
+              "z": 0
+            },
+            "hasSetDoglegVector": true,
+            "hasSetLastLeaderLinePoint": true,
+            "lastLeaderLinePoint": {
+              "x": -401.0404928488783,
+              "y": 3229.460777564969,
+              "z": 0
+            },
+            "leaderBranchIndex": 0,
+            "leaderLines": [
+              {
+                "vertices": [
+                  [
+                    {
+                      "x": 1477.581577352986,
+                      "y": 778.4460453484751,
+                      "z": 0
+                    },
+                    {
+                      "x": 787.7750359507374,
+                      "y": 3229.460777564969,
+                      "z": 0
+                    }
+                  ]
+                ]
+              }
+            ]
+          }
+        ],
+        "planeNormalReversed": false,
+        "planeOriginPoint": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "planeXAxisDirection": {
+          "x": 1,
+          "y": 0,
+          "z": 0
+        },
+        "planeYAxisDirection": {
+          "x": 0,
+          "y": 1,
+          "z": 0
+        },
+        "textAttachment": 1,
+        "textBackgroundColorOn": false,
+        "textBackgroundFillOn": false,
+        "textBackgroundScaleFactor": 1.5,
+        "textBackgroundTransparency": 0,
+        "textColor": -939524096,
+        "textColumnGutterWidth": 0,
+        "textColumnType": 0,
+        "textColumnWidth": 0,
+        "textDirection": {
+          "x": 1,
+          "y": 0,
+          "z": 0
+        },
+        "textFlowDirection": 1,
+        "textHeight": 0,
+        "textLineSpacingFactor": 1,
+        "textLineSpacingStyle": 1,
+        "textLocation": {
+          "x": -2905.890492848878,
+          "y": 3407.260777564969,
+          "z": 0
+        },
+        "textNormalDirection": {
+          "x": 0,
+          "y": 0,
+          "z": 1
+        },
+        "textRotation": 0,
+        "textUseAutoHeight": false,
+        "textUseWordBreak": false,
+        "textWidth": 0
+      },
+      "doglegLength": 0,
+      "enableAnotationScale": false,
+      "enableDogLeg": false,
+      "enableFrameText": false,
+      "enableLanding": false,
+      "extendedData": {
+        "applicationName": "ACAD_MLEADERVER"
+      },
+      "handle": "64",
+      "layer": "Default",
+      "leaderLineColor": -1056964608,
+      "leaderLineType": 1,
+      "leaderLineTypeId": "14",
+      "leaderLineWeight": -2,
+      "leaderStyleId": "61",
+      "textAlignInIPE": 0,
+      "textAlignmentType": 0,
+      "textAngleType": 2,
+      "textAttachmentPoint": 1,
+      "textColor": -939524096,
+      "textDirectionNegative": false,
+      "textLeftAttachmentType": 1,
+      "textStyleId": "60",
+      "type": "MULTILEADER"
+    }
+  ]
+}
