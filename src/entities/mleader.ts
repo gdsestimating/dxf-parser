@@ -108,7 +108,7 @@ interface IMLeaderLeader {
 }
 
 interface IMLeaderLine {
-    vertices: IPoint[]; // 10,20,30
+    vertices: IPoint[][]; // 10,20,30
     // breakPointIndex // 90,
     // breakStartPoint // 11,21,33
     // breakEndPoint // 12,22,32
@@ -469,14 +469,14 @@ export default class MLeader implements IGeometry {
                     entity.contextData.leaders.length - 1
                 ];
             const line = {
-                vertices: [],
+                vertices: [[]],
             } as any as IMLeaderLine;
             leader.leaderLines.push(line);
 
             while (!scanner.isEOF()) {
                 switch (curr.code) {
                     case 10:
-                        line.vertices.push(helpers.parsePoint(scanner));
+                        line.vertices[0].push(helpers.parsePoint(scanner));
                         break;
                     case 305: // END LEADER_LINE
                         return;
