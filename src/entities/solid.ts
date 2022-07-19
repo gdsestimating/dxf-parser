@@ -28,6 +28,9 @@ export default class Solid implements IGeometry {
 				case 13:
 					entity.points[3] = helpers.parsePoint(scanner);
 					break;
+				case 39:
+					entity.extrusionDepth = curr.value;
+					break;
 				case 210:
 					entity.extrusionDirection = helpers.parsePoint(scanner);
 					break;
