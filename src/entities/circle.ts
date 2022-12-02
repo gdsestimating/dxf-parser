@@ -8,6 +8,9 @@ export interface ICircleEntity extends IEntity {
 	startAngle: number;
 	endAngle: number;
 	angleLength: number;
+	extrusionDirectionX: number;
+	extrusionDirectionY: number;
+	extrusionDirectionZ: number;
 }
 
 export default class Circle implements IGeometry {
@@ -35,6 +38,15 @@ export default class Circle implements IGeometry {
 					else
 						entity.angleLength = endAngle - entity.startAngle;
 					entity.endAngle = endAngle;
+					break;
+				case 210:
+					entity.extrusionDirectionX = curr.value as number;
+					break;
+				case 220:
+					entity.extrusionDirectionY = curr.value as number;
+					break;
+				case 230:
+					entity.extrusionDirectionZ = curr.value as number;
 					break;
 				default: // ignored attribute
 					helpers.checkCommonEntityProperties(entity, curr, scanner);
