@@ -5,6 +5,10 @@
 	"type": "module",
 	"main": "./commonjs/index.js",
 	"module": "./esm/index.js",
+	"engines": {
+		"node": ">=16",
+		"npm": ">6"
+	},
 	"exports": {
 		"import": "./esm/index.js",
 		"require": "./commonjs/index.js"
