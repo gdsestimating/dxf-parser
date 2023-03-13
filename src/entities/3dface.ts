@@ -34,8 +34,8 @@ export default class ThreeDface implements IGeometry {
 	}
 }
 
-function parse3dFaceVertices(scanner:DxfArrayScanner, curr:IGroup) {
-	var vertices = [];
+function parse3dFaceVertices(scanner:DxfArrayScanner, curr:IGroup): I3DfaceEntity['vertices'] {
+	var vertices: I3DfaceEntity['vertices'] = [];
 	var vertexIsStarted = false;
 	var vertexIsFinished = false;
 	var verticesPer3dFace = 4; // there can be up to four vertices per face, although 3 is most used for TIN
