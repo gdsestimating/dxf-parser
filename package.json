@@ -38,6 +38,7 @@
 		"@babel/core": "^7.10.4",
 		"@babel/preset-env": "^7.20.2",
 		"@babel/register": "^7.21.0",
+		"@types/node": "^16.18.15",
 		"approvals": "^6.0.0",
 		"mocha": "^10.2.0",
 		"should": "^13.2.3",
