@@ -9,6 +9,9 @@ export interface IEllipseEntity extends IEntity {
 	startAngle: number;
 	endAngle: number;
 	name: string;
+	extrusionDirectionX: number;
+	extrusionDirectionY: number;
+	extrusionDirectionZ: number;
 }
 
 export default class Ellipse implements IGeometry {
@@ -37,6 +40,15 @@ export default class Ellipse implements IGeometry {
 					break;
 				case 2:
 					entity.name = curr.value as string;
+					break;
+				case 210:
+					entity.extrusionDirectionX = curr.value as number;
+					break;
+				case 220:
+					entity.extrusionDirectionY = curr.value as number;
+					break;
+				case 230:
+					entity.extrusionDirectionZ = curr.value as number;
 					break;
 				default: // check common entity attributes
 					helpers.checkCommonEntityProperties(entity, curr, scanner);
