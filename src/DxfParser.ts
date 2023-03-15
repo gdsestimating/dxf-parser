@@ -587,15 +587,11 @@ export default class DxfParser {
 						viewPort.ucsYAxis = parsePoint(curr);
 						curr = scanner.next();
 						break;
-					case 110:
-						viewPort.ucsOrigin = parsePoint(curr);
-						curr = scanner.next();
-						break;
 					case 281:
 						viewPort.renderMode = curr.value as string;
 						curr = scanner.next();
 						break;
-					case 281:
+					case 282:
 						// 0 is one distant light, 1 is two distant lights
 						viewPort.defaultLightingType = curr.value as string;
 						curr = scanner.next();
