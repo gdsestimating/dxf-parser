@@ -5,6 +5,7 @@ import IGeometry, { IEntity, IPoint } from './geomtry.js';
 export interface ISolidEntity extends IEntity {
 	points: IPoint[];
 	extrusionDirection: IPoint;
+	extrusionThickness: number;
 }
 
 export default class Solid implements IGeometry {
@@ -27,6 +28,9 @@ export default class Solid implements IGeometry {
 					break;
 				case 13:
 					entity.points[3] = helpers.parsePoint(scanner);
+					break;
+				case 39:
+					entity.extrusionThickness = curr.value;
 					break;
 				case 210:
 					entity.extrusionDirection = helpers.parsePoint(scanner);
