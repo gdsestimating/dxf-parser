@@ -37,9 +37,9 @@ node.js
 
 ```sh
 npm install
-npm run build
-node samples/node/parseSync
-node samples/node/parseStream
+npm run prepublishOnly
+node samples/node/parse-sync.js
+node samples/node/parse-stream.js
 ```
 
 browser - the [three-dxf repo](https://github.com/gdsestimating/three-dxf) has a sample for viewing dxf cad in the browser

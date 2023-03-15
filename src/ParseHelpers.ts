@@ -6,7 +6,7 @@ import { IEntity, IPoint } from './entities/geomtry.js';
  * Returns the truecolor value of the given AutoCad color index value
  * @return {Number} truecolor value as a number
  */
-export function getAcadColor(index: number) {
+export function getAcadColor(index: number): number {
 	return AUTO_CAD_COLOR_INDEX[index];
 }
 

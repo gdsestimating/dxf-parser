@@ -212,7 +212,7 @@ export default class DxfParser {
 		});
 	}
 
-	private _parse(dxfString: string) {
+	private _parse(dxfString: string): IDxf {
 		const dxf = {} as IDxf;
 		let lastHandle = 0;
 		const dxfLinesArray = dxfString.split(/\r\n|\r|\n/g);
@@ -268,7 +268,7 @@ export default class DxfParser {
 		 *
 		 * @return {object} header
 		 */
-		function parseHeader() {
+		function parseHeader(): Record<string, IPoint | number> {
 			// interesting variables:
 			//  $ACADVER, $VIEWDIR, $VIEWSIZE, $VIEWCTR, $TDCREATE, $TDUPDATE
 			// http://www.autodesk.com/techpubs/autocad/acadr14/dxf/header_section_al_u05_c.htm
@@ -413,7 +413,7 @@ export default class DxfParser {
 		 * parseTables
 		 * @return {Object} Object representing tables
 		 */
-		function parseTables() {
+		function parseTables(): ITables {
 			const tables = {} as ITables;
 			curr = scanner.next();
 			while (curr.value !== 'EOF') {
@@ -766,8 +766,8 @@ export default class DxfParser {
 		 * should be on the start of the first entity already.
 		 * @return {Array} the resulting entities
 		 */
-		function parseEntities(forBlock: boolean) {
-			const entities = [] as IEntity[];
+		function parseEntities(forBlock: boolean): IEntity[] {
+			const entities: IEntity[] = [];
 
 			const endingOnValue = forBlock ? 'ENDBLK' : 'ENDSEC';
 
@@ -810,7 +810,7 @@ export default class DxfParser {
 		 * y. The parser will determine if there is a z point automatically.
 		 * @return {Object} The 2D or 3D point as an object with x, y[, z]
 		 */
-		function parsePoint(curr: IGroup) {
+		function parsePoint(curr: IGroup): IPoint {
 			const point = {} as IPoint;
 			let code = curr.code;
 
@@ -834,7 +834,7 @@ export default class DxfParser {
 			return point;
 		}
 
-		function ensureHandle(entity: IEntity | IBlock) {
+		function ensureHandle(entity: IEntity | IBlock): void {
 			if (!entity) throw new TypeError('entity cannot be undefined or null');
 
 			if (!entity.handle) entity.handle = lastHandle++;
@@ -845,16 +845,16 @@ export default class DxfParser {
 	}
 }
 
-function groupIs(group: IGroup, code: number, value: string | number | boolean) {
+function groupIs(group: IGroup, code: number, value: string | number | boolean): boolean {
 	return group.code === code && group.value === value;
 }
 
-function logUnhandledGroup(curr: IGroup) {
+function logUnhandledGroup(curr: IGroup): void {
 	log.debug('unhandled group ' + debugCode(curr));
 }
 
 
-function debugCode(curr: IGroup) {
+function debugCode(curr: IGroup): string {
 	return curr.code + ':' + curr.value;
 }
 
@@ -862,7 +862,7 @@ function debugCode(curr: IGroup) {
  * Returns the truecolor value of the given AutoCad color index value
  * @return {Number} truecolor value as a number
  */
-function getAcadColor(index: number) {
+function getAcadColor(index: number): number {
 	return AUTO_CAD_COLOR_INDEX[index];
 }
 

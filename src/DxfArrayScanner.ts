@@ -28,7 +28,7 @@ export default class DxfArrayScanner {
 	 * in the array. The first is the code, the second is the value.
 	 * @returns {{code: Number}|*}
 	 */
-	public next() {
+	public next(): IGroup {
 		if (!this.hasNext()) {
 			if (!this._eof)
 				throw new Error('Unexpected end of input: EOF group not read before end of file. Ended on code ' + this._data[this._pointer]);
@@ -79,7 +79,7 @@ export default class DxfArrayScanner {
 	 * Returns true if there is another code/value pair (2 elements in the array).
 	 * @returns {boolean}
 	 */
-	public hasNext() {
+	public hasNext(): boolean {
 		// Check if we have read EOF group code
 		if (this._eof) {
 			return false;
@@ -96,7 +96,7 @@ export default class DxfArrayScanner {
 	 * Returns true if the scanner is at the end of the array
 	 * @returns {boolean}
 	 */
-	public isEOF() {
+	public isEOF(): boolean {
 		return this._eof;
 	}
 }
@@ -109,7 +109,7 @@ export default class DxfArrayScanner {
  * @param value
  * @returns {*}
  */
-function parseGroupValue(code: number, value: string) {
+function parseGroupValue(code: number, value: string): IGroup['value'] {
 	if (code <= 9) return value;
 	if (code >= 10 && code <= 59) return parseFloat(value);
 	if (code >= 60 && code <= 99) return parseInt(value);
@@ -143,7 +143,7 @@ function parseGroupValue(code: number, value: string) {
  * @param str
  * @returns {boolean}
  */
-function parseBoolean(str: '0' | '1') {
+function parseBoolean(str: '0' | '1'): boolean {
 	if (str === '0') return false;
 	if (str === '1') return true;
 	throw TypeError('String \'' + str + '\' cannot be cast to Boolean type');
