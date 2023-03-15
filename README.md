@@ -56,11 +56,11 @@ Support
 * VPort table
 * Text and some MTEXT
 * Some XData
+* Most MLeaders
 
 Does not yet support
 
 * 3DSolids
-* All types of Leaders
 * other less common objects and entities.
 
 ### Contributing

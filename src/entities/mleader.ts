@@ -60,7 +60,7 @@ interface IMLeaderContextData {
     textDirection: IPoint; // 13,23,33
     textRotation: number; // 42
     textWidth: number; // 43
-    // textHeight: number; // 44 - duplicate key in spec doc
+    textHeightAlt: number; // 44 - duplicate key in spec doc
     textLineSpacingFactor: number; // 45
     textLineSpacingStyle: number; // 170
     textColor: number; // 90
@@ -301,7 +301,7 @@ export default class MLeader implements IGeometry {
                         entity.contextData.textWidth = curr.value as number;
                         break;
                     case 44:
-                        entity.contextData.textHeight = curr.value as number;
+                        entity.contextData.textHeightAlt = curr.value as number;
                         break;
                     case 45:
                         entity.contextData.textLineSpacingFactor =
