@@ -21,7 +21,8 @@ approvals.configure({
 	stripBOM: true,
 });
 
-const __dirname = path.dirname(new URL(import.meta.url).pathname)
+//const __dirname = path.dirname(new URL(import.meta.url).pathname)
+const __dirname = path.resolve('test')
 
 describe('Parser', function() {
 
