@@ -23,6 +23,7 @@ import Text from './entities/text.js';
 import log from 'loglevel';
 import IGeometry, { EntityName, IEntity, IPoint } from './entities/geomtry.js';
 
+
 //log.setLevel('trace');
 //log.setLevel('debug');
 //log.setLevel('info');
@@ -78,6 +79,58 @@ export interface IViewPortTableDefinition {
 	parseTableRecords(): IViewPort[];
 }
 
+export interface IStyleTableDefinition {
+	tableRecordsProperty: 'style';
+	tableName: 'style';
+	dxfSymbolName: 'STYLE';
+	parseTableRecords():  Record<string, IStyle>
+}
+
+export interface IStyle {
+    // Subclass marker (AcDbTextStyleTableRecord)
+    subClassMarker: unknown;
+
+    // Style name
+	styleName: string;
+
+    /**
+     * Standard flag values (bit-coded values):
+     * 1 = If set, this entry describes a shape
+     * 4 = Vertical text
+     * 16 = If set, table entry is externally dependent on an xref
+     * 32 = If both this bit and bit 16 are set, the externally dependent xref has been successfully resolved
+     * 64 = If set, the table entry was referenced by at least one entity in the drawing the last time the drawing was edited. (This flag is for the benefit of AutoCAD commands. It can be ignored by most programs that read DXF files and need not be set by programs that write DXF files)
+     */
+    standardFlag: 1 | 4 | 16 | 32 | 64;
+
+    // Fixed text height; 0 if not fixed
+    fixedTextHeight: number;
+
+    // Width factor
+    widthFactor: number;
+
+    //Oblique angle
+    obliqueAngle: number;
+
+    /**
+     * Text generation flags:
+     * 2 = Text is backward (mirrored in X)
+     * 4 = Text is upside down (mirrored in Y)
+     */
+    textGenerationFlag: 2 | 4;
+
+    // Last height used
+    lastHeight: number;
+
+    // Primary font file name
+    font: string;
+
+    // Bigfont file name; blank if none
+    bigFont : string | undefined;
+
+    // A long value which contains a truetype font’s pitch and family, character set, and italic and bold flags
+    extendedFont: unknown | undefined
+}
 export interface ILineType {
 	name: string;
 	description: string;
@@ -111,6 +164,7 @@ export interface ITableDefinitions {
 	VPORT: IViewPortTableDefinition;
 	LTYPE: ILineTypeTableDefinition;
 	LAYER: ILayerTableDefinition;
+	STYLE: IStyleTableDefinition;
 }
 
 export interface IBaseTable {
@@ -740,6 +794,79 @@ export default class DxfParser {
 			return layers;
 		}
 
+		function parseStyles() {
+			const styles = {} as Record<string, IStyle>;
+			let style = {} as IStyle;
+			let styleName: string | undefined;
+			curr = scanner.next();
+			while (!groupIs(curr, 0, 'ENDTAB')) {
+
+				switch (curr.code) {
+					case 100:
+						style.subClassMarker = curr.value
+						curr = scanner.next();
+                	break;
+                	case 2:
+                	    style.styleName = curr.value as string
+						styleName = curr.value as string | undefined
+						curr = scanner.next();
+                	break;
+                	case 70:
+                	    style.standardFlag = curr.value as 1 | 4 | 16 | 32 | 64;
+						curr = scanner.next();
+                	break;
+                	case 40:
+                	    style.fixedTextHeight = curr.value as number
+						curr = scanner.next();
+                	break;
+                	case 41:
+                	    style.widthFactor = curr.value as number
+						curr = scanner.next();
+                	break;
+                	case 50:
+                	    style.obliqueAngle = curr.value as number
+						curr = scanner.next();
+                	break;
+                	case 71:
+                	    style.textGenerationFlag = curr.value as 2 | 4
+						curr = scanner.next();
+                	break;
+                	case 42:
+                	    style.lastHeight = curr.value as number
+						curr = scanner.next();
+                	break;
+                	case 3:
+                	    style.font = curr.value as string
+						curr = scanner.next();
+                	break;
+                	case 4:
+                	    style.bigFont = curr.value as string | undefined;
+						curr = scanner.next();
+                	break;
+                	case 1071:
+                	    style.extendedFont= curr.value as unknown | undefined
+						curr = scanner.next();
+                	break;
+					case 0:
+						if (curr.value === 'STYLE') {
+							log.debug('}');
+							styles[styleName!] = style;
+							log.debug('Layer {');
+							style = {} as IStyle;
+							styleName = undefined;
+							curr = scanner.next();
+						}
+					break;
+					default:
+						logUnhandledGroup(curr);
+						curr = scanner.next();
+						break;
+				}
+			}
+			log.debug('}');
+			styles[styleName!] = style;
+			return styles;
+		}
 		const tableDefinitions = {
 			VPORT: {
 				tableRecordsProperty: 'viewPorts',
@@ -758,6 +885,12 @@ export default class DxfParser {
 				tableName: 'layer',
 				dxfSymbolName: 'LAYER',
 				parseTableRecords: parseLayers
+			},
+			STYLE:{
+				tableRecordsProperty: 'style',
+				tableName: 'style',
+				dxfSymbolName: 'STYLE',
+				parseTableRecords: parseStyles
 			}
 		} as ITableDefinitions;
 

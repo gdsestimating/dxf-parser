@@ -4,7 +4,7 @@ export default {
 	entry: './esm/index.js',
 	output: {
 		filename: 'index.js',
-		path: resolve(dirname(new URL(import.meta.url).pathname), 'commonjs'),
+		path: resolve('commonjs'),
 		library: {
 			name: 'DxfParser',
 			type: 'umd',
