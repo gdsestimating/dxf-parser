@@ -12,11 +12,14 @@ export interface IMtextEntity extends IEntity {
 	rotation: number;
 	attachmentPoint: number;
 	drawingDirection: number;
+	styleName: string;
+	backgroundFill: number;
+	backgroundFillColor: number;
 }
 
 export default class Mtext implements IGeometry {
 	public ForEntityName = 'MTEXT' as const;
-	public parseEntity(scanner: DxfArrayScanner, curr: IGroup) {
+	public parseEntity (scanner: DxfArrayScanner, curr: IGroup) {
 		const entity = { type: curr.value } as IMtextEntity;
 		curr = scanner.next();
 		while (!scanner.isEOF()) {
@@ -50,6 +53,16 @@ export default class Mtext implements IGeometry {
 					break;
 				case 72:
 					entity.drawingDirection = curr.value as number;
+					break;
+				case 90:
+					// Background fill setting:
+					// 0 = Background fill off
+					// 1 = Use background fill color
+					// 2 = Use drawing window color as background fill color
+					entity.backgroundFill = curr.value as number;
+					break;
+				case 63:
+					entity.backgroundFillColor = curr.value as number;
 					break;
 				default:
 					helpers.checkCommonEntityProperties(entity, curr, scanner);
