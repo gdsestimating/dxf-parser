@@ -104,12 +104,12 @@ export function checkCommonEntityProperties(entity: IEntity, curr:IGroup, scanne
 			entity.color = curr.value as number;
 			break;
 		case 1000:
-			entity.extendedData = entity.extendedData || {};
+			entity.extendedData = entity.extendedData || {applicationName: "", customStrings: []};
 			entity.extendedData.customStrings = entity.extendedData.customStrings || [];
 			entity.extendedData.customStrings.push(curr.value as string);
 			break;
 		case 1001:
-			entity.extendedData = entity.extendedData || {};
+			entity.extendedData = entity.extendedData || {applicationName: "", customStrings: []};
 			entity.extendedData.applicationName = curr.value as string;
 			break;
 		default:
